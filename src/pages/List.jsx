@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import sin from '../assets/sin.jpg';
+import jja from '../assets/jja.jpg';
 
 const Wrapper = styled.section`
 	width: 100%;
-	height: 90vh;
+	height: 92vh;
 	padding: 3rem 5rem;
 	background-color: #f9f9f9;
 `;
@@ -58,13 +60,20 @@ const ListBox = styled.ul`
 const ListItem = styled.li`
 	width: 33rem;
 	background-color: #fff;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 `;
 
 const ImgBox = styled.div`
 	width: 100%;
-	height: 23rem;
 	background-color: #efefef;
+	display: flex;
 `;
+const Img = styled.img`
+	width: 50%;
+	height: 23rem;
+	object-fit: cover;
+`;
+
 const Label = styled.h2`
 	font-weight: 600;
 	padding: 2rem 2rem 0.8rem;
@@ -105,61 +114,61 @@ const ItemButton = styled.button`
 const DUMMY_ITEM = [
 	{
 		id: 'w1',
-		img: '',
+		img: [sin, jja],
 		label: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
 	{
 		id: 'w2',
-		img: '',
+		img: [sin, jja],
 		label: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
 	{
 		id: 'w3',
-		img: '',
+		img: [sin, jja],
 		label: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
 	{
 		id: 'w4',
-		img: '',
+		img: [sin, jja],
 		label: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
 	{
 		id: 'w5',
-		img: '',
+		img: [sin, jja],
 		label: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
 	{
 		id: 'w6',
-		img: '',
+		img: [sin, jja],
 		label: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
 	{
 		id: 'w7',
-		img: '',
+		img: [sin, jja],
 		label: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
 	{
 		id: 'w8',
-		img: '',
+		img: [sin, jja],
 		label: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
 	{
 		id: 'w9',
-		img: '',
+		img: [sin, jja],
 		label: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
 	{
 		id: 'w10',
-		img: '',
+		img: [sin, jja],
 		label: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
@@ -189,7 +198,10 @@ export default function ListPage() {
 				<ListBox>
 					{DUMMY_ITEM.map((item) => (
 						<ListItem key={item.id}>
-							<ImgBox>{item.img}</ImgBox>
+							<ImgBox>
+								<Img src={item.img[0]} />
+								<Img src={item.img[1]} />
+							</ImgBox>
 							<Label>{item.label}</Label>
 							<Description>{item.description}</Description>
 							<ItemButtonBox>

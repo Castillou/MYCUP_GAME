@@ -4,7 +4,7 @@ import jja from '../assets/jja.jpg';
 
 const Wrapper = styled.section`
 	width: 100%;
-	height: 90vh;
+	height: 92vh;
 `;
 const Title = styled.h2`
 	width: 100%;
@@ -38,11 +38,12 @@ const Option = styled.article`
 	width: 50%;
 	background-color: #333;
 	position: relative;
+	cursor: pointer;
 `;
 const ImgBox = styled.img`
 	display: block;
 	width: 100%;
-	height: 80rem;
+	height: 82rem;
 	object-fit: cover;
 `;
 const Name = styled.h2`
