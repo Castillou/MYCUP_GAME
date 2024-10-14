@@ -10,27 +10,30 @@ const Container = styled.div`
 	height: 90vh;
 	background-color: #f9f9f9;
 `;
-const Title = styled.h1`
-	font-size: 4rem;
-	font-weight: 700;
-	margin-bottom: 2rem;
-	text-align: center;
-`;
-const Input = styled.input`
-	padding: 1rem;
-	margin: 1rem 0;
-	border: 1px solid #ccc;
-	border-radius: 0.4rem;
-`;
+
 const Form = styled.form`
 	display: flex;
 	flex-direction: column;
-	width: 60rem;
-	padding: 10rem 8rem;
+	width: 50rem;
+	padding: 8rem 5rem;
 	border-radius: 2rem;
 	background-color: #fff;
 `;
+const Title = styled.h1`
+	font-size: 5rem;
+	font-weight: 700;
+	margin-bottom: 4rem;
+	text-align: center;
+`;
+const Input = styled.input`
+	font-size: 2rem;
+	padding: 1rem 2rem;
+	margin: 1rem 0;
+	border: 1px solid #ccc;
+	border-radius: 0.5rem;
+`;
 const Button = styled.button`
+	font-size: 2rem;
 	padding: 1rem 2rem;
 	margin-top: 1rem;
 	border: none;

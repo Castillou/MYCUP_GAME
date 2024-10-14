@@ -1,9 +1,10 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Wrapper = styled.section`
 	width: 100%;
 	height: 90vh;
-	padding: 4rem 5rem;
+	padding: 3rem 5rem;
 	background-color: #f9f9f9;
 `;
 
@@ -48,14 +49,14 @@ const ListSection = styled.section`
 const ListBox = styled.ul`
 	list-style-type: none;
 	width: 100%;
-	gap: 2rem 5rem;
+	gap: 2rem;
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
 `;
 
 const ListItem = styled.li`
-	width: 30rem;
+	width: 33rem;
 	background-color: #fff;
 `;
 
@@ -192,7 +193,9 @@ export default function ListPage() {
 							<Label>{item.label}</Label>
 							<Description>{item.description}</Description>
 							<ItemButtonBox>
-								<ItemButton className="active">시작하기</ItemButton>
+								<ItemButton className="active">
+									<Link to="/game">시작하기</Link>
+								</ItemButton>
 								<ItemButton>랭킹보기</ItemButton>
 								<ItemButton>공유</ItemButton>
 							</ItemButtonBox>
