@@ -14,27 +14,35 @@ const Nav = styled.nav`
 const NavList = styled.ul`
 	display: flex;
 	list-style-type: none;
-	gap: 3rem;
+	gap: 5rem;
 `;
 
 const Logo = styled.h1`
 	a {
 		font-weight: 900;
-		font-size: 2rem;
-		color: #ffa200;
+		font-size: 3rem;
+		color: #ffc000;
 	}
 `;
 const NavItem = styled.li`
+	display: flex;
+	align-items: center;
+
 	a {
-		font-size: 1.6rem;
+		font-size: 2rem;
+	}
+
+	a:hover {
+		color: #ffc000;
 	}
 `;
 const LoginButton = styled.button`
-	padding: 0.8rem 1.6rem;
+	padding: 1rem 2rem;
+	font-size: 1.5rem;
 	border: none;
 	background-color: white;
 	cursor: pointer;
-	border-radius: 2rem;
+	border-radius: 3rem;
 
 	&:hover {
 		background-color: #efefef;
@@ -49,7 +57,7 @@ export default function MainNavigation() {
 					<Link to="/">WorldCup</Link>
 				</Logo>
 				<NavItem>
-					<Link to="/">월드컵 목록</Link>
+					<Link to="/list">월드컵 목록</Link>
 				</NavItem>
 				<NavItem>
 					<Link to="/">나만의 월드컵 만들기</Link>

@@ -8,9 +8,12 @@ const Wrapper = styled.div`
 	align-items: center;
 	justify-content: center;
 	min-height: 100vh;
+	padding-top: 10vh;
 `;
 const Header = styled.header`
 	width: 100%;
+	position: fixed;
+	top: 0;
 `;
 
 export default function Layout() {
