@@ -8,7 +8,7 @@ const Wrapper = styled.section`
 `;
 const Title = styled.h2`
 	width: 100%;
-	height: 7.2rem;
+	height: 7.5vh;
 	background-color: #222;
 	color: #fff;
 	font-size: 4rem;
@@ -43,7 +43,7 @@ const Option = styled.article`
 const ImgBox = styled.img`
 	display: block;
 	width: 100%;
-	height: 82rem;
+	height: 84.5vh;
 	object-fit: cover;
 `;
 const Name = styled.h2`
