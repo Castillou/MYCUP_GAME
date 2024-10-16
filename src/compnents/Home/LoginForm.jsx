@@ -68,16 +68,22 @@ export default function LoginForm() {
 		<Form onSubmit={handleSubmit}>
 			<Title>Login</Title>
 			<Input
+				id="email"
 				type="email"
+				name="email"
 				value={inputEmail}
 				onChange={handleEmailChange}
 				placeholder="이메일"
+				required
 			/>
 			<Input
+				id="password"
 				type="password"
+				name="password"
 				value={inputPassword}
 				onChange={handlePasswordChange}
 				placeholder="비밀번호"
+				required
 			/>
 			<Button>로그인</Button>
 		</Form>

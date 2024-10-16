@@ -2,6 +2,9 @@ import styled from 'styled-components';
 import sin from '../assets/sin.jpg';
 import jja from '../assets/jja.jpg';
 
+import OptionComp from '../compnents/Game/OptionComp';
+import { useState } from 'react';
+
 const Wrapper = styled.section`
 	width: 100%;
 	height: 92vh;
@@ -19,9 +22,11 @@ const Title = styled.h2`
 `;
 const OptionBox = styled.section`
 	width: 100%;
-	background-color: #fff;
+	background-color: #333;
 	display: flex;
+	justify-content: center;
 	position: relative;
+	overflow: hidden;
 `;
 const Vstext = styled.span`
 	position: absolute;
@@ -33,42 +38,41 @@ const Vstext = styled.span`
 	font-weight: 900;
 	-webkit-text-stroke: 0.7rem #ffc000;
 	z-index: 100;
-`;
-const Option = styled.article`
-	width: 50%;
-	background-color: #333;
-	position: relative;
-	cursor: pointer;
-`;
-const ImgBox = styled.img`
-	display: block;
-	width: 100%;
-	height: 84.5vh;
-	object-fit: cover;
-`;
-const Name = styled.h2`
-	position: absolute;
-	width: 100%;
-	bottom: 10rem;
-	color: white;
-	font-size: 5rem;
-	text-align: center;
+
+	transition: opacity 0.2s ease-in-out;
+
+	&.hidden {
+		opacity: 0;
+	}
 `;
 
 export default function GamePage() {
+	const [clickedOption, setClickedOption] = useState();
+
+	const handleClick = (id) => {
+		setClickedOption(+id);
+		console.log(clickedOption);
+	};
+
 	return (
 		<Wrapper>
 			<Title>2024년 라면 월드컵 (32강) - 1/16</Title>
 			<OptionBox>
-				<Option>
-					<ImgBox src={sin} />
-					<Name>신라면</Name>
-				</Option>
-				<Vstext>VS</Vstext>
-				<Option>
-					<ImgBox src={jja} />
-					<Name>짜파게티</Name>
-				</Option>
+				<OptionComp
+					id="1"
+					src={sin}
+					name="신라면"
+					onClick={(e) => handleClick(e.target.id)}
+					className={clickedOption === 2 && 'slide_left'}
+				/>
+				<Vstext className={clickedOption && 'hidden'}>VS</Vstext>
+				<OptionComp
+					id="2"
+					src={jja}
+					name="짜파게티"
+					onClick={(e) => handleClick(e.target.id)}
+					className={clickedOption === 1 && 'slide_right'}
+				/>
 			</OptionBox>
 		</Wrapper>
 	);
