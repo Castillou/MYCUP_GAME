@@ -8,6 +8,7 @@ import { useState } from 'react';
 const Wrapper = styled.section`
 	width: 100%;
 	height: 92vh;
+	background-color: #f9f9f9;
 `;
 const Title = styled.h2`
 	width: 100%;

@@ -68,7 +68,7 @@ export default function MainNavigation() {
 					<Link to="/list">월드컵 목록</Link>
 				</NavItem>
 				<NavItem>
-					<Link to="/">나만의 월드컵 만들기</Link>
+					<Link to="/make">나만의 월드컵 만들기</Link>
 				</NavItem>
 			</NavList>
 			<Link to="/">

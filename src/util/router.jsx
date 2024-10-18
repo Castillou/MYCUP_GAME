@@ -3,6 +3,7 @@ import Layout from '../compnents/Layout';
 import HomePage from '../pages/Home';
 import ListPage from '../pages/List';
 import GamePage from '../pages/Game';
+import MakePage from '../pages/Make';
 
 const router = createBrowserRouter([
 	{
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
 			{
 				path: '/game',
 				element: <GamePage />,
+			},
+			{
+				path: '/make',
+				element: <MakePage />,
 			},
 		],
 	},

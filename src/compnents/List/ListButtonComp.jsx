@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const ButtonSection = styled.section`
 	width: 100%;
-	height: 5rem;
 	margin-bottom: 3rem;
 	display: flex;
 	gap: 3rem;
@@ -13,6 +12,7 @@ const ButtonBox = styled.div`
 `;
 
 const Button = styled.button`
+	height: 5rem;
 	padding: 0 2rem;
 	border: none;
 	font-size: 1.6rem;

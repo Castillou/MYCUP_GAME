@@ -5,7 +5,6 @@ import jja from '../../assets/jja.jpg';
 
 const ListSection = styled.section`
 	width: 100%;
-	height: 70rem;
 `;
 
 const ListBox = styled.ul`
