@@ -33,12 +33,23 @@ const Button = styled.button`
 	&:hover {
 		opacity: 0.7;
 	}
+
+	&.submit-btn {
+		width: 11rem;
+		padding: 1rem 0;
+		border-radius: 4px;
+		grid-column: 2/3;
+		background-color: #2e93ff;
+		color: #fff;
+		font-weight: 800;
+	}
 `;
 
-const FormSection = styled.section`
+const FormSection = styled.form`
 	width: 100%;
 	height: 75rem;
 	background-color: #fff;
+	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
 `;
 
 const Title = styled.h2`
@@ -49,12 +60,16 @@ const Title = styled.h2`
 	border-bottom: 2px solid #efefef;
 `;
 
-const Form = styled.article`
+const FormRow = styled.div`
 	padding: 2rem 3rem;
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
 	grid-template-rows: repeat(3, 1fr);
 	border-bottom: 1px dashed #d1d1d1;
+
+	&.submit-row {
+		grid-template-rows: repeat(2, 1fr);
+	}
 `;
 const Label = styled.label`
 	grid-row: 1/3;
@@ -97,8 +112,8 @@ const RadioLabel = styled.label`
 const RadioInput = styled.input.attrs({ type: 'radio' })`
 	display: none;
 
-	&:checked + span {
-		background-color: #2e93ff;
+	&:checked + span::before {
+		opacity: 1;
 	}
 `;
 const RadioIcon = styled.span`
@@ -107,6 +122,22 @@ const RadioIcon = styled.span`
 	height: 2rem;
 	border-radius: 50%;
 	border: 1px solid #333;
+
+	position: relative;
+
+	&::before {
+		content: '';
+		width: 1.5rem;
+		height: 1.5rem;
+		border-radius: 50%;
+		position: absolute;
+		background-color: #2e93ff;
+		inset: 50% 0 0 50%;
+		transform: translate(-50%, -50%);
+		cursor: pointer;
+
+		opacity: 0;
+	}
 `;
 const RadioText = styled.span`
 	font-size: 1.8rem;
@@ -123,20 +154,20 @@ export default function MaKePage() {
 			</ButtonSection>
 			<FormSection>
 				<Title>이상형 월드컵 기본정보</Title>
-				<Form>
+				<FormRow>
 					<Label>1) 제목</Label>
 					<Input></Input>
 					<Description>
 						이상형월드컵의 제목을 입력하세요. 예) 여자 아이돌 이상형월드컵,
 						남자연예인 이상형월드컵
 					</Description>
-				</Form>
-				<Form>
+				</FormRow>
+				<FormRow>
 					<Label>2) 설명</Label>
 					<Input></Input>
 					<Description>설명, 하고싶은 말 등을 자유롭게 쓰세요.</Description>
-				</Form>
-				<Form>
+				</FormRow>
+				<FormRow>
 					<Label>3) 공개여부</Label>
 					<RadioBox>
 						<RadioLabel>
@@ -159,7 +190,12 @@ export default function MaKePage() {
 							</RadioText>
 						</RadioLabel>
 					</RadioBox>
-				</Form>
+				</FormRow>
+				<FormRow className="submit-row">
+					<Button type="submit" className="submit-btn">
+						저장하기
+					</Button>
+				</FormRow>
 			</FormSection>
 		</Wrapper>
 	);
