@@ -47,22 +47,6 @@ const Button = styled.button`
 	}
 `;
 
-const Dropzone = styled.form`
-	min-height: 14rem;
-	border: 1px dashed #efefef;
-	padding: 2rem;
-
-	.dz-message {
-		padding: 5rem 0;
-		border: 2px solid #c9c9c9;
-		text-align: center;
-		font-size: 2rem;
-		font-weight: 700;
-		line-height: 1.5;
-		color: #777;
-	}
-`;
-
 const INPUT_CONT = [
 	{
 		id: 'r1',
@@ -77,37 +61,19 @@ const INPUT_CONT = [
 	},
 ];
 
-export default function FormSectionComp() {
+export default function BasicInfo() {
 	return (
-		<>
-			<FormSection>
-				<Title>이상형 월드컵 기본정보</Title>
-				{INPUT_CONT.map(({ id, label, description }) => (
-					<InputRow key={id} label={label} description={description} />
-				))}
-				<RadioRow label="3) 공개여부" />
-				<FormRow className="submit-row">
-					<Button type="submit" className="submit-btn">
-						저장하기
-					</Button>
-				</FormRow>
-			</FormSection>
-			<FormSection>
-				<Title>이상형 월드컵 이미지 업로드</Title>
-				<Dropzone
-					action="upload.php?uid=6qpbGP"
-					className="dropzone dz-clickable"
-					id="dropzoneForm"
-				>
-					<div className="dz-default dz-message">
-						<span>
-							Drop files here or click to upload.
-							<br />
-							여기 파일을 놓거나 클릭하여 업로드하세요.
-						</span>
-					</div>
-				</Dropzone>
-			</FormSection>
-		</>
+		<FormSection>
+			<Title>이상형 월드컵 기본정보</Title>
+			{INPUT_CONT.map(({ id, label, description }) => (
+				<InputRow key={id} label={label} description={description} />
+			))}
+			<RadioRow label="3) 공개여부" />
+			<FormRow className="submit-row">
+				<Button type="submit" className="submit-btn">
+					저장하기
+				</Button>
+			</FormRow>
+		</FormSection>
 	);
 }

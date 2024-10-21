@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import ButtonSectionComp from '../compnents/Make/ButtonSectionComp';
-import FormSectionComp from '../compnents/Make/FormSectionComp';
+import FormSectionComp from '../compnents/Make/FormSection/FormSectionComp';
 
 const Wrapper = styled.section`
 	width: 100%;
