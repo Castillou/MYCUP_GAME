@@ -4,7 +4,6 @@ import FormSectionComp from '../compnents/Make/FormSectionComp';
 
 const Wrapper = styled.section`
 	width: 100%;
-	height: 92vh;
 	padding: 3rem 5rem;
 	background-color: #f9f9f9;
 `;
