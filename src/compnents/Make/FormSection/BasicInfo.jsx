@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import InputRow from './InputRow';
 import RadioRow from './RadioRow';
 
-const FormSection = styled.form`
+const Container = styled.form`
 	width: 100%;
 	background-color: #fff;
 	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
@@ -63,7 +63,7 @@ const INPUT_CONT = [
 
 export default function BasicInfo() {
 	return (
-		<FormSection>
+		<Container>
 			<Title>이상형 월드컵 기본정보</Title>
 			{INPUT_CONT.map(({ id, label, description }) => (
 				<InputRow key={id} label={label} description={description} />
@@ -74,6 +74,6 @@ export default function BasicInfo() {
 					저장하기
 				</Button>
 			</FormRow>
-		</FormSection>
+		</Container>
 	);
 }

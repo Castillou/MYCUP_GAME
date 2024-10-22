@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import RadioOption from './RadioOption';
 
-const FormRow = styled.div`
+const ContainerRow = styled.div`
 	padding: 2rem 3rem;
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
@@ -45,13 +45,13 @@ const RADIO_CONT = [
 // eslint-disable-next-line react/prop-types
 export default function RadioRow({ label }) {
 	return (
-		<FormRow>
+		<ContainerRow>
 			<Label>{label}</Label>
 			<RadioBox>
 				{RADIO_CONT.map(({ id, text }) => (
 					<RadioOption key={id} text={text} />
 				))}
 			</RadioBox>
-		</FormRow>
+		</ContainerRow>
 	);
 }

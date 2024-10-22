@@ -10,6 +10,8 @@ const Nav = styled.nav`
 	height: 8vh;
 	width: 100%;
 	color: white;
+
+	z-index: 100;
 `;
 const NavList = styled.ul`
 	display: flex;
