@@ -73,7 +73,7 @@ export default function MainNavigation() {
 					<Link to="/make">나만의 월드컵 만들기</Link>
 				</NavItem>
 			</NavList>
-			<Link to="/auth">
+			<Link to="/auth?mode=login">
 				<LoginButton>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"

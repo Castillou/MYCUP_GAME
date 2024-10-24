@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Form = styled.form`
@@ -47,11 +47,8 @@ const CreateUser = styled.span`
 `;
 
 export default function LoginForm() {
-	const [isLogin, setIsLogin] = useState(true);
-
-	const switchAuthHandler = () => {
-		setIsLogin((isCurrentlyLogin) => !isCurrentlyLogin);
-	};
+	const [searchParams] = useSearchParams();
+	const isLogin = searchParams.get('mode') === 'login';
 
 	return (
 		<Form method="post">
@@ -70,9 +67,11 @@ export default function LoginForm() {
 				placeholder="비밀번호"
 				required
 			/>
-			<Button type="button">{isLogin ? '로그인' : '확인'}</Button>
-			<CreateUser onClick={switchAuthHandler}>
-				{isLogin ? '새 계정 만들기' : '로그인하기'}
+			<Button type="button">로그인</Button>
+			<CreateUser>
+				<Link to={`?mode=${isLogin ? 'signup' : 'login'}`}>
+					{isLogin ? '새 계정 만들기' : '로그인하기'}
+				</Link>
 			</CreateUser>
 		</Form>
 	);
