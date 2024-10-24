@@ -4,6 +4,7 @@ import HomePage from '../pages/Home';
 import ListPage from '../pages/List';
 import GamePage from '../pages/Game';
 import MakePage from '../pages/Make';
+import AuthenticationPage from '../pages/Authentication';
 
 const router = createBrowserRouter([
 	{
@@ -11,19 +12,23 @@ const router = createBrowserRouter([
 		element: <Layout />,
 		children: [
 			{
-				path: '',
+				index: true,
 				element: <HomePage />,
 			},
 			{
-				path: '/list',
+				path: 'auth',
+				element: <AuthenticationPage />,
+			},
+			{
+				path: 'list',
 				element: <ListPage />,
 			},
 			{
-				path: '/game',
+				path: 'game',
 				element: <GamePage />,
 			},
 			{
-				path: '/make',
+				path: 'make',
 				element: <MakePage />,
 			},
 		],

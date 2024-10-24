@@ -11,14 +11,14 @@ const Form = styled.form`
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 `;
 const Title = styled.h1`
-	font-size: 5rem;
+	font-size: 4rem;
 	font-weight: 700;
 	margin-bottom: 4rem;
 	text-align: center;
 `;
 const Input = styled.input`
 	font-size: 2rem;
-	padding: 1rem 2rem;
+	padding: 1rem;
 	margin: 1rem 0;
 	border: 1px solid #ccc;
 	border-radius: 0.5rem;
@@ -26,7 +26,7 @@ const Input = styled.input`
 const Button = styled.button`
 	font-size: 2rem;
 	padding: 1rem 2rem;
-	margin-top: 1rem;
+	margin: 1rem 0 2rem;
 	border: none;
 	background-color: #007bff;
 	color: white;
@@ -37,42 +37,29 @@ const Button = styled.button`
 		background-color: #0056b3;
 	}
 `;
+const CreateUser = styled.span`
+	display: block;
+	text-align: center;
+	font-size: 1.6rem;
+	opacity: 0.7;
+
+	cursor: pointer;
+`;
 
 export default function LoginForm() {
-	const [options, setOptions] = useState([
-		{
-			email: '',
-			password: '',
-		},
-	]);
-	const [inputEmail, setInputEmail] = useState('');
-	const [inputPassword, setInputPassword] = useState('');
+	const [isLogin, setIsLogin] = useState(true);
 
-	const handleSubmit = (event) => {
-		event.preventDefault();
-		if (inputEmail.trim() !== '' && inputPassword.trim().length > 6) {
-			setOptions([{ ...options, email: inputEmail, password: inputPassword }]);
-			setInputEmail('');
-			setInputPassword('');
-		}
-	};
-
-	const handleEmailChange = (event) => {
-		setInputEmail(event.target.value);
-	};
-	const handlePasswordChange = (event) => {
-		setInputPassword(event.target.value);
+	const switchAuthHandler = () => {
+		setIsLogin((isCurrentlyLogin) => !isCurrentlyLogin);
 	};
 
 	return (
-		<Form onSubmit={handleSubmit}>
-			<Title>Login</Title>
+		<Form method="post">
+			<Title>{isLogin ? 'LOG IN' : '회원가입'}</Title>
 			<Input
 				id="email"
 				type="email"
 				name="email"
-				value={inputEmail}
-				onChange={handleEmailChange}
 				placeholder="이메일"
 				required
 			/>
@@ -80,12 +67,13 @@ export default function LoginForm() {
 				id="password"
 				type="password"
 				name="password"
-				value={inputPassword}
-				onChange={handlePasswordChange}
 				placeholder="비밀번호"
 				required
 			/>
-			<Button>로그인</Button>
+			<Button type="button">{isLogin ? '로그인' : '확인'}</Button>
+			<CreateUser onClick={switchAuthHandler}>
+				{isLogin ? '새 계정 만들기' : '로그인하기'}
+			</CreateUser>
 		</Form>
 	);
 }
