@@ -4,12 +4,15 @@ import HomePage from '../pages/Home';
 import ListPage from '../pages/List';
 import GamePage from '../pages/Game';
 import MakePage from '../pages/Make';
+import ErrorPage from '../pages/Error';
 import AuthenticationPage from '../pages/Authentication';
+import authAction from './authAction';
 
 const router = createBrowserRouter([
 	{
 		path: '/',
 		element: <Layout />,
+		errorElement: <ErrorPage />,
 		children: [
 			{
 				index: true,
@@ -18,6 +21,7 @@ const router = createBrowserRouter([
 			{
 				path: 'auth',
 				element: <AuthenticationPage />,
+				action: authAction,
 			},
 			{
 				path: 'list',

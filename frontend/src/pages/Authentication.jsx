@@ -11,10 +11,11 @@ const Container = styled.div`
 	background-color: #f9f9f9;
 `;
 
-export default function AuthenticationPage() {
+function AuthenticationPage() {
 	return (
 		<Container>
 			<LoginForm />
 		</Container>
 	);
 }
+export default AuthenticationPage;
