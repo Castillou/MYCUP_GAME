@@ -11,18 +11,19 @@ const Wrapper = styled.div`
 
 	h1 {
 		font-size: 8rem;
+		font-weight: 800;
 	}
 
 	p {
-		font-size: 3rem;
+		font-size: 4rem;
 	}
 `;
 
 export default function ErrorPage() {
 	return (
 		<Wrapper>
-			<h1>Error occurred!</h1>
-			<p>Something went wrong!</p>
+			<h1>잘못된 접근입니다!</h1>
+			<p>사이트에 다시 접근해주세요.</p>
 		</Wrapper>
 	);
 }
