@@ -69,17 +69,17 @@ export default function MainNavigation() {
 					<Link to="/">WorldCup</Link>
 				</Logo>
 				<NavItem>
-					<Link to="/list">월드컵 목록</Link>
+					<Link to="list">월드컵 목록</Link>
 				</NavItem>
 				{token && (
 					<NavItem>
-						<Link to="/make">나만의 월드컵 만들기</Link>
+						<Link to="make">나만의 월드컵 만들기</Link>
 					</NavItem>
 				)}
 			</NavList>
 			<div>
 				{!token ? (
-					<Link to="/auth?mode=login">
+					<Link to="auth?mode=login">
 						<LoginoutButton>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -99,7 +99,7 @@ export default function MainNavigation() {
 						</LoginoutButton>
 					</Link>
 				) : (
-					<Form action="/logout" method="post">
+					<Form action="logout" method="post">
 						<LoginoutButton>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"

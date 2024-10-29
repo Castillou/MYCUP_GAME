@@ -4,6 +4,7 @@ import jja from '../assets/jja.jpg';
 
 import OptionComp from '../compnents/Game/OptionComp';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled.section`
 	width: 100%;
@@ -20,6 +21,20 @@ const Title = styled.h2`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	position: relative;
+
+	a {
+		position: absolute;
+		top: 50%;
+		right: 5rem;
+		transform: translateY(-50%);
+		font-size: 2rem;
+		background-color: #efefef;
+		color: #333;
+		padding: 1rem 2rem;
+		border-radius: 4rem;
+	}
 `;
 const OptionBox = styled.section`
 	width: 100%;
@@ -57,7 +72,9 @@ export default function GamePage() {
 
 	return (
 		<Wrapper>
-			<Title>2024년 라면 월드컵 (32강) - 1/16</Title>
+			<Title>
+				2024년 라면 월드컵 (32강) - 1/16 <Link to="/list">Back</Link>
+			</Title>
 			<OptionBox>
 				<OptionComp
 					id="1"
