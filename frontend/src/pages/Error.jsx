@@ -1,3 +1,4 @@
+import { useRouteError } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -20,10 +21,24 @@ const Wrapper = styled.div`
 `;
 
 export default function ErrorPage() {
+	const error = useRouteError();
+
+	let title = '잘못된 접근입니다!';
+	let message = '사이트에 다시 접근해주세요.';
+
+	if (error.status === 500) {
+		message = error.data.message;
+	}
+
+	if (error.status === 404) {
+		title = 'Not found!';
+		message = 'Could not find resource or page.';
+	}
+
 	return (
 		<Wrapper>
-			<h1>잘못된 접근입니다!</h1>
-			<p>사이트에 다시 접근해주세요.</p>
+			<h1>{title}</h1>
+			<p>{message}</p>
 		</Wrapper>
 	);
 }

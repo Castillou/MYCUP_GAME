@@ -1,1 +1,9 @@
-{"users":[{"email":"test@example.com","password":"$2a$12$piam4AeetvNE8F60Ll1PQ.HdqaqbEhCh6YRdrv7M.tqmhu7sIVYQ6","id":"5ad43ce0-ff23-4a90-8e6e-455fe54f10da"},{"email":"test2@test.com","password":"$2a$12$p/4L3qjsID8fmCB/vZ3TMujReuI1Fr8m6IjlPeqN6AxbHgzqgcwTy","id":"a4b78570-34f7-44d8-9bbb-5d1f5b2f0ba8"}]}
+{
+	"users": [
+		{
+			"email": "test@example.com",
+			"password": "$2a$12$NWBzVofqghk.ws9rRXu80OrKBB74MAoqZr8qGMSfM.T3qjiu.Stau",
+			"id": "114b9f71-8077-4719-a31c-486c63e8a0c0"
+		}
+	]
+}

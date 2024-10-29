@@ -53,7 +53,6 @@ export default function ImageUpload() {
 	const inputRef = useRef();
 
 	const [selectedFile, setSelectedFile] = useState(null);
-	console.log(selectedFile);
 
 	const handleFileChange = (event) => {
 		if (event.target.files && event.target.files.length > 0) {
