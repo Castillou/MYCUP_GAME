@@ -1,11 +1,10 @@
-import BasicInfo from './BasicInfo';
-import ImageUpload from './ImageUpload';
+import { Form } from 'react-router-dom';
+import UploadForm from './UploadForm';
 
 export default function FormSectionComp() {
 	return (
-		<>
-			<BasicInfo />
-			<ImageUpload />
-		</>
+		<Form method="post">
+			<UploadForm />
+		</Form>
 	);
 }

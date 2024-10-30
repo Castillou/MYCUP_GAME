@@ -9,6 +9,7 @@ import AuthenticationPage from '../pages/Authentication';
 import authAction from './authAction';
 import { action as logoutAction } from '../pages/Logout';
 import { tokenLoader, checkAuthLoader } from './auth';
+import { action as uploadAction } from './NewUploadAction';
 
 const router = createBrowserRouter([
 	{
@@ -39,6 +40,7 @@ const router = createBrowserRouter([
 				path: 'make',
 				element: <MakePage />,
 				loader: checkAuthLoader,
+				action: uploadAction,
 			},
 			{
 				path: 'logout',

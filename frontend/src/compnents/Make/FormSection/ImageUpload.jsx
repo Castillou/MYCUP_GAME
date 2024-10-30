@@ -4,7 +4,6 @@ import styled from 'styled-components';
 const Container = styled.div`
 	width: 100%;
 	background-color: #fff;
-	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
 `;
 
 const Title = styled.h2`
@@ -15,7 +14,7 @@ const Title = styled.h2`
 	border-bottom: 2px solid #efefef;
 `;
 
-const Dropzone = styled.form`
+const Dropzone = styled.div`
 	min-height: 14rem;
 	padding: 2rem;
 	display: flex;
@@ -84,10 +83,11 @@ export default function ImageUpload() {
 	return (
 		<Container>
 			<Title>이상형 월드컵 이미지 업로드</Title>
-			<Dropzone action="http://localhost/upload.php">
+			<Dropzone>
 				<label htmlFor="input-file">
 					<input
 						ref={inputRef}
+						name="images"
 						onChange={handleFileChange}
 						type="file"
 						accept="image/*"

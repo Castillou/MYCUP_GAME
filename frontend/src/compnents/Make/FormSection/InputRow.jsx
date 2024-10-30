@@ -39,11 +39,11 @@ const Description = styled.span`
 `;
 
 // eslint-disable-next-line react/prop-types
-export default function InputRow({ label, description }) {
+export default function InputRow({ name, label, description }) {
 	return (
 		<FormRow>
 			<Label>{label}</Label>
-			<Input></Input>
+			<Input type="text" name={name}></Input>
 			<Description>{description}</Description>
 		</FormRow>
 	);
