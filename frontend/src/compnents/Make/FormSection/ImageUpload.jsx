@@ -37,31 +37,48 @@ const Dropzone = styled.form`
 		font-size: 2rem;
 		font-weight: 700;
 		line-height: 1.5;
+		padding: 1rem;
 
 		display: flex;
 		align-items: center;
-		justify-content: center;
+		justify-content: flex-start;
+		gap: 1rem;
 		cursor: pointer;
+
+		div {
+			width: 100%;
+		}
 	}
 
 	.upload-image {
-		width: 100%;
+		height: 100%;
+
+		&:hover {
+			opacity: 0.7;
+		}
 	}
 `;
 
 export default function ImageUpload() {
 	const inputRef = useRef();
-
-	const [selectedFile, setSelectedFile] = useState(null);
+	const [selectedFile, setSelectedFile] = useState([]);
 
 	const handleFileChange = (event) => {
 		if (event.target.files && event.target.files.length > 0) {
-			setSelectedFile(event.target.files[0]);
+			if (selectedFile.length + event.target.files.length > 2) return;
+
+			setSelectedFile((prev) => [...prev, ...event.target.files]);
 		}
 	};
 
-	const onChooseFile = () => {
+	const handleChooseFile = () => {
+		if (selectedFile.length >= 2) return;
+
 		inputRef.current.click();
+	};
+
+	const handleDeleteFile = (imageToDelete) => {
+		setSelectedFile((prev) => prev.filter((image) => image !== imageToDelete));
 	};
 
 	return (
@@ -74,23 +91,34 @@ export default function ImageUpload() {
 						onChange={handleFileChange}
 						type="file"
 						accept="image/*"
+						multiple
 						hidden
 					/>
-					{selectedFile === null ? (
-						<div className="img-view" onClick={onChooseFile}>
-							<span>
-								Drop files here or click to upload.
-								<br />
-								여기 파일을 놓거나 클릭하여 업로드하세요.
-							</span>
-						</div>
-					) : (
-						<img
-							className="upload-image"
-							src={URL.createObjectURL(selectedFile)}
-							alt={selectedFile.name}
-						/>
-					)}
+
+					<div className="img-view" onClick={handleChooseFile}>
+						{selectedFile.length === 0 ? (
+							<div>
+								<span>
+									Drop files here or click to upload.
+									<br />
+									여기 파일을 놓거나 클릭하여 업로드하세요.
+								</span>
+							</div>
+						) : (
+							selectedFile.map((image) => (
+								<img
+									key={image.name}
+									className="upload-image"
+									src={URL.createObjectURL(image)}
+									alt={image.name}
+									onClick={(event) => {
+										event.stopPropagation();
+										handleDeleteFile(image);
+									}}
+								/>
+							))
+						)}
+					</div>
 				</label>
 			</Dropzone>
 		</Container>
