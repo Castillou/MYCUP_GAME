@@ -18,61 +18,61 @@ const ListBox = styled.ul`
 
 const DUMMY_ITEM = [
 	{
-		id: 'w1',
+		id: 'g1',
 		img: [sin, jja],
 		label: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
 	{
-		id: 'w2',
+		id: 'g2',
 		img: [sin, jja],
 		label: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
 	{
-		id: 'w3',
+		id: 'g3',
 		img: [sin, jja],
 		label: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
 	{
-		id: 'w4',
+		id: 'g4',
 		img: [sin, jja],
 		label: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
 	{
-		id: 'w5',
+		id: 'g5',
 		img: [sin, jja],
 		label: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
 	{
-		id: 'w6',
+		id: 'g6',
 		img: [sin, jja],
 		label: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
 	{
-		id: 'w7',
+		id: 'g7',
 		img: [sin, jja],
 		label: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
 	{
-		id: 'w8',
+		id: 'g8',
 		img: [sin, jja],
 		label: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
 	{
-		id: 'w9',
+		id: 'g9',
 		img: [sin, jja],
 		label: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
 	{
-		id: 'w10',
+		id: 'g10',
 		img: [sin, jja],
 		label: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
@@ -86,6 +86,7 @@ export default function ListComp() {
 				{DUMMY_ITEM.map((item) => (
 					<ListItemComp
 						key={item.id}
+						id={item.id}
 						img={item.img}
 						label={item.label}
 						description={item.description}

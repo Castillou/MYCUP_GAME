@@ -56,7 +56,7 @@ const ItemButton = styled.button`
 `;
 
 // eslint-disable-next-line react/prop-types
-export default function ListItemComp({ img, label, description }) {
+export default function ListItemComp({ id, img, label, description }) {
 	return (
 		<ListItem>
 			<ImgBox>
@@ -67,7 +67,7 @@ export default function ListItemComp({ img, label, description }) {
 			<Description>{description}</Description>
 			<ItemButtonBox>
 				<ItemButton className="active">
-					<Link to="/game">시작하기</Link>
+					<Link to={`/list/${id}`}>시작하기</Link>
 				</ItemButton>
 				<ItemButton>랭킹보기</ItemButton>
 				<ItemButton>공유</ItemButton>
