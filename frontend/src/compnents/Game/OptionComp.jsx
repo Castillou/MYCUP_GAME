@@ -29,6 +29,7 @@ const Name = styled.h2`
 	color: white;
 	font-size: 5rem;
 	text-align: center;
+	text-shadow: 0 0 1rem black;
 `;
 
 // eslint-disable-next-line react/prop-types

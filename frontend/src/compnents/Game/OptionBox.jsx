@@ -59,10 +59,7 @@ const Vstext = styled.span`
 /* eslint-disable react/prop-types */
 export default function OptionBox({ events }) {
 	const params = useParams().gameId;
-	console.log(events, params);
-
 	const gameItem = events.filter((item) => item.id === params)[0];
-	console.log(gameItem);
 
 	const [clickedOption, setClickedOption] = useState();
 
