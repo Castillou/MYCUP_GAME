@@ -1,3 +1,5 @@
+import { Suspense } from 'react';
+import { useLoaderData, Await } from 'react-router-dom';
 import styled from 'styled-components';
 import ListButtonComp from '../compnents/List/ListButtonComp';
 import ListComp from '../compnents/List/ListComp';
@@ -10,10 +12,20 @@ const Wrapper = styled.section`
 `;
 
 export default function ListPage() {
+	const { events } = useLoaderData();
+
 	return (
 		<Wrapper>
 			<ListButtonComp />
-			<ListComp />
+			<Suspense
+				fallback={
+					<p style={{ textAlign: 'center', fontSize: '5rem' }}>로딩중...</p>
+				}
+			>
+				<Await resolve={events}>
+					{(LoadedEvents) => <ListComp events={LoadedEvents} />}
+				</Await>
+			</Suspense>
 		</Wrapper>
 	);
 }

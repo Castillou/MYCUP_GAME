@@ -10,6 +10,7 @@ import authAction from './authAction';
 import { action as logoutAction } from '../pages/Logout';
 import { tokenLoader, checkAuthLoader } from './auth';
 import { action as uploadAction } from './NewUploadAction';
+import { loader as eventsLoader } from './eventsLoader';
 
 const router = createBrowserRouter([
 	{
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
 			{
 				path: 'list',
 				element: <ListPage />,
+				loader: eventsLoader,
 			},
 			{
 				path: '/list/:gameId',
