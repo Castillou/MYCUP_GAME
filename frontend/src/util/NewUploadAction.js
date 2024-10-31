@@ -7,9 +7,8 @@ export async function action({ request }) {
 	const eventData = {
 		title: data.get('title'),
 		description: data.get('description'),
-		date: '2024-10-26',
-		image:
-			'https://images.unsplash.com/photo-1713877184702-34141e5b299d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw4fHx8ZW58MHx8fHx8',
+		date: new Date().toISOString(),
+		images: data.getAll('images'),
 	};
 	console.log(eventData);
 
