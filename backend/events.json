@@ -2,17 +2,17 @@
 	"users": [
 		{
 			"email": "test@example.com",
-			"password": "$2a$12$NWBzVofqghk.ws9rRXu80OrKBB74MAoqZr8qGMSfM.T3qjiu.Stau",
-			"id": "114b9f71-8077-4719-a31c-486c63e8a0c0"
+			"password": "$2a$12$CjXGl9F9.D.kKmMs2S7XK.M.Bno6rfbTVQ4xA2azIMSrW42JuYR/i",
+			"id": "73902896-d207-41ee-a9e4-4707095012f6"
 		}
 	],
 	"events": [
 		{
 			"title": "라면 월드컵",
 			"description": "최고의 라면을 선정해보세요",
-			"date": "2024-10-31T06:45:51.596Z",
+			"date": "2024-10-31T07:11:31.625Z",
 			"images": ["썸네일25.png", "썸네일26.png"],
-			"id": "488ab356-c946-424a-a76f-500b079b163f"
+			"id": "12b10ce1-8015-4a3a-8930-93389c7df8f3"
 		}
 	]
 }

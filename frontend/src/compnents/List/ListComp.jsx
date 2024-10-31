@@ -16,65 +16,67 @@ const ListBox = styled.ul`
 	flex-wrap: wrap;
 `;
 
+// const sum1 = URL.createObjectURL('썸네일25.png');
+
 const DUMMY_ITEM = [
 	{
 		id: 'g1',
 		img: [sin, jja],
-		label: '라면 월드컵',
+		title: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
 	{
 		id: 'g2',
 		img: [sin, jja],
-		label: '라면 월드컵',
+		title: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
 	{
 		id: 'g3',
 		img: [sin, jja],
-		label: '라면 월드컵',
+		title: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
 	{
 		id: 'g4',
 		img: [sin, jja],
-		label: '라면 월드컵',
+		title: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
 	{
 		id: 'g5',
 		img: [sin, jja],
-		label: '라면 월드컵',
+		title: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
 	{
 		id: 'g6',
 		img: [sin, jja],
-		label: '라면 월드컵',
+		title: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
 	{
 		id: 'g7',
 		img: [sin, jja],
-		label: '라면 월드컵',
+		title: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
 	{
 		id: 'g8',
 		img: [sin, jja],
-		label: '라면 월드컵',
+		title: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
 	{
 		id: 'g9',
 		img: [sin, jja],
-		label: '라면 월드컵',
+		title: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
 	{
 		id: 'g10',
 		img: [sin, jja],
-		label: '라면 월드컵',
+		title: '라면 월드컵',
 		description: '자신에게 가장 맛있는 라면을 골라보세요.',
 	},
 ];
@@ -88,7 +90,7 @@ export default function ListComp() {
 						key={item.id}
 						id={item.id}
 						img={item.img}
-						label={item.label}
+						label={item.title}
 						description={item.description}
 					/>
 				))}

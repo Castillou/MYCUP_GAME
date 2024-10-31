@@ -56,14 +56,14 @@ const ItemButton = styled.button`
 `;
 
 // eslint-disable-next-line react/prop-types
-export default function ListItemComp({ id, img, label, description }) {
+export default function ListItemComp({ id, img, title, description }) {
 	return (
 		<ListItem>
 			<ImgBox>
 				<Img src={img[0]} />
 				<Img src={img[1]} />
 			</ImgBox>
-			<Label>{label}</Label>
+			<Label>{title}</Label>
 			<Description>{description}</Description>
 			<ItemButtonBox>
 				<ItemButton className="active">
