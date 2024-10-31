@@ -1,97 +1,29 @@
+import { Suspense } from 'react';
+import { Await, useRouteLoaderData } from 'react-router-dom';
 import styled from 'styled-components';
-import sin from '../assets/sin.jpg';
-import jja from '../assets/jja.jpg';
 
-import OptionComp from '../compnents/Game/OptionComp';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import OptionBox from '../compnents/Game/OptionBox';
 
 const Wrapper = styled.section`
 	width: 100%;
 	height: 92vh;
 	background-color: #f9f9f9;
 `;
-const Title = styled.h2`
-	width: 100%;
-	height: 7.5vh;
-	background-color: #222;
-	color: #fff;
-	font-size: 4rem;
-	font-weight: 600;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	position: relative;
-
-	a {
-		position: absolute;
-		top: 50%;
-		right: 5rem;
-		transform: translateY(-50%);
-		font-size: 2rem;
-		background-color: #efefef;
-		color: #333;
-		padding: 1rem 2rem;
-		border-radius: 4rem;
-	}
-`;
-const OptionBox = styled.section`
-	width: 100%;
-	background-color: #333;
-	display: flex;
-	justify-content: center;
-	position: relative;
-	overflow: hidden;
-`;
-const Vstext = styled.span`
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	color: white;
-	font-size: 10rem;
-	font-weight: 900;
-	-webkit-text-stroke: 0.7rem #ffc000;
-	z-index: 100;
-
-	transition: opacity 0.2s ease-in-out;
-
-	&.hidden {
-		opacity: 0;
-	}
-`;
 
 export default function GamePage() {
-	const [clickedOption, setClickedOption] = useState();
-
-	const handleClick = (id) => {
-		setClickedOption(+id);
-		console.log(clickedOption);
-	};
+	const { events } = useRouteLoaderData('list-root');
 
 	return (
 		<Wrapper>
-			<Title>
-				2024년 라면 월드컵 (32강) - 1/16 <Link to="/list">Back</Link>
-			</Title>
-			<OptionBox>
-				<OptionComp
-					id="1"
-					src={sin}
-					name="신라면"
-					onClick={(e) => handleClick(e.target.id)}
-					className={clickedOption === 2 && 'slide_left'}
-				/>
-				<Vstext className={clickedOption && 'hidden'}>VS</Vstext>
-				<OptionComp
-					id="2"
-					src={jja}
-					name="짜파게티"
-					onClick={(e) => handleClick(e.target.id)}
-					className={clickedOption === 1 && 'slide_right'}
-				/>
-			</OptionBox>
+			<Suspense
+				fallback={
+					<p style={{ textAlign: 'center', fontSize: '5rem' }}>로딩중...</p>
+				}
+			>
+				<Await resolve={events}>
+					{(LoadedEvents) => <OptionBox events={LoadedEvents} />}
+				</Await>
+			</Suspense>
 		</Wrapper>
 	);
 }

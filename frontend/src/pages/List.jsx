@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { useLoaderData, Await } from 'react-router-dom';
+import { useRouteLoaderData, Await } from 'react-router-dom';
 import styled from 'styled-components';
 import ListButtonComp from '../compnents/List/ListButtonComp';
 import ListComp from '../compnents/List/ListComp';
@@ -12,7 +12,7 @@ const Wrapper = styled.section`
 `;
 
 export default function ListPage() {
-	const { events } = useLoaderData();
+	const { events } = useRouteLoaderData('list-root');
 
 	return (
 		<Wrapper>

@@ -16,8 +16,6 @@ const ListBox = styled.ul`
 
 /* eslint-disable react/prop-types */
 export default function ListComp({ events }) {
-	console.log(events);
-
 	return (
 		<ListSection>
 			<ListBox>
