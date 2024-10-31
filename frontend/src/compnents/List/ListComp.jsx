@@ -10,7 +10,7 @@ const ListBox = styled.ul`
 	width: 100%;
 	gap: 3rem;
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
 	flex-wrap: wrap;
 `;
 

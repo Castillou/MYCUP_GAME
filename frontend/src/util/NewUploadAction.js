@@ -8,7 +8,7 @@ export async function action({ request }) {
 		title: data.get('title'),
 		description: data.get('description'),
 		date: new Date().toISOString(),
-		images: data.getAll('images'),
+		images: data.getAll('image'),
 	};
 	console.log(eventData);
 

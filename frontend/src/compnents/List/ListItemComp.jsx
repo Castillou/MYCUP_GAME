@@ -75,10 +75,3 @@ export default function ListItemComp({ id, img, title, description }) {
 		</ListItem>
 	);
 }
-
-/* 
-	id: 'g10',
-	img: [sin, jja],
-	label: '라면 월드컵',
-	description: '자신에게 가장 맛있는 라면을 골라보세요.',
-*/
