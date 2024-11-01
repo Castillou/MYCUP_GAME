@@ -8,9 +8,9 @@ export async function action({ request }) {
 		title: data.get('title'),
 		description: data.get('description'),
 		date: new Date().toISOString(),
+		radio: data.get('group'),
 		images: data.getAll('image'),
 	};
-	console.log(eventData);
 
 	const token = getAuthToken();
 	const response = await fetch('http://localhost:8080/events', {

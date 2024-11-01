@@ -41,10 +41,10 @@ const RadioText = styled.span`
 `;
 
 // eslint-disable-next-line react/prop-types
-export default function RadioOption({ text }) {
+export default function RadioOption({ value, text }) {
 	return (
 		<RadioLabel>
-			<RadioInput name="group" />
+			<RadioInput name="group" value={value} />
 			<RadioIcon></RadioIcon>
 			<RadioText>{text}</RadioText>
 		</RadioLabel>

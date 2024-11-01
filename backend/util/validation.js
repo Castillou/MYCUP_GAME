@@ -15,7 +15,13 @@ function isValidEmail(value) {
 	return value && value.includes('@');
 }
 
+function isValidRadioOption(value) {
+	const options = ['personal', 'public', 'friends'];
+	return options.includes(value);
+}
+
 exports.isValidText = isValidText;
 exports.isValidDate = isValidDate;
 exports.isValidImages = isValidImages;
 exports.isValidEmail = isValidEmail;
+exports.isValidRadioOption = isValidRadioOption;

@@ -65,7 +65,6 @@ export default function OptionBox({ events }) {
 
 	const handleClick = (id) => {
 		setClickedOption(Number(id));
-		console.log(clickedOption);
 	};
 
 	return (

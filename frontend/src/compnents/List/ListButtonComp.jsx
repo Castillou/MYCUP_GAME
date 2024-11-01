@@ -46,11 +46,11 @@ export default function ListButtonComp() {
 				<Button>주</Button>
 				<Button>일</Button>
 			</ButtonBox>
-			<ButtonBox>
+			{/* <ButtonBox>
 				<Button className="active">전체</Button>
 				<Button>이미지</Button>
 				<Button>동영상</Button>
-			</ButtonBox>
+			</ButtonBox> */}
 		</ButtonSection>
 	);
 }

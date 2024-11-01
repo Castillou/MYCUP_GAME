@@ -6,6 +6,7 @@ const {
 	isValidText,
 	isValidDate,
 	isValidImages,
+	isValidRadioOption,
 } = require('../util/validation');
 
 const router = express.Router();
@@ -53,6 +54,10 @@ router.post('/', async (req, res, next) => {
 		errors.image = 'Invalid image.';
 	}
 
+	if (!isValidRadioOption(data.radio)) {
+		errors.radio = 'Invalid Radio Option.';
+	}
+
 	if (Object.keys(errors).length > 0) {
 		return res.status(422).json({
 			message: 'Adding the event failed due to validation errors.',
@@ -87,6 +92,10 @@ router.patch('/:id', async (req, res, next) => {
 
 	if (!isValidImages(data.images)) {
 		errors.image = 'Invalid image.';
+	}
+
+	if (!isValidRadioOption(data.radio)) {
+		errors.radio = 'Invalid Radio Option.';
 	}
 
 	if (Object.keys(errors).length > 0) {
