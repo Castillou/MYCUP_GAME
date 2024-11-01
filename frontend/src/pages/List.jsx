@@ -5,6 +5,8 @@ import ListButtonComp from '../compnents/List/ListButtonComp';
 import ListComp from '../compnents/List/ListComp';
 import TokenContext from '../util/tokenContext';
 
+import LoadingSpinner from '../compnents/LoadingSpinner';
+
 const Wrapper = styled.section`
 	width: 100%;
 	height: 92vh;
@@ -20,11 +22,7 @@ export default function ListPage() {
 		<TokenContext.Provider value={token}>
 			<Wrapper>
 				<ListButtonComp />
-				<Suspense
-					fallback={
-						<p style={{ textAlign: 'center', fontSize: '5rem' }}>로딩중...</p>
-					}
-				>
+				<Suspense fallback={<LoadingSpinner />}>
 					<Await resolve={events}>
 						{(LoadedEvents) => <ListComp events={LoadedEvents} />}
 					</Await>
