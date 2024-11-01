@@ -48,6 +48,7 @@ export default function LoginForm() {
 
 	const [searchParams] = useSearchParams();
 	const isLogin = searchParams.get('mode') === 'login';
+	const isSignup = searchParams.get('mode') === 'signup';
 	const isSubmitting = navigation.state === 'submitting';
 
 	return (
@@ -62,6 +63,15 @@ export default function LoginForm() {
 					</ul>
 				)}
 				{data && data.message && <p>{data.message}</p>}
+				{isSignup && (
+					<Input
+						id="username"
+						type="username"
+						name="username"
+						placeholder="이름"
+						required
+					/>
+				)}
 				<Input
 					id="email"
 					type="email"
