@@ -18,9 +18,19 @@ const ListBox = styled.ul`
 /* eslint-disable react/prop-types */
 export default function ListComp({ events }) {
 	const token = useToken();
+	const username = localStorage.getItem('username');
 
 	if (!token) {
 		events = events.filter((item) => item.radio === 'public');
+	} else {
+		events = events.filter((item) => {
+			if (item.radio === 'public') {
+				return item;
+			}
+			if (item.radio === 'personal' && item.username === username) {
+				return item;
+			}
+		});
 	}
 
 	return (
@@ -33,6 +43,7 @@ export default function ListComp({ events }) {
 						img={item.images}
 						title={item.title}
 						description={item.description}
+						radio={item.radio}
 					/>
 				))}
 			</ListBox>

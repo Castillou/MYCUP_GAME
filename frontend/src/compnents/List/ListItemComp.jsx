@@ -5,6 +5,8 @@ const ListItem = styled.li`
 	width: 33rem;
 	background-color: #fff;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+
+	border-bottom: ${({ radio }) => radio === 'personal' && '5px solid #7E60BF'};
 `;
 
 const ImgBox = styled.div`
@@ -56,9 +58,9 @@ const ItemButton = styled.button`
 `;
 
 // eslint-disable-next-line react/prop-types
-export default function ListItemComp({ id, img, title, description }) {
+export default function ListItemComp({ id, img, title, description, radio }) {
 	return (
-		<ListItem>
+		<ListItem radio={radio}>
 			<ImgBox>
 				<Img src={img[0]} />
 				<Img src={img[1]} />

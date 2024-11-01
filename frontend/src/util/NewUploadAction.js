@@ -10,6 +10,7 @@ export async function action({ request }) {
 		date: new Date().toISOString(),
 		radio: data.get('group'),
 		images: data.getAll('image'),
+		username: localStorage.getItem('username'),
 	};
 
 	const token = getAuthToken();

@@ -33,8 +33,11 @@ export async function authAction({ request }) {
 
 	const resData = await response.json();
 	const token = resData.token;
+	const username = resData.username;
+	console.log(username);
 
 	localStorage.setItem('token', token);
+	localStorage.setItem('username', username);
 	const expiration = new Date();
 	expiration.setHours(expiration.getHours() + 1);
 	localStorage.setItem('expiration', expiration.toISOString());
