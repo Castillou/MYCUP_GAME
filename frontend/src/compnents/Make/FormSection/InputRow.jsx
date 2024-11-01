@@ -43,7 +43,7 @@ export default function InputRow({ name, label, description }) {
 	return (
 		<FormRow>
 			<Label>{label}</Label>
-			<Input type="text" name={name}></Input>
+			<Input type="text" name={name} required></Input>
 			<Description>{description}</Description>
 		</FormRow>
 	);

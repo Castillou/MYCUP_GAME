@@ -44,7 +44,7 @@ const RadioText = styled.span`
 export default function RadioOption({ value, text }) {
 	return (
 		<RadioLabel>
-			<RadioInput name="group" value={value} />
+			<RadioInput name="group" value={value} required />
 			<RadioIcon></RadioIcon>
 			<RadioText>{text}</RadioText>
 		</RadioLabel>
