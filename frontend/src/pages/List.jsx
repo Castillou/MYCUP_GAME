@@ -3,6 +3,7 @@ import { useRouteLoaderData, Await } from 'react-router-dom';
 import styled from 'styled-components';
 import ListButtonComp from '../compnents/List/ListButtonComp';
 import ListComp from '../compnents/List/ListComp';
+import TokenContext from '../util/TokenContext';
 
 const Wrapper = styled.section`
 	width: 100%;
@@ -12,20 +13,23 @@ const Wrapper = styled.section`
 `;
 
 export default function ListPage() {
+	const token = useRouteLoaderData('root');
 	const { events } = useRouteLoaderData('list-root');
 
 	return (
-		<Wrapper>
-			<ListButtonComp />
-			<Suspense
-				fallback={
-					<p style={{ textAlign: 'center', fontSize: '5rem' }}>로딩중...</p>
-				}
-			>
-				<Await resolve={events}>
-					{(LoadedEvents) => <ListComp events={LoadedEvents} />}
-				</Await>
-			</Suspense>
-		</Wrapper>
+		<TokenContext.Provider value={token}>
+			<Wrapper>
+				<ListButtonComp />
+				<Suspense
+					fallback={
+						<p style={{ textAlign: 'center', fontSize: '5rem' }}>로딩중...</p>
+					}
+				>
+					<Await resolve={events}>
+						{(LoadedEvents) => <ListComp events={LoadedEvents} />}
+					</Await>
+				</Suspense>
+			</Wrapper>
+		</TokenContext.Provider>
 	);
 }

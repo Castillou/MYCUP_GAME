@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import ListItemComp from './ListItemComp';
+import { useToken } from '../../util/TokenContext';
 
 const ListSection = styled.section`
 	width: 100%;
@@ -16,6 +17,12 @@ const ListBox = styled.ul`
 
 /* eslint-disable react/prop-types */
 export default function ListComp({ events }) {
+	const token = useToken();
+
+	if (!token) {
+		events = events.filter((item) => item.radio === 'public');
+	}
+
 	return (
 		<ListSection>
 			<ListBox>
