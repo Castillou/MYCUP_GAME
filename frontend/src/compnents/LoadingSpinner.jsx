@@ -12,7 +12,7 @@ const SpinnerWrapper = styled.section`
 const LoadingSpinner = () => {
 	return (
 		<SpinnerWrapper>
-			<SyncLoader color="#007bff" size={20} />
+			<SyncLoader color="#007bff" margin={5} />
 		</SpinnerWrapper>
 	);
 };
