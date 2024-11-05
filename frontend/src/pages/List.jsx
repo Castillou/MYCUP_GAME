@@ -5,7 +5,7 @@ import ListButtonComp from '../compnents/List/ListButtonComp';
 import ListComp from '../compnents/List/ListComp';
 import TokenContext from '../util/tokenContext';
 
-import LoadingSpinner from '../compnents/LoadingSpinner';
+import LoadingSpinner from '../compnents/Interface/LoadingSpinner';
 
 const Wrapper = styled.section`
 	width: 100%;

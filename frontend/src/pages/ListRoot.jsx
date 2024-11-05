@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-export default function LostRootLayout() {
+export default function ListRootLayout() {
 	return (
 		<>
 			<Outlet />

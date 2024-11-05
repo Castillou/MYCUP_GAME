@@ -24,7 +24,7 @@ export default function HomePage() {
 	return (
 		<Container>
 			<h1>Welcome!</h1>
-			<p>나만의 월드컵 게임을 만들어보세요!</p>
+			<p>순위를 매겨보거나, 나만의 월드컵 게임을 만들어보세요!</p>
 		</Container>
 	);
 }

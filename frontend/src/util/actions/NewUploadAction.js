@@ -1,5 +1,5 @@
 import { json, redirect } from 'react-router-dom';
-import { getAuthToken } from './auth';
+import { getAuthToken } from '../auth';
 
 export async function action({ request }) {
 	const data = await request.formData();

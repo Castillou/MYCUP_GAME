@@ -1,6 +1,6 @@
 import { Outlet, useLoaderData, useSubmit } from 'react-router-dom';
 import styled from 'styled-components';
-import MainNavigation from '../compnents/MainNavigation';
+import MainNavigation from '../compnents/Interface/MainNavigation';
 import { useEffect } from 'react';
 import { getTokenDuration } from '../util/auth';
 

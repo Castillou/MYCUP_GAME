@@ -1,17 +1,17 @@
 import { createBrowserRouter } from 'react-router-dom';
 import RootLayout from '../pages/Root';
 import HomePage from '../pages/Home';
-import LostRootLayout from '../pages/ListRoot';
+import ListRootLayout from '../pages/ListRoot';
 import ListPage from '../pages/List';
 import GamePage from '../pages/Game';
 import MakePage from '../pages/Make';
 import ErrorPage from '../pages/Error';
-import AuthenticationPage from '../pages/Authentication';
-import authAction from './authAction';
-import { action as logoutAction } from '../pages/Logout';
+import LoginPage from '../pages/Login';
 import { tokenLoader, checkAuthLoader } from './auth';
-import { action as uploadAction } from './NewUploadAction';
-import { loader as eventsLoader } from './eventsLoader';
+import { action as logoutAction } from '../pages/Logout';
+import authAction from './actions/authAction';
+import { action as uploadAction } from './actions/NewUploadAction';
+import { loader as eventsLoader } from './loader/eventsLoader';
 
 const router = createBrowserRouter([
 	{
@@ -27,13 +27,13 @@ const router = createBrowserRouter([
 			},
 			{
 				path: 'auth',
-				element: <AuthenticationPage />,
+				element: <LoginPage />,
 				action: authAction,
 			},
 			{
 				path: 'list',
 				id: 'list-root',
-				element: <LostRootLayout />,
+				element: <ListRootLayout />,
 				loader: eventsLoader,
 				children: [
 					{

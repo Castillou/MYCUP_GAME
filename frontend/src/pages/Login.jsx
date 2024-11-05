@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import LoginForm from '../compnents/Home/LoginForm';
+import LoginForm from '../compnents/Login/LoginForm';
 
 const Container = styled.div`
 	display: flex;
@@ -11,11 +11,11 @@ const Container = styled.div`
 	background-color: #f9f9f9;
 `;
 
-function AuthenticationPage() {
+function LoginPage() {
 	return (
 		<Container>
 			<LoginForm />
 		</Container>
 	);
 }
-export default AuthenticationPage;
+export default LoginPage;
