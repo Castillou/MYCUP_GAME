@@ -17,6 +17,7 @@ const Button = styled.button`
 	border: none;
 	font-size: 1.6rem;
 	background-color: #fff;
+	border-radius: 5rem;
 	cursor: pointer;
 
 	&:not(:last-child) {

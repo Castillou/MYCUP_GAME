@@ -7,7 +7,6 @@ const Container = styled.div`
 	justify-content: center;
 	width: 100%;
 	height: 92vh;
-	background-color: #f9f9f9;
 
 	h1 {
 		font-size: 6rem;
