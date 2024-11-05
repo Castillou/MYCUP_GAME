@@ -14,7 +14,7 @@ const GlobalStyles = createGlobalStyle`
   
   body {
     font-family: 'Pretendard', sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f9f9f9;
     color: #333;
   }
 

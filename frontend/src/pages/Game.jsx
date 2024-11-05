@@ -7,7 +7,6 @@ import OptionBox from '../compnents/Game/OptionBox';
 const Wrapper = styled.section`
 	width: 100%;
 	height: 92vh;
-	background-color: #f9f9f9;
 `;
 
 export default function GamePage() {

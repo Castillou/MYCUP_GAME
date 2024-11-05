@@ -2,9 +2,11 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const ListItem = styled.li`
-	width: 33rem;
+	width: 34rem;
 	background-color: #fff;
-	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	border-radius: 2rem;
+	overflow: hidden;
 
 	border-bottom: ${({ radio }) => radio === 'personal' && '5px solid #7E60BF'};
 `;
@@ -22,38 +24,39 @@ const Img = styled.img`
 
 const Label = styled.h2`
 	font-weight: 600;
-	padding: 2rem 2rem 0.8rem;
+	padding: 2rem 2rem 1rem;
 	font-size: 2rem;
 `;
 const Description = styled.p`
-	padding: 0.5rem 2rem 1rem;
+	padding: 0.5rem 2rem 1.5rem;
 	font-size: 1.5rem;
 	font-weight: 300;
 `;
 
 const ItemButtonBox = styled.div`
-	padding: 0 2rem 1rem;
+	padding: 0 2rem 1.5rem;
 	display: flex;
+	gap: 1rem;
 `;
 const ItemButton = styled.button`
 	flex: 1;
-	border: 1px solid #333;
-	background: none;
+	border: none;
+	border-radius: 2rem;
 	padding: 0.8rem 0;
 	cursor: pointer;
 
-	&:not(:first-child) {
-		border-left: none;
+	&:last-child {
+		border-right: none;
 	}
 
 	&.active {
+		background-color: #ff7b00;
 		border-color: #ff7b00;
-		color: #ff7b00;
+		color: #fff;
 		font-weight: 600;
 	}
 	&:hover {
-		background-color: #ff7b00;
-		color: white;
+		opacity: 0.7;
 	}
 `;
 

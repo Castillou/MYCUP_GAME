@@ -6,12 +6,21 @@ const Nav = styled.nav`
 	justify-content: space-between;
 	align-items: center;
 	padding: 1rem 5rem;
-	background-color: #007bff;
 	height: 8vh;
 	width: 100%;
 	color: white;
+	position: relative;
 
 	z-index: 100;
+
+	&::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		width: calc(100% - 10rem);
+		height: 1px;
+		background-color: #d4d4d4;
+	}
 `;
 const NavList = styled.ul`
 	display: flex;
@@ -23,19 +32,20 @@ const Logo = styled.h1`
 	a {
 		font-weight: 900;
 		font-size: 3rem;
-		color: #ffc000;
+		color: #007bff;
 	}
 `;
 const NavItem = styled.li`
 	display: flex;
 	align-items: center;
+	color: #333;
 
 	a {
 		font-size: 1.8rem;
 	}
 
 	a:hover {
-		color: #ffc000;
+		color: #888;
 	}
 `;
 const LoginoutButton = styled.button`
@@ -43,14 +53,14 @@ const LoginoutButton = styled.button`
 	line-height: 1;
 	border: none;
 	background: none;
-	color: white;
+	color: #333;
 	cursor: pointer;
 	display: flex;
 	align-items: center;
 	gap: 0.5rem;
 
 	&:hover {
-		color: #e9e9e9;
+		color: #888;
 	}
 
 	svg {
@@ -66,7 +76,7 @@ export default function MainNavigation() {
 		<Nav>
 			<NavList>
 				<Logo>
-					<Link to="/">WorldCup</Link>
+					<Link to="/">MYCUP</Link>
 				</Logo>
 				<NavItem>
 					<Link to="list">월드컵 목록</Link>
