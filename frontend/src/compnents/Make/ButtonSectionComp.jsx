@@ -1,22 +1,21 @@
 import styled from 'styled-components';
 
 const ButtonSection = styled.section`
-	width: 100%;
-	display: flex;
-	gap: 3rem;
-	border-bottom: 3px solid #e1e1e1;
+	margin-bottom: 1.5rem;
 `;
 
 const ButtonBox = styled.div`
 	display: flex;
+	gap: 1rem;
 `;
 
 const Button = styled.button`
-	padding: 2rem 3rem;
+	padding: 1.5rem 3rem;
 	border: none;
+	border-radius: 5rem;
 	font-size: 1.8rem;
 	cursor: pointer;
-	background-color: #f9f9f9;
+	background-color: #fff;
 
 	&.active {
 		background-color: #2e93ff;
@@ -24,13 +23,17 @@ const Button = styled.button`
 		font-weight: 800;
 	}
 	&:hover {
-		opacity: 0.7;
+		background-color: #efefef;
+
+		&.active {
+			background-color: #56a8ff;
+		}
 	}
 
 	&.submit-btn {
 		width: 11rem;
 		padding: 1rem 0;
-		border-radius: 4px;
+		border-radius: 3rem;
 		grid-column: 2/3;
 		background-color: #2e93ff;
 		color: #fff;

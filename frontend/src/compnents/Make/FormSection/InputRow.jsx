@@ -24,6 +24,7 @@ const Input = styled.input`
 	grid-column: 2/13;
 	font-size: 2rem;
 	padding: 0 1.5rem;
+	border-radius: 1rem;
 	border: 1px solid #d1d1d1;
 
 	&:focus {
@@ -35,7 +36,7 @@ const Description = styled.span`
 	grid-column: 2/8;
 	font-size: 1.6rem;
 	padding-top: 1rem;
-	opacity: 0.6;
+	color: #808080;
 `;
 
 // eslint-disable-next-line react/prop-types
