@@ -3,10 +3,11 @@ import { Await, useRouteLoaderData } from 'react-router-dom';
 import styled from 'styled-components';
 
 import OptionBox from '../compnents/Game/OptionBox';
+import LoadingSpinner from '../compnents/Interface/LoadingSpinner';
 
 const Wrapper = styled.section`
 	width: 100%;
-	height: 92vh;
+	padding: 0 5rem;
 `;
 
 export default function GamePage() {
@@ -14,11 +15,7 @@ export default function GamePage() {
 
 	return (
 		<Wrapper>
-			<Suspense
-				fallback={
-					<p style={{ textAlign: 'center', fontSize: '5rem' }}>로딩중...</p>
-				}
-			>
+			<Suspense fallback={<LoadingSpinner />}>
 				<Await resolve={events}>
 					{(LoadedEvents) => <OptionBox events={LoadedEvents} />}
 				</Await>

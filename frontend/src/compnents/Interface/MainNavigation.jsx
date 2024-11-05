@@ -6,10 +6,11 @@ const Nav = styled.nav`
 	justify-content: space-between;
 	align-items: center;
 	padding: 1rem 5rem;
-	height: 8vh;
+	height: 8rem;
 	width: 100%;
 	color: white;
 	position: relative;
+	backdrop-filter: blur(50px);
 
 	z-index: 100;
 

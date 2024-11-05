@@ -6,7 +6,8 @@ import ImageUpload from './ImageUpload';
 const Container = styled.div`
 	width: 100%;
 	background-color: #fff;
-	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+	border-radius: 2rem;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 `;
 
 const Title = styled.h2`
@@ -17,33 +18,28 @@ const Title = styled.h2`
 	border-bottom: 2px solid #efefef;
 `;
 
-const FormRow = styled.div`
+const SubmitRow = styled.div`
+	display: flex;
+	justify-content: flex-end;
 	padding: 0 3rem 2rem;
-	display: grid;
-	grid-template-columns: repeat(12, 1fr);
-	border-bottom: 1px dashed #d1d1d1;
-
-	&.submit-row {
-		grid-template-rows: 1fr;
-	}
 `;
 
-const Button = styled.button`
-	border: none;
+const SubmitButton = styled.button`
+	grid-column: 12/13;
+	padding: 1rem 3rem;
+
 	font-size: 1.8rem;
+	font-weight: 800;
+	color: #fff;
+
+	border: none;
+	border-radius: 5px;
+	background-color: #2e93ff;
+
 	cursor: pointer;
 
-	&.submit-btn {
-		padding: 1rem 0;
-		border-radius: 4px;
-		grid-column: 12/13;
-		background-color: #2e93ff;
-		color: #fff;
-		font-weight: 800;
-	}
-
 	&:hover {
-		opacity: 0.7;
+		background-color: #56a8ff;
 	}
 `;
 
@@ -77,11 +73,9 @@ export default function UploadForm() {
 			))}
 			<RadioRow label="3) 공개여부" />
 			<ImageUpload />
-			<FormRow className="submit-row">
-				<Button type="submit" className="submit-btn">
-					저장하기
-				</Button>
-			</FormRow>
+			<SubmitRow className="submit-row">
+				<SubmitButton type="submit">저장하기</SubmitButton>
+			</SubmitRow>
 		</Container>
 	);
 }
