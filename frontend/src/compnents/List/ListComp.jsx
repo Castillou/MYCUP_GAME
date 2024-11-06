@@ -9,9 +9,8 @@ const ListSection = styled.section`
 const ListBox = styled.ul`
 	list-style-type: none;
 	width: 100%;
-	gap: 3rem;
+	gap: 2.3rem;
 	display: flex;
-	justify-content: flex-start;
 	flex-wrap: wrap;
 `;
 

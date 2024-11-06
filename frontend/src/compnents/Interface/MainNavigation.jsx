@@ -23,22 +23,26 @@ const Nav = styled.nav`
 		background-color: #d4d4d4;
 	}
 `;
-const NavList = styled.ul`
-	display: flex;
-	list-style-type: none;
-	gap: 5rem;
-`;
 
 const Logo = styled.h1`
 	a {
-		font-weight: 900;
+		font-family: 'Audiowide', sans-serif;
+		font-weight: 600;
 		font-size: 3rem;
-		color: #007bff;
+		background: linear-gradient(45deg, #2948ff 0%, #396afc 100%);
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
 	}
 `;
-const NavItem = styled.li`
+
+const NavList = styled.ul`
 	display: flex;
-	align-items: center;
+	gap: 5rem;
+	padding: 0.5rem;
+	list-style-type: none;
+`;
+
+const NavItem = styled.li`
 	color: #333;
 
 	a {
@@ -75,10 +79,10 @@ export default function MainNavigation() {
 
 	return (
 		<Nav>
+			<Logo>
+				<Link to="/">MYCUP</Link>
+			</Logo>
 			<NavList>
-				<Logo>
-					<Link to="/">MYCUP</Link>
-				</Logo>
 				<NavItem>
 					<Link to="list">월드컵 목록</Link>
 				</NavItem>

@@ -37,7 +37,7 @@ const Button = styled.button`
 	border-radius: 5rem;
 
 	&:hover {
-		background-color: #0056b3;
+		background-color: #0e75e4;
 	}
 `;
 

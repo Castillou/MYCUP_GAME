@@ -75,7 +75,8 @@ export default function OptionBox({ events }) {
 	return (
 		<>
 			<Title>
-				2024년 {gameItem.title} (32강) - 1/16 <Link to="/list">Back</Link>
+				{`${gameItem.date.slice(0, 4)} ${gameItem.title}`}
+				<Link to="/list">Back</Link>
 			</Title>
 			<OptionList>
 				<OptionComp
