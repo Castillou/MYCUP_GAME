@@ -7,6 +7,7 @@ import GamePage from '../pages/Game';
 import MakePage from '../pages/Make';
 import ErrorPage from '../pages/Error';
 import LoginPage from '../pages/Login';
+import ProfilePage from '../pages/Profile';
 import { tokenLoader, checkAuthLoader } from './auth';
 import { action as logoutAction } from '../pages/Logout';
 import authAction from './actions/authAction';
@@ -46,12 +47,16 @@ const router = createBrowserRouter([
 					},
 				],
 			},
-
 			{
 				path: 'make',
 				element: <MakePage />,
 				loader: checkAuthLoader,
 				action: uploadAction,
+			},
+			{
+				path: 'profile',
+				element: <ProfilePage />,
+				loader: checkAuthLoader,
 			},
 			{
 				path: 'logout',

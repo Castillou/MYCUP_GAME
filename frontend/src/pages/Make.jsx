@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import ButtonSectionComp from '../compnents/Make/ButtonSectionComp';
-import FormSectionComp from '../compnents/Make/FormSection/FormSectionComp';
+import TopButtons from '../compnents/Make/TopButtons';
+import FormComp from '../compnents/Make/FormSection/FormComp';
 
 const Wrapper = styled.section`
 	width: 100%;
@@ -10,8 +10,8 @@ const Wrapper = styled.section`
 export default function MaKePage() {
 	return (
 		<Wrapper>
-			<ButtonSectionComp />
-			<FormSectionComp />
+			<TopButtons />
+			<FormComp />
 		</Wrapper>
 	);
 }

@@ -1,7 +1,7 @@
 import { Form } from 'react-router-dom';
 import UploadForm from './UploadForm';
 
-export default function FormSectionComp() {
+export default function FormComp() {
 	return (
 		<Form method="post">
 			<UploadForm />

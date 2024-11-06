@@ -87,9 +87,14 @@ export default function MainNavigation() {
 					<Link to="list">월드컵 목록</Link>
 				</NavItem>
 				{token && (
-					<NavItem>
-						<Link to="make">나만의 월드컵 만들기</Link>
-					</NavItem>
+					<>
+						<NavItem>
+							<Link to="make">나만의 월드컵 만들기</Link>
+						</NavItem>
+						<NavItem>
+							<Link to="profile">마이페이지</Link>
+						</NavItem>
+					</>
 				)}
 			</NavList>
 			<div>

@@ -21,7 +21,7 @@ const Title = styled.h2`
 const SubmitRow = styled.div`
 	display: flex;
 	justify-content: flex-end;
-	padding: 0 3rem 2rem;
+	padding: 2rem 3rem 2rem;
 `;
 
 const SubmitButton = styled.button`

@@ -41,7 +41,7 @@ const Button = styled.button`
 	}
 `;
 
-export default function ButtonSectionComp() {
+export default function TopButtons() {
 	return (
 		<ButtonSection>
 			<ButtonBox>

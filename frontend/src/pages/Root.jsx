@@ -8,8 +8,7 @@ const Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	min-height: 100vh;
-	padding-top: 8vh;
+	padding-top: 8rem;
 `;
 const Header = styled.header`
 	width: 100%;
