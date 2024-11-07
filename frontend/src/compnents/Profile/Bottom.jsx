@@ -9,6 +9,7 @@ const Wrapper = styled.section`
 	min-height: 60rem;
 
 	padding: 0 23rem;
+	background-color: #fff;
 `;
 
 const ToggleList = styled.ul`

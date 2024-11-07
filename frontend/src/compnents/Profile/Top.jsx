@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const Wrapper = styled.section`
 	width: 100%;
 	padding: 0 22rem 4rem;
+	background-color: #fff;
 `;
 
 const Inner = styled.article`
@@ -46,7 +47,6 @@ const ImageBox = styled.article`
 	padding: 2rem;
 
 	border-radius: 5rem;
-	background-color: #fff;
 	backdrop-filter: blur(50px);
 
 	div {

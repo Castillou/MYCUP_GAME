@@ -43,6 +43,7 @@ export default function ListComp({ events }) {
 						title={item.title}
 						description={item.description}
 						radio={item.radio}
+						name={item.username}
 					/>
 				))}
 			</ListBox>

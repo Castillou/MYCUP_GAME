@@ -8,7 +8,13 @@ const ListItem = styled.li`
 	border-radius: 2rem 2rem 0 0;
 	overflow: hidden;
 
-	border-bottom: ${({ radio }) => radio === 'personal' && '5px solid #435dd8'};
+	border-bottom: ${({ option }) => {
+		if (option === 'personal') {
+			return '5px solid #435dd8';
+		} else if (option === 'friends') {
+			return '5px solid #FC5185';
+		}
+	}};
 `;
 
 const ImgBox = styled.div`
@@ -50,19 +56,30 @@ const ItemButton = styled.button`
 	}
 
 	&.active {
-		background-color: #ff7b00;
-		border-color: #ff7b00;
+		background-color: #ff3d3d;
 		color: #fff;
 		font-weight: 600;
+
+		&:hover {
+			background-color: #ff7a7a;
+		}
 	}
 	&:hover {
-		opacity: 0.7;
+		background-color: #f9f9f9;
 	}
 `;
 
-// eslint-disable-next-line react/prop-types
-export default function ListItemComp({ id, img, title, description, radio }) {
+/* eslint-disable react/prop-types */
+export default function ListItemComp({
+	id,
+	img,
+	title,
+	description,
+	radio,
+	name,
+}) {
 	const submit = useSubmit();
+	const username = localStorage.getItem('username');
 
 	const deleteItemHandler = () => {
 		const doubleCheck = window.confirm('Are you sure?');
@@ -73,7 +90,7 @@ export default function ListItemComp({ id, img, title, description, radio }) {
 	};
 
 	return (
-		<ListItem radio={radio}>
+		<ListItem option={radio}>
 			<ImgBox>
 				<Img src={img[0]} />
 				<Img src={img[1]} />
@@ -84,8 +101,12 @@ export default function ListItemComp({ id, img, title, description, radio }) {
 				<ItemButton className="active">
 					<Link to={`/list/${id}`}>시작하기</Link>
 				</ItemButton>
-				<ItemButton>수정하기</ItemButton>
-				<ItemButton onClick={deleteItemHandler}>삭제</ItemButton>
+				{username === name && (
+					<>
+						<ItemButton>수정하기</ItemButton>
+						<ItemButton onClick={deleteItemHandler}>삭제</ItemButton>
+					</>
+				)}
 			</ItemButtonBox>
 		</ListItem>
 	);

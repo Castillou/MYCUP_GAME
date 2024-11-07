@@ -39,6 +39,7 @@ export default function OwnList({ events }) {
 							title={item.title}
 							description={item.description}
 							radio={item.radio}
+							name={item.username}
 						/>
 					))}
 				</ListBox>

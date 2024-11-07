@@ -9,7 +9,7 @@ import LoadingSpinner from '../compnents/Interface/LoadingSpinner';
 
 const Wrapper = styled.section`
 	width: 100%;
-	padding: 3rem 5rem;
+	padding: 11rem 5rem 3rem;
 `;
 
 export default function ListPage() {

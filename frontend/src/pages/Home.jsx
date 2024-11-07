@@ -9,7 +9,8 @@ const Container = styled.div`
 	grid-template-rows: repeat(7, 1fr);
 	grid-template-columns: repeat(11, 1fr);
 	width: 100%;
-	height: 90rem;
+	height: 98rem;
+	padding-top: 8rem;
 
 	position: relative;
 
@@ -70,7 +71,7 @@ const BackSlice = styled.div`
 	grid-row: 3/ -1;
 	grid-column: 1/ -1;
 
-	background: linear-gradient(45deg, #91a2ff 0%, #5c75ff 100%);
+	background: linear-gradient(45deg, #91a2ff 0%, #2948ff 100%);
 	clip-path: polygon(0% 60%, 100% 10%, 100% 100%, 0% 100%);
 	z-index: -10;
 `;

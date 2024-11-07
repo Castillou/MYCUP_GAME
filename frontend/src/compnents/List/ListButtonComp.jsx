@@ -9,7 +9,7 @@ const ButtonSection = styled.section`
 
 const ButtonBox = styled.div`
 	display: flex;
-	gap: 0.5rem;
+	gap: 1rem;
 `;
 
 const Button = styled.button`
@@ -18,20 +18,21 @@ const Button = styled.button`
 	border: none;
 	font-size: 1.6rem;
 	background-color: #fff;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
 	border-radius: 5rem;
 	cursor: pointer;
-
-	&:not(:last-child) {
-		border-right: 1px solid #efefef;
-	}
 
 	&.active {
 		background-color: #2e93ff;
 		color: white;
 		font-weight: 600;
+
+		&:hover {
+			background-color: #86c1ff;
+		}
 	}
 	&:hover {
-		opacity: 0.7;
+		background-color: #fcfcfc;
 	}
 `;
 
