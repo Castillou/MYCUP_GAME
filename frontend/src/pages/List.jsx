@@ -1,8 +1,8 @@
 import { Suspense } from 'react';
 import { useRouteLoaderData, Await } from 'react-router-dom';
 import styled from 'styled-components';
-import ListButtonComp from '../compnents/List/ListButtonComp';
-import ListComp from '../compnents/List/ListComp';
+import ListButtons from '../compnents/List/ListButtons';
+import ListContainer from '../compnents/List/ListContainer';
 import TokenContext from '../util/tokenContext';
 
 import LoadingSpinner from '../compnents/Interface/LoadingSpinner';
@@ -19,10 +19,10 @@ export default function ListPage() {
 	return (
 		<TokenContext.Provider value={token}>
 			<Wrapper>
-				<ListButtonComp />
+				<ListButtons />
 				<Suspense fallback={<LoadingSpinner />}>
 					<Await resolve={events}>
-						{(LoadedEvents) => <ListComp events={LoadedEvents} />}
+						{(LoadedEvents) => <ListContainer events={LoadedEvents} />}
 					</Await>
 				</Suspense>
 			</Wrapper>

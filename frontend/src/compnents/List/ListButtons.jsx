@@ -36,7 +36,7 @@ const Button = styled.button`
 	}
 `;
 
-export default function ListButtonComp() {
+export default function ListButtons() {
 	return (
 		<ButtonSection>
 			<ButtonBox>
@@ -49,11 +49,6 @@ export default function ListButtonComp() {
 				<Button>주</Button>
 				<Button>일</Button>
 			</ButtonBox>
-			{/* <ButtonBox>
-				<Button className="active">전체</Button>
-				<Button>이미지</Button>
-				<Button>동영상</Button>
-			</ButtonBox> */}
 		</ButtonSection>
 	);
 }

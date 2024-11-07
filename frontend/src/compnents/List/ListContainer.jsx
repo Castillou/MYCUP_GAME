@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import ListItemComp from './ListItemComp';
+import ListItem from './ListItem';
 import { useToken } from '../../util/tokenContext';
 
 const ListSection = styled.section`
 	width: 100%;
 `;
 
-const ListBox = styled.ul`
+const ItemContainer = styled.ul`
 	list-style-type: none;
 	width: 100%;
 	gap: 2.3rem;
@@ -15,7 +15,7 @@ const ListBox = styled.ul`
 `;
 
 /* eslint-disable react/prop-types */
-export default function ListComp({ events }) {
+export default function ListContainer({ events }) {
 	const token = useToken();
 	const username = localStorage.getItem('username');
 
@@ -23,10 +23,10 @@ export default function ListComp({ events }) {
 		events = events.filter((item) => item.radio === 'public');
 	} else {
 		events = events.filter((item) => {
-			if (item.radio === 'public') {
+			if (item.radio === 'public' || item.radio === 'friends') {
 				return item;
 			}
-			if (item.radio === 'personal' && item.username === username) {
+			if (item.username === username) {
 				return item;
 			}
 		});
@@ -34,9 +34,9 @@ export default function ListComp({ events }) {
 
 	return (
 		<ListSection>
-			<ListBox>
+			<ItemContainer>
 				{events.map((item) => (
-					<ListItemComp
+					<ListItem
 						key={item.id}
 						id={item.id}
 						img={item.images}
@@ -46,7 +46,7 @@ export default function ListComp({ events }) {
 						name={item.username}
 					/>
 				))}
-			</ListBox>
+			</ItemContainer>
 		</ListSection>
 	);
 }

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import ListItemComp from '../List/ListItemComp';
+import ListItem from '../List/ListItem';
 
 const ListSection = styled.section`
 	width: 100%;
@@ -32,7 +32,7 @@ export default function OwnList({ events }) {
 			{events.length !== 0 ? (
 				<ListBox>
 					{events.map((item) => (
-						<ListItemComp
+						<ListItem
 							key={item.id}
 							id={item.id}
 							img={item.images}
