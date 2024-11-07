@@ -12,8 +12,6 @@ const Nav = styled.nav`
 	position: relative;
 	backdrop-filter: blur(50px);
 
-	z-index: 100;
-
 	&::after {
 		content: '';
 		position: absolute;
@@ -53,6 +51,7 @@ const NavItem = styled.li`
 		color: #888;
 	}
 `;
+
 const LoginoutButton = styled.button`
 	font-size: 2rem;
 	line-height: 1;
