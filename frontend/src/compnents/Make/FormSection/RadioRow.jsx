@@ -1,16 +1,12 @@
 import styled from 'styled-components';
 import RadioOption from './RadioOption';
 
-const ContainerRow = styled.div`
+const Row = styled.div`
 	padding: 2rem 3rem;
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
 	grid-template-rows: repeat(3, 1fr);
 	border-bottom: 1px dashed #d1d1d1;
-
-	&.submit-row {
-		grid-template-rows: repeat(2, 1fr);
-	}
 `;
 const Label = styled.label`
 	grid-row: 1/3;
@@ -21,7 +17,7 @@ const Label = styled.label`
 	padding-left: 1rem;
 `;
 
-const RadioBox = styled.div`
+const RadioContainer = styled.div`
 	grid-row: 1/4;
 	grid-column: 2/8;
 
@@ -52,13 +48,13 @@ const RADIO_CONT = [
 // eslint-disable-next-line react/prop-types
 export default function RadioRow({ label }) {
 	return (
-		<ContainerRow>
+		<Row>
 			<Label>{label}</Label>
-			<RadioBox>
+			<RadioContainer>
 				{RADIO_CONT.map(({ id, value, text }) => (
 					<RadioOption key={id} value={value} text={text} />
 				))}
-			</RadioBox>
-		</ContainerRow>
+			</RadioContainer>
+		</Row>
 	);
 }

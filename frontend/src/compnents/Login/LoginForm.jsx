@@ -41,7 +41,7 @@ const Button = styled.button`
 	}
 `;
 
-const CreateUser = styled.span`
+const ToggleTxt = styled.span`
 	display: block;
 	text-align: center;
 	font-size: 2rem;
@@ -111,12 +111,12 @@ export default function LoginForm() {
 				<Button disabled={isSubmitting}>
 					{isSubmitting ? '생성중...' : buttonText}
 				</Button>
-				<CreateUser>
+				<ToggleTxt>
 					{isLogin ? '아직 회원이 아니신가요?' : '이미 계정이 있으신가요?'}
 					<Link to={`?mode=${isLogin ? 'signup' : 'login'}`}>
 						{isLogin ? '회원가입' : '로그인'}
 					</Link>
-				</CreateUser>
+				</ToggleTxt>
 			</Form>
 		</>
 	);

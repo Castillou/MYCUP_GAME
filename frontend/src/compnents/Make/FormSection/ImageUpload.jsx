@@ -4,14 +4,14 @@ import InputRow from './InputRow';
 const Container = styled.div`
 	width: 100%;
 	background-color: #fff;
-`;
 
-const Title = styled.h2`
-	padding: 2rem 3rem;
-	font-size: 2rem;
-	font-weight: 800;
-	color: #2e93ff;
-	border-bottom: 2px solid #efefef;
+	h2 {
+		padding: 2rem 3rem;
+		font-size: 2rem;
+		font-weight: 800;
+		color: #2e93ff;
+		border-bottom: 2px solid #efefef;
+	}
 `;
 
 export default function ImageUpload() {
@@ -32,7 +32,7 @@ export default function ImageUpload() {
 
 	return (
 		<Container>
-			<Title>이상형 월드컵 이미지 업로드</Title>
+			<h2>이상형 월드컵 이미지 업로드</h2>
 			{INPUT_CONT.map(({ id, name, label, description }) => (
 				<InputRow
 					key={id}

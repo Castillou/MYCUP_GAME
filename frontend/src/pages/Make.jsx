@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import TopButtons from '../compnents/Make/TopButtons';
-import FormComp from '../compnents/Make/FormSection/FormComp';
+import UploadForm from '../compnents/Make/UploadForm';
 
 const Wrapper = styled.section`
 	width: 100%;
@@ -11,7 +11,7 @@ export default function MaKePage() {
 	return (
 		<Wrapper>
 			<TopButtons />
-			<FormComp />
+			<UploadForm />
 		</Wrapper>
 	);
 }

@@ -1,14 +1,9 @@
+import { Form } from 'react-router-dom';
 import styled from 'styled-components';
-import InputRow from './InputRow';
-import RadioRow from './RadioRow';
-import ImageUpload from './ImageUpload';
-
-const Container = styled.div`
-	width: 100%;
-	background-color: #fff;
-	border-radius: 2rem;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-`;
+import InputRow from './FormSection/InputRow';
+import RadioRow from './FormSection/RadioRow';
+import ImageUpload from './FormSection/ImageUpload';
+import classes from './UploadForm.module.css';
 
 const Title = styled.h2`
 	padding: 2rem 3rem;
@@ -22,24 +17,24 @@ const SubmitRow = styled.div`
 	display: flex;
 	justify-content: flex-end;
 	padding: 2rem 3rem 2rem;
-`;
 
-const SubmitButton = styled.button`
-	grid-column: 12/13;
-	padding: 1rem 3rem;
+	button {
+		grid-column: 12/13;
+		padding: 1rem 3rem;
 
-	font-size: 1.8rem;
-	font-weight: 800;
-	color: #fff;
+		font-size: 1.8rem;
+		font-weight: 800;
+		color: #fff;
 
-	border: none;
-	border-radius: 5px;
-	background-color: #2e93ff;
+		border: none;
+		border-radius: 5px;
+		background-color: #2e93ff;
 
-	cursor: pointer;
+		cursor: pointer;
 
-	&:hover {
-		background-color: #56a8ff;
+		&:hover {
+			background-color: #56a8ff;
+		}
 	}
 `;
 
@@ -61,7 +56,7 @@ const INPUT_CONT = [
 
 export default function UploadForm() {
 	return (
-		<Container>
+		<Form method="post" className={classes.upload_form}>
 			<Title>이상형 월드컵 기본정보</Title>
 			{INPUT_CONT.map(({ id, name, label, description }) => (
 				<InputRow
@@ -74,8 +69,8 @@ export default function UploadForm() {
 			<RadioRow label="3) 공개여부" />
 			<ImageUpload />
 			<SubmitRow className="submit-row">
-				<SubmitButton type="submit">저장하기</SubmitButton>
+				<button type="submit">저장하기</button>
 			</SubmitRow>
-		</Container>
+		</Form>
 	);
 }

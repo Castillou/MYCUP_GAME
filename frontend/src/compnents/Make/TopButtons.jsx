@@ -1,12 +1,9 @@
 import styled from 'styled-components';
 
 const ButtonSection = styled.section`
-	margin-bottom: 1.5rem;
-`;
-
-const ButtonBox = styled.div`
 	display: flex;
 	gap: 1rem;
+	margin-bottom: 1.5rem;
 `;
 
 const Button = styled.button`
@@ -44,10 +41,8 @@ const Button = styled.button`
 export default function TopButtons() {
 	return (
 		<ButtonSection>
-			<ButtonBox>
-				<Button className="active">1. 기본정보 수정 / 이미지 업로드</Button>
-				<Button>2. 이미지 이름 수정 / 삭제</Button>
-			</ButtonBox>
+			<Button className="active">1. 기본정보 수정 / 이미지 업로드</Button>
+			<Button>2. 이미지 이름 수정 / 삭제</Button>
 		</ButtonSection>
 	);
 }

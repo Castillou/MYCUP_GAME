@@ -11,6 +11,10 @@ const RadioLabel = styled.label`
 	height: 5rem;
 	position: relative;
 
+	p {
+		font-size: 1.8rem;
+	}
+
 	&::before {
 		position: absolute;
 		top: 50%;
@@ -67,16 +71,12 @@ const RadioInput = styled.input.attrs({ type: 'radio' })`
 	}
 `;
 
-const RadioText = styled.span`
-	font-size: 1.8rem;
-`;
-
 // eslint-disable-next-line react/prop-types
 export default function RadioOption({ value, text }) {
 	return (
 		<RadioLabel>
 			<RadioInput name="group" value={value} required />
-			<RadioText>{text}</RadioText>
+			<p>{text}</p>
 		</RadioLabel>
 	);
 }

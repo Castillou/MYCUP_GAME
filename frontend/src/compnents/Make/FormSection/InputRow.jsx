@@ -1,15 +1,12 @@
 import styled from 'styled-components';
 
-const FormRow = styled.div`
-	padding: 2rem 3rem;
+const Row = styled.div`
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
 	grid-template-rows: repeat(3, 1fr);
-	border-bottom: 1px dashed #d1d1d1;
+	padding: 2rem 3rem;
 
-	&.submit-row {
-		grid-template-rows: repeat(2, 1fr);
-	}
+	border-bottom: 1px dashed #d1d1d1;
 `;
 const Label = styled.label`
 	grid-row: 1/3;
@@ -42,10 +39,10 @@ const Description = styled.span`
 // eslint-disable-next-line react/prop-types
 export default function InputRow({ name, label, description }) {
 	return (
-		<FormRow>
+		<Row>
 			<Label>{label}</Label>
 			<Input type="text" name={name} required></Input>
 			<Description>{description}</Description>
-		</FormRow>
+		</Row>
 	);
 }
