@@ -76,6 +76,7 @@ const LoginoutButton = styled.button`
 
 export default function MainNavigation() {
 	const token = useRouteLoaderData('root');
+	const username = localStorage.getItem('username');
 
 	return (
 		<Nav>
@@ -89,10 +90,10 @@ export default function MainNavigation() {
 				{token && (
 					<>
 						<NavItem>
-							<Link to="make">나만의 월드컵 만들기</Link>
+							<Link to={`${username}/make`}>나만의 월드컵 만들기</Link>
 						</NavItem>
 						<NavItem>
-							<Link to="profile">마이페이지</Link>
+							<Link to={`${username}/profile`}>마이페이지</Link>
 						</NavItem>
 					</>
 				)}

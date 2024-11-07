@@ -4,9 +4,10 @@ import HomePage from '../pages/Home';
 import ListRootLayout from '../pages/ListRoot';
 import ListPage from '../pages/List';
 import GamePage from '../pages/Game';
-import MakePage from '../pages/Make';
 import ErrorPage from '../pages/Error';
 import LoginPage from '../pages/Login';
+import PersonalRootLayout from '../pages/PersonalRoot';
+import MakePage from '../pages/Make';
 import ProfilePage from '../pages/Profile';
 import { tokenLoader, checkAuthLoader } from './auth';
 import { action as logoutAction } from '../pages/Logout';
@@ -48,15 +49,21 @@ const router = createBrowserRouter([
 				],
 			},
 			{
-				path: 'make',
-				element: <MakePage />,
+				path: ':username',
+				element: <PersonalRootLayout />,
 				loader: checkAuthLoader,
-				action: uploadAction,
-			},
-			{
-				path: 'profile',
-				element: <ProfilePage />,
-				loader: checkAuthLoader,
+				children: [
+					{
+						path: 'make',
+						element: <MakePage />,
+						action: uploadAction,
+					},
+					{
+						path: 'profile',
+						element: <ProfilePage />,
+						loader: eventsLoader,
+					},
+				],
 			},
 			{
 				path: 'logout',

@@ -65,7 +65,7 @@ export default function ProfilePage() {
 			<Top>
 				<Inner>
 					<div></div>
-					<h2>{username}</h2>
+					<h2>{username.toUpperCase()}</h2>
 					<p>Stay hungry, stay foolish.</p>
 				</Inner>
 			</Top>
