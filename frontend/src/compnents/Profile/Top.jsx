@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.section`
 	width: 100%;
-	padding: 0 10rem 4rem;
+	padding: 0 22rem 4rem;
 `;
 
 const Inner = styled.article`
@@ -15,9 +15,8 @@ const Inner = styled.article`
 
 	h2 {
 		grid-row: 1/2;
-		grid-column: 3/8;
+		grid-column: 4/8;
 		margin-top: 6rem;
-		margin-left: 7rem;
 
 		font-family: 'Audiowide', sans-serif;
 		font-weight: 600;
@@ -26,9 +25,8 @@ const Inner = styled.article`
 
 	p {
 		grid-row: 2/3;
-		grid-column: 3/6;
+		grid-column: 4/7;
 		margin-top: 1.2rem;
-		margin-left: 7rem;
 
 		font-size: 2rem;
 		line-height: 1.3;

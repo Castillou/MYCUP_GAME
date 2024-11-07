@@ -8,7 +8,7 @@ const Wrapper = styled.section`
 	width: 100%;
 	min-height: 60rem;
 
-	padding: 0 12rem;
+	padding: 0 23rem;
 `;
 
 const ToggleList = styled.ul`

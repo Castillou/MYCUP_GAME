@@ -11,6 +11,8 @@ const Container = styled.div`
 	width: 100%;
 	height: 90rem;
 
+	position: relative;
+
 	h1 {
 		grid-row: 2/4;
 		grid-column: 2/7;
@@ -64,6 +66,15 @@ const StartButtonBox = styled.div`
 	}
 `;
 
+const BackSlice = styled.div`
+	grid-row: 3/ -1;
+	grid-column: 1/ -1;
+
+	background: linear-gradient(45deg, #91a2ff 0%, #5c75ff 100%);
+	clip-path: polygon(0% 60%, 100% 10%, 100% 100%, 0% 100%);
+	z-index: -10;
+`;
+
 export default function HomePage() {
 	return (
 		<Container>
@@ -80,6 +91,7 @@ export default function HomePage() {
 			<StartButtonBox>
 				<Link to="/list">Get Started!</Link>
 			</StartButtonBox>
+			<BackSlice />
 		</Container>
 	);
 }

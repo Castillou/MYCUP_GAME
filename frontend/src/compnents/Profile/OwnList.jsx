@@ -25,9 +25,7 @@ const ListBox = styled.ul`
 export default function OwnList({ events }) {
 	const username = localStorage.getItem('username');
 
-	events = events.filter(
-		(item) => item.radio === 'personal' && item.username === username
-	);
+	events = events.filter((item) => item.username === username);
 
 	return (
 		<ListSection>
