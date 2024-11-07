@@ -76,7 +76,7 @@ export default function OptionBox({ events }) {
 		<>
 			<Title>
 				{`${gameItem.date.slice(0, 4)} ${gameItem.title}`}
-				<Link to="/list">Back</Link>
+				<Link to="..">Back</Link>
 			</Title>
 			<OptionList>
 				<OptionComp

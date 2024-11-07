@@ -15,7 +15,7 @@ const Inner = styled.article`
 
 	h2 {
 		grid-row: 1/2;
-		grid-column: 3/6;
+		grid-column: 3/8;
 		margin-top: 6rem;
 		margin-left: 7rem;
 

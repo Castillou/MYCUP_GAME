@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-export default function ListRootLayout() {
+export default function SubRootLayout() {
 	return (
 		<>
 			<Outlet />

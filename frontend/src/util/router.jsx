@@ -1,12 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom';
 import RootLayout from '../pages/Root';
 import HomePage from '../pages/Home';
-import ListRootLayout from '../pages/ListRoot';
+import SubRootLayout from '../pages/SubRoot';
 import ListPage from '../pages/List';
 import GamePage from '../pages/Game';
 import ErrorPage from '../pages/Error';
 import LoginPage from '../pages/Login';
-import PersonalRootLayout from '../pages/PersonalRoot';
 import MakePage from '../pages/Make';
 import ProfilePage from '../pages/Profile';
 import { tokenLoader, checkAuthLoader } from './auth';
@@ -35,7 +34,7 @@ const router = createBrowserRouter([
 			{
 				path: 'list',
 				id: 'list-root',
-				element: <ListRootLayout />,
+				element: <SubRootLayout />,
 				loader: eventsLoader,
 				children: [
 					{
@@ -50,7 +49,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: ':username',
-				element: <PersonalRootLayout />,
+				element: <SubRootLayout />,
 				loader: checkAuthLoader,
 				children: [
 					{
