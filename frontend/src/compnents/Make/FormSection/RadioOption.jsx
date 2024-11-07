@@ -1,41 +1,72 @@
 import styled from 'styled-components';
 
 const RadioLabel = styled.label`
-	padding: 1rem 0;
 	display: flex;
 	align-items: center;
-	gap: 1rem;
-`;
-const RadioInput = styled.input.attrs({ type: 'radio' })`
-	display: none;
+	gap: 1.5rem;
+	padding: 0 2rem;
 
-	&:checked + span::before {
-		opacity: 1;
-	}
-`;
-const RadioIcon = styled.span`
-	display: inline-block;
-	width: 2rem;
-	height: 2rem;
-	border-radius: 50%;
-	border: 1px solid #333;
-
+	cursor: pointer;
+	width: 50rem;
+	height: 5rem;
 	position: relative;
 
 	&::before {
-		content: '';
-		width: 1.5rem;
-		height: 1.5rem;
-		border-radius: 50%;
 		position: absolute;
-		background-color: #2e93ff;
-		inset: 50% 0 0 50%;
+		top: 50%;
+		left: 50%;
 		transform: translate(-50%, -50%);
-		cursor: pointer;
+		content: '';
 
-		opacity: 0;
+		width: 100%;
+		height: 5rem;
+		transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+		border-radius: 1rem;
+		border: 2px solid transparent;
+	}
+
+	&:hover::before {
+		transition: all 0.2s ease;
+		background-color: #2e93ff13;
+	}
+
+	&:has(input:checked)::before {
+		background-color: #5baaff13;
+		border-color: #2e93ff;
+		height: 50px;
 	}
 `;
+const RadioInput = styled.input`
+	background-color: #eee;
+	appearance: none;
+	width: 1.8rem;
+	height: 1.8rem;
+	margin: 0;
+	border-radius: 50%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&:before {
+		content: '';
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		transition: all 0.1s cubic-bezier(0.165, 0.84, 0.44, 1);
+		background-color: #f9f9f9;
+		transform: scale(0);
+	}
+
+	&:checked {
+		background-color: #2e93ff;
+	}
+
+	&:checked::before {
+		transform: scale(1);
+	}
+`;
+
 const RadioText = styled.span`
 	font-size: 1.8rem;
 `;
@@ -44,8 +75,7 @@ const RadioText = styled.span`
 export default function RadioOption({ value, text }) {
 	return (
 		<RadioLabel>
-			<RadioInput name="group" value={value} required />
-			<RadioIcon></RadioIcon>
+			<RadioInput type="radio" name="group" value={value} required />
 			<RadioText>{text}</RadioText>
 		</RadioLabel>
 	);

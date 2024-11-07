@@ -5,10 +5,10 @@ const ListItem = styled.li`
 	width: 34rem;
 	background-color: #fff;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-	border-radius: 2rem;
+	border-radius: 2rem 2rem 0 0;
 	overflow: hidden;
 
-	border-bottom: ${({ radio }) => radio === 'personal' && '5px solid #7E60BF'};
+	border-bottom: ${({ radio }) => radio === 'personal' && '5px solid #435dd8'};
 `;
 
 const ImgBox = styled.div`
@@ -74,8 +74,8 @@ export default function ListItemComp({ id, img, title, description, radio }) {
 				<ItemButton className="active">
 					<Link to={`/list/${id}`}>시작하기</Link>
 				</ItemButton>
-				<ItemButton>랭킹보기</ItemButton>
-				<ItemButton>공유</ItemButton>
+				<ItemButton>수정하기</ItemButton>
+				<ItemButton>삭제</ItemButton>
 			</ItemButtonBox>
 		</ListItem>
 	);

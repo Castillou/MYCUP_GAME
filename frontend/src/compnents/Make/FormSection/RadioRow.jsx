@@ -24,7 +24,11 @@ const Label = styled.label`
 const RadioBox = styled.div`
 	grid-row: 1/4;
 	grid-column: 2/8;
-	margin-bottom: 1rem;
+
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	margin: 0.5rem 0;
 `;
 
 const RADIO_CONT = [
