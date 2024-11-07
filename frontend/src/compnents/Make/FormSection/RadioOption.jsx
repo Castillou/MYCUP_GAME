@@ -36,7 +36,7 @@ const RadioLabel = styled.label`
 		height: 50px;
 	}
 `;
-const RadioInput = styled.input`
+const RadioInput = styled.input.attrs({ type: 'radio' })`
 	background-color: #eee;
 	appearance: none;
 	width: 1.8rem;
@@ -75,7 +75,7 @@ const RadioText = styled.span`
 export default function RadioOption({ value, text }) {
 	return (
 		<RadioLabel>
-			<RadioInput type="radio" name="group" value={value} required />
+			<RadioInput name="group" value={value} required />
 			<RadioText>{text}</RadioText>
 		</RadioLabel>
 	);

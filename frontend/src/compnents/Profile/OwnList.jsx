@@ -4,6 +4,13 @@ import ListItemComp from '../List/ListItemComp';
 const ListSection = styled.section`
 	width: 100%;
 	padding: 5rem 0;
+
+	> p {
+		margin-top: 10rem;
+		text-align: center;
+		font-size: 5rem;
+		color: #999;
+	}
 `;
 
 const ListBox = styled.ul`
@@ -24,18 +31,22 @@ export default function OwnList({ events }) {
 
 	return (
 		<ListSection>
-			<ListBox>
-				{events.map((item) => (
-					<ListItemComp
-						key={item.id}
-						id={item.id}
-						img={item.images}
-						title={item.title}
-						description={item.description}
-						radio={item.radio}
-					/>
-				))}
-			</ListBox>
+			{events.length !== 0 ? (
+				<ListBox>
+					{events.map((item) => (
+						<ListItemComp
+							key={item.id}
+							id={item.id}
+							img={item.images}
+							title={item.title}
+							description={item.description}
+							radio={item.radio}
+						/>
+					))}
+				</ListBox>
+			) : (
+				<p>아직 만든 게임이 없어요!</p>
+			)}
 		</ListSection>
 	);
 }

@@ -12,6 +12,7 @@ import { tokenLoader, checkAuthLoader } from './auth';
 import { action as logoutAction } from '../pages/Logout';
 import authAction from './actions/authAction';
 import { action as uploadAction } from './actions/NewUploadAction';
+import { action as deleteAction } from './actions/deleteAction';
 import { loader as eventsLoader } from './loader/eventsLoader';
 
 const router = createBrowserRouter([
@@ -40,6 +41,7 @@ const router = createBrowserRouter([
 					{
 						index: true,
 						element: <ListPage />,
+						action: deleteAction,
 					},
 					{
 						path: ':gameId',
@@ -61,6 +63,7 @@ const router = createBrowserRouter([
 						path: 'profile',
 						element: <ProfilePage />,
 						loader: eventsLoader,
+						action: deleteAction,
 					},
 				],
 			},

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useSubmit } from 'react-router-dom';
 import styled from 'styled-components';
 
 const ListItem = styled.li`
@@ -62,6 +62,16 @@ const ItemButton = styled.button`
 
 // eslint-disable-next-line react/prop-types
 export default function ListItemComp({ id, img, title, description, radio }) {
+	const submit = useSubmit();
+
+	const deleteItemHandler = () => {
+		const doubleCheck = window.confirm('Are you sure?');
+
+		if (doubleCheck) {
+			submit({ id }, { method: 'delete' });
+		}
+	};
+
 	return (
 		<ListItem radio={radio}>
 			<ImgBox>
@@ -75,7 +85,7 @@ export default function ListItemComp({ id, img, title, description, radio }) {
 					<Link to={`/list/${id}`}>시작하기</Link>
 				</ItemButton>
 				<ItemButton>수정하기</ItemButton>
-				<ItemButton>삭제</ItemButton>
+				<ItemButton onClick={deleteItemHandler}>삭제</ItemButton>
 			</ItemButtonBox>
 		</ListItem>
 	);
