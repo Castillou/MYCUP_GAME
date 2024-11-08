@@ -38,9 +38,12 @@ router.post('/signup', async (req, res, next) => {
 	try {
 		const createdUser = await add(data);
 		const authToken = createJSONToken(createdUser.email);
-		res
-			.status(201)
-			.json({ message: 'User created.', user: createdUser, token: authToken });
+
+		res.status(201).json({
+			message: 'User created.',
+			user: createdUser,
+			token: authToken,
+		});
 	} catch (error) {
 		next(error);
 	}

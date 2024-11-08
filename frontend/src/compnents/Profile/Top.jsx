@@ -66,7 +66,7 @@ export default function Top() {
 				<ImageBox>
 					<div></div>
 				</ImageBox>
-				<h2>{username.toUpperCase()}</h2>
+				<h2>{username}</h2>
 				<p>
 					Web Publisher and FE Developer <br /> based in Seoul
 				</p>

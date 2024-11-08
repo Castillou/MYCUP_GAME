@@ -7,11 +7,13 @@ const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
+	width: 100%;
 	padding-top: 28rem;
 
 	background: url(${bg});
 	background-size: 100%;
-	background-position: bottom;
+	background-position: 100% 0;
 `;
 
 export default function ProfilePage() {
