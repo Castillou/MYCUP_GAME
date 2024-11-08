@@ -71,7 +71,7 @@ const Button = styled.button`
 
 	overflow: hidden;
 
-	a {
+	&.start_btn a {
 		display: block;
 		width: 100%;
 		padding: 0.8rem 0;
@@ -80,7 +80,7 @@ const Button = styled.button`
 		font-weight: 600;
 	}
 
-	a:hover {
+	&.start_btn a:hover {
 		background-color: #ff7a7a;
 	}
 
@@ -111,12 +111,14 @@ export default function ListItem({ id, img, title, description, radio, name }) {
 			<h2>{title}</h2>
 			<p>{description}</p>
 			<ButtonContainer>
-				<Button>
+				<Button className="start_btn">
 					<Link to={`/list/${id}`}>시작하기</Link>
 				</Button>
 				{username === name && (
 					<>
-						<Button>수정하기</Button>
+						<Button>
+							<Link to={`/${username}/edit/${id}`}>수정하기</Link>
+						</Button>
 						<Button onClick={deleteItemHandler}>삭제</Button>
 					</>
 				)}

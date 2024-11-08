@@ -38,11 +38,16 @@ const Button = styled.button`
 	}
 `;
 
-export default function TopButtons() {
+// eslint-disable-next-line react/prop-types
+export default function TopButtons({ name }) {
 	return (
 		<ButtonSection>
-			<Button className="active">1. 기본정보 수정 / 이미지 업로드</Button>
-			<Button>2. 이미지 이름 수정 / 삭제</Button>
+			<Button className={name === 'make' && 'active'}>
+				1. 기본정보 및 이미지 링크 입력
+			</Button>
+			<Button className={name === 'edit' && 'active'}>
+				2. 기본정보 및 이미지 링크 수정
+			</Button>
 		</ButtonSection>
 	);
 }

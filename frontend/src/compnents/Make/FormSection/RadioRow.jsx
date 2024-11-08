@@ -27,33 +27,27 @@ const RadioContainer = styled.div`
 	margin: 0.5rem 0;
 `;
 
-const RADIO_CONT = [
-	{
-		id: 'r1',
-		value: 'personal',
-		text: '비공개 (다른 사용자는 접근할 수 없습니다.)',
-	},
-	{
-		id: 'r2',
-		value: 'public',
-		text: '전체 공개 (모든 사용자가 플레이 할 수 있습니다.)',
-	},
-	{
-		id: 'r3',
-		value: 'friends',
-		text: '친구 공개 (비밀번호를 입력 후 플레이 할 수 있습니다.)',
-	},
-];
-
 // eslint-disable-next-line react/prop-types
 export default function RadioRow({ label }) {
 	return (
 		<Row>
 			<Label>{label}</Label>
 			<RadioContainer>
-				{RADIO_CONT.map(({ id, value, text }) => (
-					<RadioOption key={id} value={value} text={text} />
-				))}
+				<RadioOption
+					id="r1"
+					value="personal"
+					text="비공개 (다른 사용자는 접근할 수 없습니다.)"
+				/>
+				<RadioOption
+					id="r2"
+					value="public"
+					text="전체 공개 (모든 사용자가 플레이 할 수 있습니다.)"
+				/>
+				<RadioOption
+					id="r3"
+					value="friends"
+					text="친구 공개 (비밀번호를 입력 후 플레이 할 수 있습니다.)"
+				/>
 			</RadioContainer>
 		</Row>
 	);

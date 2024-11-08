@@ -1,3 +1,4 @@
+import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 
 const Row = styled.div`
@@ -36,12 +37,29 @@ const Description = styled.span`
 	color: #808080;
 `;
 
-// eslint-disable-next-line react/prop-types
-export default function InputRow({ name, label, description }) {
+/* eslint-disable react/prop-types */
+const MemoizedInput = React.memo(({ name, onChange, value }) => (
+	<Input type="text" name={name} onChange={onChange} value={value} required />
+));
+
+MemoizedInput.displayName = 'MemoizedInput';
+
+export default function InputRow({
+	name,
+	label,
+	description,
+	initialValue = '',
+}) {
+	const [value, setValue] = useState(initialValue);
+
+	const handleChange = useCallback((e) => {
+		setValue(e.target.value);
+	}, []);
+
 	return (
 		<Row>
 			<Label>{label}</Label>
-			<Input type="text" name={name} required></Input>
+			<MemoizedInput name={name} onChange={handleChange} value={value} />
 			<Description>{description}</Description>
 		</Row>
 	);

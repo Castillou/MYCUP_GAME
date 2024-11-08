@@ -23,3 +23,5 @@
 ## ISSUES
 
 - [x] 회원 가입 후 자동 로그인 될 시 username에 undefined가 할당되는 오류
+- [x] input 요소의 value는 onChange 이벤트에 할당 -> 수정하기 시 이전 데이터가 입력되도록
+- [ ] 수정하기 시 이전 라디오 옵션에 체크 되어 있지 않음

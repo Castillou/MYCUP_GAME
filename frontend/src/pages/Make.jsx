@@ -10,8 +10,8 @@ const Wrapper = styled.section`
 export default function MaKePage() {
 	return (
 		<Wrapper>
-			<TopButtons />
-			<UploadForm />
+			<TopButtons name="make" />
+			<UploadForm method="post" />
 		</Wrapper>
 	);
 }

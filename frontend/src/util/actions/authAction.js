@@ -33,7 +33,7 @@ export async function authAction({ request }) {
 
 	const resData = await response.json();
 	const token = resData.token;
-	const username = resData.user.username;
+	const username = mode === 'login' ? resData.username : resData.user.username;
 
 	localStorage.setItem('token', token);
 	localStorage.setItem('username', username);

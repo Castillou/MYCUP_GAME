@@ -7,6 +7,7 @@ import GamePage from '../pages/Game';
 import ErrorPage from '../pages/Error';
 import LoginPage from '../pages/Login';
 import MakePage from '../pages/Make';
+import EditPage from '../pages/Edit';
 import ProfilePage from '../pages/Profile';
 import { tokenLoader, checkAuthLoader } from './auth';
 import { action as logoutAction } from '../pages/Logout';
@@ -58,6 +59,11 @@ const router = createBrowserRouter([
 						path: 'make',
 						element: <MakePage />,
 						action: uploadAction,
+					},
+					{
+						path: 'edit/:gameId',
+						element: <EditPage />,
+						loader: eventsLoader,
 					},
 					{
 						path: 'profile',
