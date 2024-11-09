@@ -95,7 +95,7 @@ export default function ListItem({ id, img, title, description, radio, name }) {
 	const username = localStorage.getItem('username');
 
 	const deleteItemHandler = () => {
-		const doubleCheck = window.confirm('Are you sure?');
+		const doubleCheck = window.confirm('정말 삭제하시겠습니까?');
 
 		if (doubleCheck) {
 			submit({ id }, { method: 'delete' });

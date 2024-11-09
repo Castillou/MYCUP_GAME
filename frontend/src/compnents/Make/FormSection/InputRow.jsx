@@ -38,8 +38,8 @@ const Description = styled.span`
 `;
 
 /* eslint-disable react/prop-types */
-const MemoizedInput = React.memo(({ name, onChange, value }) => (
-	<Input type="text" name={name} onChange={onChange} value={value} required />
+const MemoizedInput = React.memo((props) => (
+	<Input type="text" {...props} required />
 ));
 
 MemoizedInput.displayName = 'MemoizedInput';

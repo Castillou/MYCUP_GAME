@@ -39,12 +39,13 @@ const SubmitRow = styled.div`
 `;
 
 /* eslint-disable react/prop-types */
-export default function UploadForm({ method, id, events }) {
+export default function EditForm({ method, id, events }) {
 	const item = events.filter((item) => item.id === id)[0];
 
 	return (
 		<Form method={method} className={classes.upload_form}>
 			<Title>이상형 월드컵 기본정보</Title>
+			<input type="hidden" name="id" value={id} />
 			<InputRow
 				id="r1"
 				name="title"
@@ -59,10 +60,10 @@ export default function UploadForm({ method, id, events }) {
 				description="설명, 하고싶은 말 등을 자유롭게 쓰세요."
 				initialValue={item.description}
 			/>
-			<RadioRow label="3) 공개여부" />
+			<RadioRow label="3) 공개여부" initialValue={item.radio} />
 			<ImageUpload initialValue={item.images} />
 			<SubmitRow className="submit-row">
-				<button type="submit">저장하기</button>
+				<button type="submit">수정하기</button>
 			</SubmitRow>
 		</Form>
 	);

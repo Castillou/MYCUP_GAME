@@ -15,6 +15,7 @@ import { action as logoutAction } from '../pages/Logout';
 import authAction from './actions/authAction';
 import { action as uploadAction } from './actions/NewUploadAction';
 import { action as deleteAction } from './actions/deleteAction';
+import { action as editAction } from './actions/editAction';
 import { loader as eventsLoader } from './loader/eventsLoader';
 
 const router = createBrowserRouter([
@@ -65,6 +66,7 @@ const router = createBrowserRouter([
 					{
 						path: 'edit/:gameId',
 						element: <EditPage />,
+						action: editAction,
 					},
 					{
 						path: 'profile',

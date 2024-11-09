@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import RadioOption from './RadioOption';
+import { useCallback, useState } from 'react';
 
 const Row = styled.div`
 	padding: 2rem 3rem;
@@ -28,7 +29,13 @@ const RadioContainer = styled.div`
 `;
 
 // eslint-disable-next-line react/prop-types
-export default function RadioRow({ label }) {
+export default function RadioRow({ label, initialValue = '' }) {
+	const [selectedOption, setSelectedOption] = useState(initialValue);
+
+	const handleChange = useCallback((e) => {
+		setSelectedOption(e.target.value);
+	}, []);
+
 	return (
 		<Row>
 			<Label>{label}</Label>
@@ -37,16 +44,22 @@ export default function RadioRow({ label }) {
 					id="r1"
 					value="personal"
 					text="비공개 (다른 사용자는 접근할 수 없습니다.)"
+					checked={selectedOption === 'personal'}
+					onChange={handleChange}
 				/>
 				<RadioOption
 					id="r2"
 					value="public"
 					text="전체 공개 (모든 사용자가 플레이 할 수 있습니다.)"
+					checked={selectedOption === 'public'}
+					onChange={handleChange}
 				/>
 				<RadioOption
 					id="r3"
 					value="friends"
 					text="친구 공개 (비밀번호를 입력 후 플레이 할 수 있습니다.)"
+					checked={selectedOption === 'friends'}
+					onChange={handleChange}
 				/>
 			</RadioContainer>
 		</Row>

@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 const RadioLabel = styled.label`
@@ -71,12 +72,23 @@ const RadioInput = styled.input.attrs({ type: 'radio' })`
 	}
 `;
 
-// eslint-disable-next-line react/prop-types
-export default function RadioOption({ value, text }) {
+/* eslint-disable react/prop-types */
+export default React.memo(function RadioOption({
+	value,
+	text,
+	checked,
+	onChange,
+}) {
 	return (
 		<RadioLabel>
-			<RadioInput name="group" value={value} required />
+			<RadioInput
+				name="group"
+				value={value}
+				checked={checked}
+				onChange={onChange}
+				required
+			/>
 			<p>{text}</p>
 		</RadioLabel>
 	);
-}
+});
