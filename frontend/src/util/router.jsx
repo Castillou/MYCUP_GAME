@@ -9,7 +9,8 @@ import LoginPage from '../pages/Login';
 import MakePage from '../pages/Make';
 import EditPage from '../pages/Edit';
 import ProfilePage from '../pages/Profile';
-import { tokenLoader, checkAuthLoader } from './auth';
+import { tokenLoader } from './loader/tokenLoader';
+import { checkAuthLoader } from './loader/checkAuthLoader';
 import { action as logoutAction } from '../pages/Logout';
 import authAction from './actions/authAction';
 import { action as uploadAction } from './actions/NewUploadAction';
@@ -52,6 +53,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: ':username',
+				id: 'user-root',
 				element: <SubRootLayout />,
 				loader: checkAuthLoader,
 				children: [
@@ -63,12 +65,10 @@ const router = createBrowserRouter([
 					{
 						path: 'edit/:gameId',
 						element: <EditPage />,
-						loader: eventsLoader,
 					},
 					{
 						path: 'profile',
 						element: <ProfilePage />,
-						loader: eventsLoader,
 						action: deleteAction,
 					},
 				],

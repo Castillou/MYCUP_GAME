@@ -7,7 +7,7 @@ import LoadingSpinner from '../compnents/Interface/LoadingSpinner';
 
 const Wrapper = styled.section`
 	width: 100%;
-	padding: 8rem 5rem 0;
+	padding: 0 5rem;
 `;
 
 export default function GamePage() {

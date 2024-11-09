@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 `;
 const Header = styled.header`
 	width: 100%;
-	position: fixed;
+	position: sticky;
 	top: 0;
 
 	z-index: 100;

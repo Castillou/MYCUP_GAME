@@ -9,7 +9,7 @@ const Container = styled.div`
 	align-items: center;
 
 	width: 100%;
-	padding-top: 28rem;
+	padding-top: 20rem;
 
 	background: url(${bg});
 	background-size: 100%;

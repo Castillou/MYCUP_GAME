@@ -7,8 +7,7 @@ const Container = styled.div`
 	align-items: center;
 	justify-content: center;
 	width: 100%;
-	height: 98rem;
-	padding-top: 8rem;
+	height: 90rem;
 `;
 
 function LoginPage() {

@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { Await, useLoaderData } from 'react-router-dom';
+import { Await, useRouteLoaderData } from 'react-router-dom';
 import styled from 'styled-components';
 import OwnList from './OwnList';
 import LoadingSpinner from '../Interface/LoadingSpinner';
@@ -37,7 +37,7 @@ const ToggleList = styled.ul`
 `;
 
 export default function Bottom() {
-	const { events } = useLoaderData();
+	const { events } = useRouteLoaderData('user-root');
 
 	return (
 		<Wrapper>
