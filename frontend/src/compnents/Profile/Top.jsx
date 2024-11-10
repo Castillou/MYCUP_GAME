@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import userImage from '../../assets/user.svg';
 
 const Wrapper = styled.section`
 	width: 100%;
@@ -51,9 +52,13 @@ const ImageBox = styled.article`
 
 	div {
 		width: 100%;
-		height: 26rem;
 		border-radius: 4rem;
 		background-color: #eee;
+
+		img {
+			width: 100%;
+			height: 26rem;
+		}
 	}
 `;
 
@@ -64,7 +69,9 @@ export default function Top() {
 		<Wrapper>
 			<Inner>
 				<ImageBox>
-					<div></div>
+					<div>
+						<img src={userImage} alt="프로필 이미지" />
+					</div>
 				</ImageBox>
 				<h2>{username}</h2>
 				<p>

@@ -32,7 +32,6 @@ export default function ListContainer({ events }) {
 			}
 		});
 	}
-	console.log(events);
 
 	return (
 		<ListSection>
