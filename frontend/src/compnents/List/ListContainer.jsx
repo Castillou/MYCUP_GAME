@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import ListItem from './ListItem';
-import { useToken } from '../../apis/tokenContext';
+import { useToken } from '../../apis/appContext';
 
 const ListSection = styled.section`
 	width: 100%;
@@ -23,14 +23,16 @@ export default function ListContainer({ events }) {
 		events = events.filter((item) => item.radio === 'public');
 	} else {
 		events = events.filter((item) => {
-			if (item.radio === 'public' || item.radio === 'friends') {
-				return item;
-			}
-			if (item.username === username) {
+			if (
+				item.username === username ||
+				item.radio === 'public' ||
+				item.radio === 'friends'
+			) {
 				return item;
 			}
 		});
 	}
+	console.log(events);
 
 	return (
 		<ListSection>

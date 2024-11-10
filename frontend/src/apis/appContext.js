@@ -1,10 +1,10 @@
 import { createContext, useContext } from 'react';
 
-const AppContext = createContext(null);
+const AppContext = createContext();
 
 export const useToken = () => {
-	const context = useContext(AppContext);
-	return context.token;
+	const { token } = useContext(AppContext);
+	return token;
 };
 
 export const useEvents = () => {

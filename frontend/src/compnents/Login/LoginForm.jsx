@@ -109,7 +109,7 @@ export default function LoginForm() {
 					required
 				/>
 				<Button disabled={isSubmitting}>
-					{isSubmitting ? '생성중...' : buttonText}
+					{isSubmitting ? '로딩중...' : buttonText}
 				</Button>
 				<ToggleTxt>
 					{isLogin ? '아직 회원이 아니신가요?' : '이미 계정이 있으신가요?'}

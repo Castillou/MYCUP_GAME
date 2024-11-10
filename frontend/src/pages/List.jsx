@@ -3,7 +3,7 @@ import { useRouteLoaderData, Await } from 'react-router-dom';
 import styled from 'styled-components';
 import ListButtons from '../compnents/List/ListButtons';
 import ListContainer from '../compnents/List/ListContainer';
-import TokenContext from '../apis/tokenContext';
+import AppContext from '../apis/appContext';
 
 import LoadingSpinner from '../compnents/Interface/LoadingSpinner';
 
@@ -17,7 +17,7 @@ export default function ListPage() {
 	const { events } = useRouteLoaderData('list-root');
 
 	return (
-		<TokenContext.Provider value={token}>
+		<AppContext.Provider value={{ token }}>
 			<Wrapper>
 				<ListButtons />
 				<Suspense fallback={<LoadingSpinner />}>
@@ -26,6 +26,6 @@ export default function ListPage() {
 					</Await>
 				</Suspense>
 			</Wrapper>
-		</TokenContext.Provider>
+		</AppContext.Provider>
 	);
 }

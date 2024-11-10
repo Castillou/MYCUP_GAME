@@ -10,7 +10,6 @@ const Nav = styled.nav`
 	width: 100%;
 	color: white;
 	position: relative;
-	backdrop-filter: blur(50px);
 
 	&::after {
 		content: '';

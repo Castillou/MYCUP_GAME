@@ -1,1 +1,168 @@
-{"users":[{"username":"Sungwoo Chon","email":"test@example.com","password":"$2a$12$6JBf96nDNb.kz6UyuTXdFOyVf2Zd5J5ujv9Yjn.ObWcYj6oZr/rAO","id":"b25c4106-5818-4971-92a9-8a6c196e7508"},{"username":"sean","email":"test@test.com","password":"$2a$12$C3FBlX9Ht/sK.pL8summP.gilTTcC4gmCcD8ayyTcp3sE7.80gf36","id":"17683382-6ef0-4d0f-8886-8fbbd90dea0e"},{"username":"전성우","email":"castillou17@gmail.com","password":"$2a$12$CnM6x6xq4L0c3M3ouuRJCu8Tw1OrmwYBHK1oblbwUB6VU4kzurj2O","id":"058c90a8-f5e0-488e-9b7c-afe967e4efb0"}],"events":[{"title":"감성 월드컵","description":"최고의 감성을 선정해보세요.","date":"2024-11-09T02:49:54.089Z","radio":"personal","images":["https://images.unsplash.com/photo-1730882884953-378e5349a0a8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw5fHx8ZW58MHx8fHx8","https://images.unsplash.com/photo-1730637355825-3ec4372eb044?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyMHx8fGVufDB8fHx8fA%3D%3D"],"username":"전성우","id":"733361f7-b1c8-4854-8587-62a857bc4ca8"},{"title":"과목 월드컵","description":"최고의 과목을 선정해보세요!","date":"2024-11-08T06:11:51.713Z","radio":"personal","images":["https://images.unsplash.com/photo-1490332695540-5acc256ec383?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fGJvb2t8ZW58MHx8MHx8fDA%3D","https://images.unsplash.com/photo-1456315138460-858d1089ddba?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTB8fGJvb2t8ZW58MHx8MHx8fDA%3D"],"username":"sean","id":"e955bad4-fc12-4e8d-bb90-0528ff129d69"},{"title":"자연 사진 월드컵","description":"최고의 자연 사진을 선정해보세요!","date":"2024-11-09T11:00:35.666Z","radio":"friends","images":["https://images.unsplash.com/photo-1730918404452-af022c11f4a4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDEzfDZzTVZqVExTa2VRfHxlbnwwfHx8fHw%3D","https://images.unsplash.com/photo-1721297013317-e4976cc284d9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDUyfDZzTVZqVExTa2VRfHxlbnwwfHx8fHw%3D"],"username":"sean","id":"64b8d74d-c497-4418-abeb-22846f956599"},{"title":"배경화면 월드컵","description":"최고의 배경화면을 뽑아보세요!","date":"2024-11-09T11:12:33.346Z","radio":"friends","images":["https://images.unsplash.com/photo-1500534623283-312aade485b7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDJ8Ym84alFLVGFFMFl8fGVufDB8fHx8fA%3D%3D","https://images.unsplash.com/photo-1729779781938-6bee0fd2a306?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDE1fGJvOGpRS1RhRTBZfHxlbnwwfHx8fHw%3D"],"username":"sean","id":"c743156c-6179-4cf1-a401-40510a6aa521"},{"title":"그림 월드컵","description":"최고의 그림을 선정해보세요.","date":"2024-11-09T11:13:52.683Z","radio":"public","images":["https://images.unsplash.com/photo-1695840359341-64e0788ddfa0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDV8RS0tX3BuSWlyRzR8fGVufDB8fHx8fA%3D%3D","https://images.unsplash.com/photo-1699569268975-aa4feca5a222?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDE5fEUtLV9wbklpckc0fHxlbnwwfHx8fHw%3D"],"username":"Sungwoo Chon","id":"0f9c4369-7105-4caf-9fae-d997bb4c4027"},{"title":"주택 월드컵","description":"이상적인 주택을 선정해보세요!","date":"2024-11-07T10:48:09.734Z","radio":"personal","images":["https://images.unsplash.com/photo-1487975460695-a2e5c4ea12c9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fCVFQyVBNyU5MXxlbnwwfHwwfHx8MA%3D%3D","https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fCVFQyVBNyU5MXxlbnwwfHwwfHx8MA%3D%3D"],"username":"Sungwoo Chon","id":"ed6af4e6-3dca-46c4-beeb-5059f926d933"},{"title":"놀이기구 월드컵","description":"최고의 놀이기구를 선정해보세요.","date":"2024-11-09T11:00:57.831Z","radio":"personal","images":["https://images.unsplash.com/photo-1483021705941-11ce6a531662?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8JUVCJTg2JTgwJUVDJTlEJUI0JTIwJUVBJUI4JUIwJUVBJUI1JUFDfGVufDB8fDB8fHww","https://images.unsplash.com/photo-1465996140498-df84be101126?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8JUVCJUExJUE0JUVCJTlGJUFDJUVDJUJEJTk0JUVDJThBJUE0JUVEJTg0JUIwfGVufDB8fDB8fHww"],"username":"sean","id":"9c858758-44cb-4f8a-a0d6-edad89d96ddd"},{"title":"악기 월드컵","description":"최고의 악기를 선정해보세요","date":"2024-11-01T04:11:25.654Z","radio":"personal","images":["https://images.unsplash.com/photo-1541690212779-7a48c04096cb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D","https://images.unsplash.com/photo-1576269077433-e6814f9c4ec0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],"username":"sean","id":"cca951f9-69de-41d7-8cab-457b48149e51"},{"title":"동물 월드컵","description":"최고의 동물을 선정해보세요.","date":"2024-11-09T11:01:15.525Z","radio":"public","images":["https://images.unsplash.com/photo-1455970022149-a8f26b6902dd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDR8fCVFQiU4RiU5OSVFQiVBQyVCQ3xlbnwwfHwwfHx8MA%3D%3D","https://images.unsplash.com/photo-1547407139-3c921a66005c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODB8fCVFQiU4RiU5OSVFQiVBQyVCQ3xlbnwwfHwwfHx8MA%3D%3D"],"username":"sean","id":"8d655242-6bc7-4aeb-b348-c8a81b9a32cc"},{"title":"필름사진 월드컵","description":"최고의 필름사진을 선정해보세요.","date":"2024-10-31T09:06:29.760Z","radio":"public","images":["https://images.unsplash.com/photo-1730215158316-b30b56bcb675?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDV8aG1lbnZRaFVteE18fGVufDB8fHx8fA%3D%3D","https://images.unsplash.com/photo-1729701164066-6336e319865b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDYwfGhtZW52UWhVbXhNfHxlbnwwfHx8fHw%3D"],"username":"Sungwoo Chon","id":"9450c66b-e82a-46ea-a4b2-f5a9d5491d01"},{"title":"스포츠 월드컵","description":"최고의 스포츠를 선정해보세요.","date":"2024-10-31T08:12:58.100Z","radio":"friends","images":["https://images.unsplash.com/photo-1730165928573-49de5c410a3a?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D","https://images.unsplash.com/photo-1728327511538-e9624254ed84?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDY3fEJuLURqcmNCcndvfHxlbnwwfHx8fHw%3D"],"username":"Sungwoo Chon","id":"17fd57ae-802a-4671-9a2e-547b3d6b70b2"},{"title":"여행지 월드컵","description":"최고의 여행지를 선정해보세요.","date":"2024-10-31T08:08:45.243Z","radio":"public","images":["https://images.unsplash.com/photo-1699727813770-2435c9c7c4f5?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D","https://images.unsplash.com/photo-1730136806459-b6db89c1c0de?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],"username":"Sungwoo Chon","id":"da5a2942-5207-4522-8947-33fd5a8c9a68"}]}
+{
+	"users": [
+		{
+			"username": "Sungwoo Chon",
+			"email": "test@example.com",
+			"password": "$2a$12$6JBf96nDNb.kz6UyuTXdFOyVf2Zd5J5ujv9Yjn.ObWcYj6oZr/rAO",
+			"id": "b25c4106-5818-4971-92a9-8a6c196e7508"
+		},
+		{
+			"username": "sean",
+			"email": "test@test.com",
+			"password": "$2a$12$C3FBlX9Ht/sK.pL8summP.gilTTcC4gmCcD8ayyTcp3sE7.80gf36",
+			"id": "17683382-6ef0-4d0f-8886-8fbbd90dea0e"
+		},
+		{
+			"username": "전성우",
+			"email": "castillou17@gmail.com",
+			"password": "$2a$12$CnM6x6xq4L0c3M3ouuRJCu8Tw1OrmwYBHK1oblbwUB6VU4kzurj2O",
+			"id": "058c90a8-f5e0-488e-9b7c-afe967e4efb0"
+		}
+	],
+	"events": [
+		{
+			"title": "감성 월드컵",
+			"description": "최고의 감성을 선정해보세요.",
+			"date": "2024-11-09T02:49:54.089Z",
+			"radio": "personal",
+			"images": [
+				"https://images.unsplash.com/photo-1730882884953-378e5349a0a8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw5fHx8ZW58MHx8fHx8",
+				"https://images.unsplash.com/photo-1730637355825-3ec4372eb044?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyMHx8fGVufDB8fHx8fA%3D%3D"
+			],
+			"username": "전성우",
+			"id": "733361f7-b1c8-4854-8587-62a857bc4ca8"
+		},
+		{
+			"title": "과목 월드컵",
+			"description": "최고의 과목을 선정해보세요!",
+			"date": "2024-11-08T06:11:51.713Z",
+			"radio": "personal",
+			"images": [
+				"https://images.unsplash.com/photo-1490332695540-5acc256ec383?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fGJvb2t8ZW58MHx8MHx8fDA%3D",
+				"https://images.unsplash.com/photo-1456315138460-858d1089ddba?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTB8fGJvb2t8ZW58MHx8MHx8fDA%3D"
+			],
+			"username": "sean",
+			"id": "e955bad4-fc12-4e8d-bb90-0528ff129d69"
+		},
+		{
+			"title": "자연 사진 월드컵",
+			"description": "최고의 자연 사진을 선정해보세요!",
+			"date": "2024-11-09T11:00:35.666Z",
+			"radio": "friends",
+			"images": [
+				"https://images.unsplash.com/photo-1730918404452-af022c11f4a4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDEzfDZzTVZqVExTa2VRfHxlbnwwfHx8fHw%3D",
+				"https://images.unsplash.com/photo-1721297013317-e4976cc284d9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDUyfDZzTVZqVExTa2VRfHxlbnwwfHx8fHw%3D"
+			],
+			"username": "sean",
+			"id": "64b8d74d-c497-4418-abeb-22846f956599"
+		},
+		{
+			"title": "배경화면 월드컵",
+			"description": "최고의 배경화면을 뽑아보세요!",
+			"date": "2024-11-09T11:12:33.346Z",
+			"radio": "friends",
+			"images": [
+				"https://images.unsplash.com/photo-1500534623283-312aade485b7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDJ8Ym84alFLVGFFMFl8fGVufDB8fHx8fA%3D%3D",
+				"https://images.unsplash.com/photo-1729779781938-6bee0fd2a306?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDE1fGJvOGpRS1RhRTBZfHxlbnwwfHx8fHw%3D"
+			],
+			"username": "sean",
+			"id": "c743156c-6179-4cf1-a401-40510a6aa521"
+		},
+		{
+			"title": "그림 월드컵",
+			"description": "최고의 그림을 선정해보세요.",
+			"date": "2024-11-09T11:13:52.683Z",
+			"radio": "public",
+			"images": [
+				"https://images.unsplash.com/photo-1695840359341-64e0788ddfa0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDV8RS0tX3BuSWlyRzR8fGVufDB8fHx8fA%3D%3D",
+				"https://images.unsplash.com/photo-1699569268975-aa4feca5a222?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDE5fEUtLV9wbklpckc0fHxlbnwwfHx8fHw%3D"
+			],
+			"username": "Sungwoo Chon",
+			"id": "0f9c4369-7105-4caf-9fae-d997bb4c4027"
+		},
+		{
+			"title": "주택 월드컵",
+			"description": "이상적인 주택을 선정해보세요!",
+			"date": "2024-11-07T10:48:09.734Z",
+			"radio": "personal",
+			"images": [
+				"https://images.unsplash.com/photo-1487975460695-a2e5c4ea12c9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fCVFQyVBNyU5MXxlbnwwfHwwfHx8MA%3D%3D",
+				"https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fCVFQyVBNyU5MXxlbnwwfHwwfHx8MA%3D%3D"
+			],
+			"username": "Sungwoo Chon",
+			"id": "ed6af4e6-3dca-46c4-beeb-5059f926d933"
+		},
+		{
+			"title": "놀이기구 월드컵",
+			"description": "최고의 놀이기구를 선정해보세요.",
+			"date": "2024-11-09T11:00:57.831Z",
+			"radio": "personal",
+			"images": [
+				"https://images.unsplash.com/photo-1483021705941-11ce6a531662?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8JUVCJTg2JTgwJUVDJTlEJUI0JTIwJUVBJUI4JUIwJUVBJUI1JUFDfGVufDB8fDB8fHww",
+				"https://images.unsplash.com/photo-1465996140498-df84be101126?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8JUVCJUExJUE0JUVCJTlGJUFDJUVDJUJEJTk0JUVDJThBJUE0JUVEJTg0JUIwfGVufDB8fDB8fHww"
+			],
+			"username": "sean",
+			"id": "9c858758-44cb-4f8a-a0d6-edad89d96ddd"
+		},
+		{
+			"title": "악기 월드컵",
+			"description": "최고의 악기를 선정해보세요",
+			"date": "2024-11-01T04:11:25.654Z",
+			"radio": "personal",
+			"images": [
+				"https://images.unsplash.com/photo-1541690212779-7a48c04096cb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+				"https://images.unsplash.com/photo-1576269077433-e6814f9c4ec0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+			],
+			"username": "sean",
+			"id": "cca951f9-69de-41d7-8cab-457b48149e51"
+		},
+		{
+			"title": "동물 월드컵",
+			"description": "최고의 동물을 선정해보세요.",
+			"date": "2024-11-10T07:28:04.701Z",
+			"radio": "friends",
+			"images": [
+				"https://images.unsplash.com/photo-1455970022149-a8f26b6902dd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDR8fCVFQiU4RiU5OSVFQiVBQyVCQ3xlbnwwfHwwfHx8MA%3D%3D",
+				"https://images.unsplash.com/photo-1547407139-3c921a66005c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODB8fCVFQiU4RiU5OSVFQiVBQyVCQ3xlbnwwfHwwfHx8MA%3D%3D"
+			],
+			"username": "sean",
+			"id": "8d655242-6bc7-4aeb-b348-c8a81b9a32cc"
+		},
+		{
+			"title": "필름사진 월드컵",
+			"description": "최고의 필름사진을 선정해보세요.",
+			"date": "2024-10-31T09:06:29.760Z",
+			"radio": "public",
+			"images": [
+				"https://images.unsplash.com/photo-1730215158316-b30b56bcb675?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDV8aG1lbnZRaFVteE18fGVufDB8fHx8fA%3D%3D",
+				"https://images.unsplash.com/photo-1729701164066-6336e319865b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDYwfGhtZW52UWhVbXhNfHxlbnwwfHx8fHw%3D"
+			],
+			"username": "Sungwoo Chon",
+			"id": "9450c66b-e82a-46ea-a4b2-f5a9d5491d01"
+		},
+		{
+			"title": "스포츠 월드컵",
+			"description": "최고의 스포츠를 선정해보세요.",
+			"date": "2024-10-31T08:12:58.100Z",
+			"radio": "friends",
+			"images": [
+				"https://images.unsplash.com/photo-1730165928573-49de5c410a3a?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+				"https://images.unsplash.com/photo-1728327511538-e9624254ed84?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDY3fEJuLURqcmNCcndvfHxlbnwwfHx8fHw%3D"
+			],
+			"username": "Sungwoo Chon",
+			"id": "17fd57ae-802a-4671-9a2e-547b3d6b70b2"
+		},
+		{
+			"title": "여행지 월드컵",
+			"description": "최고의 여행지를 선정해보세요.",
+			"date": "2024-10-31T08:08:45.243Z",
+			"radio": "public",
+			"images": [
+				"https://images.unsplash.com/photo-1699727813770-2435c9c7c4f5?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+				"https://images.unsplash.com/photo-1730136806459-b6db89c1c0de?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+			],
+			"username": "Sungwoo Chon",
+			"id": "da5a2942-5207-4522-8947-33fd5a8c9a68"
+		}
+	]
+}
