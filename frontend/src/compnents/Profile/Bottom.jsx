@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import MyGames from './MyGames';
 import Personal from './Personal';
 import Friends from './Friends';
+import TabButton from './TabButton';
 import LoadingSpinner from '../Interface/LoadingSpinner';
 
 const Wrapper = styled.section`
@@ -16,7 +17,7 @@ const Wrapper = styled.section`
 
 const ToggleList = styled.ul`
 	display: flex;
-	gap: 2rem;
+	gap: 4rem;
 	border-bottom: 1px solid #e1e1e1;
 
 	li {
@@ -45,39 +46,33 @@ const ToggleList = styled.ul`
 	}
 `;
 
+const tabs = [
+	{ id: 'myGames_tab', label: 'MyGames' },
+	{ id: 'personal_tab', label: 'Personal' },
+	{ id: 'friends_tab', label: 'Friends' },
+];
+
 export default function Bottom() {
 	const { events } = useRouteLoaderData('user-root');
 	const [clickedTab, setClickedTab] = useState('myGames_tab');
 
 	const handleToggle = (e) => {
-		console.log(e.currentTarget);
 		setClickedTab(e.currentTarget.id);
 	};
 
 	return (
 		<Wrapper>
 			<ToggleList>
-				<li
-					id="myGames_tab"
-					className={clickedTab === 'myGames_tab' ? 'active' : ''}
-					onClick={handleToggle}
-				>
-					<span>MyGames</span>
-				</li>
-				<li
-					id="personal_tab"
-					className={clickedTab === 'personal_tab' ? 'active' : ''}
-					onClick={handleToggle}
-				>
-					<span>Personal</span>
-				</li>
-				<li
-					id="friends_tab"
-					className={clickedTab === 'friends_tab' ? 'active' : ''}
-					onClick={handleToggle}
-				>
-					<span>Friends</span>
-				</li>
+				{tabs.map((tab) => (
+					<TabButton
+						key={tab.id}
+						id={tab.id}
+						clickedTab={clickedTab}
+						onClick={handleToggle}
+					>
+						{tab.label}
+					</TabButton>
+				))}
 			</ToggleList>
 			<Suspense fallback={<LoadingSpinner />}>
 				<Await resolve={events}>

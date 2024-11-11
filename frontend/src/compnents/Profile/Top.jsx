@@ -21,14 +21,14 @@ const Inner = styled.article`
 		margin-top: 6rem;
 
 		font-family: 'Audiowide', sans-serif;
-		font-weight: 600;
+		font-weight: bold;
 		font-size: 4rem;
 	}
 
 	p {
 		grid-row: 2/3;
 		grid-column: 4/7;
-		margin-top: 1.2rem;
+		margin-top: 1.5rem;
 
 		font-size: 2rem;
 		line-height: 1.3;
@@ -74,9 +74,7 @@ export default function Top() {
 					</div>
 				</ImageBox>
 				<h2>{username}</h2>
-				<p>
-					Web Publisher and FE Developer <br /> based in Seoul
-				</p>
+				<p>한줄로 자신을 표현해보세요.</p>
 			</Inner>
 		</Wrapper>
 	);
