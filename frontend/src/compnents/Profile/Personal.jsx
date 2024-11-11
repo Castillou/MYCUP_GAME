@@ -22,10 +22,12 @@ const ListBox = styled.ul`
 `;
 
 /* eslint-disable react/prop-types */
-export default function OwnList({ events }) {
+export default function Personal({ events }) {
 	const username = localStorage.getItem('username');
 
-	events = events.filter((item) => item.username === username);
+	events = events.filter(
+		(item) => item.username === username && item.radio === 'personal'
+	);
 
 	return (
 		<ListSection>
