@@ -1,4 +1,7 @@
+import { useState } from 'react';
 import styled from 'styled-components';
+import eye from '../../../assets/eye.svg';
+import eyeS from '../../../assets/eye-slash.svg';
 
 const PsdInputContainer = styled.div`
 	width: 100%;
@@ -6,6 +9,8 @@ const PsdInputContainer = styled.div`
 
 	display: flex;
 	gap: 0.5rem;
+
+	position: relative;
 
 	svg {
 		width: 2.5rem;
@@ -24,11 +29,36 @@ const PsdInputContainer = styled.div`
 
 		&:focus {
 			outline: 1.5px solid #2e93ff;
+
+			+ span {
+				display: block;
+			}
 		}
+	}
+
+	span {
+		display: none;
+
+		position: absolute;
+		bottom: 0.75rem;
+		left: 46rem;
+		width: 2.5rem;
+		height: 2.5rem;
 	}
 `;
 
 export default function PasswordInput() {
+	const [showPassword, setShowPassword] = useState('password');
+	const [icon, setIcon] = useState(eye);
+
+	const handleMouseOver = () => {
+		setIcon(eyeS);
+		setShowPassword('text');
+	};
+	const handleMouseOut = () => {
+		setIcon(eye);
+		setShowPassword('password');
+	};
 	return (
 		<PsdInputContainer>
 			<svg
@@ -47,11 +77,14 @@ export default function PasswordInput() {
 			</svg>
 
 			<input
-				type="password"
+				type={showPassword}
 				name="password"
 				placeholder="비밀번호를 입력하세요."
 				required
 			/>
+			<span onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+				<img src={icon} alt="눈 아이콘" />
+			</span>
 		</PsdInputContainer>
 	);
 }
