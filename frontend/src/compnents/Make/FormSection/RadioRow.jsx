@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import RadioOption from './RadioOption';
-import PsdInput from './PsdInput';
+import PasswordInput from './PasswordInput';
 import { useCallback, useState } from 'react';
 
 const Row = styled.div`
@@ -62,7 +62,7 @@ export default function RadioRow({ label, initialValue = '' }) {
 					checked={selectedOption === 'friends'}
 					onChange={handleChange}
 				/>
-				{selectedOption === 'friends' && <PsdInput />}
+				{selectedOption === 'friends' && <PasswordInput />}
 			</RadioContainer>
 		</Row>
 	);

@@ -1,4 +1,4 @@
-import { Link, useSubmit } from 'react-router-dom';
+import { Link, useNavigate, useSubmit } from 'react-router-dom';
 import styled from 'styled-components';
 
 const ListItemContainer = styled.li`
@@ -90,8 +90,17 @@ const Button = styled.button`
 `;
 
 /* eslint-disable react/prop-types */
-export default function ListItem({ id, img, title, description, radio, name }) {
+export default function ListItem({
+	id,
+	img,
+	title,
+	description,
+	radio,
+	name,
+	password,
+}) {
 	const submit = useSubmit();
+	const navigate = useNavigate();
 	const username = localStorage.getItem('username');
 
 	const deleteItemHandler = () => {
@@ -99,6 +108,30 @@ export default function ListItem({ id, img, title, description, radio, name }) {
 
 		if (doubleCheck) {
 			submit({ id }, { method: 'delete' });
+		}
+	};
+
+	const handleCheckPassword = () => {
+		if (radio !== 'friends') {
+			navigate(`/list/${id}`);
+			return;
+		}
+
+		const passwordInput = window.prompt('비밀번호를 입력해주세요.');
+
+		if (passwordInput === null) {
+			return;
+		}
+		if (passwordInput === password) {
+			navigate(`/list/${id}`);
+			return;
+		}
+		if (passwordInput.trim() === '') {
+			window.alert('비밀번호를 입력해주세요.');
+			return;
+		}
+		if (passwordInput !== password) {
+			window.alert('비밀번호를 일치하지 않습니다.');
 		}
 	};
 
@@ -111,8 +144,8 @@ export default function ListItem({ id, img, title, description, radio, name }) {
 			<h2>{title}</h2>
 			<p>{description}</p>
 			<ButtonContainer>
-				<Button className="start_btn">
-					<Link to={`/list/${id}`}>시작하기</Link>
+				<Button className="start_btn" onClick={handleCheckPassword}>
+					시작하기
 				</Button>
 				{username === name && (
 					<>

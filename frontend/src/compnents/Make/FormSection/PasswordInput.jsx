@@ -28,7 +28,7 @@ const PsdInputContainer = styled.div`
 	}
 `;
 
-export default function PsdInput() {
+export default function PasswordInput() {
 	return (
 		<PsdInputContainer>
 			<svg

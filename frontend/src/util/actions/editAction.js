@@ -4,14 +4,17 @@ import { getAuthToken } from '../auth';
 export async function action({ request }) {
 	const data = await request.formData();
 	const id = data.get('id');
+	const radio = data.get('group');
+	const password = radio === 'friends' ? data.get('password') : null;
 
 	const eventData = {
 		title: data.get('title'),
 		description: data.get('description'),
 		date: new Date().toISOString(),
-		radio: data.get('group'),
+		radio,
 		images: data.getAll('image'),
 		username: localStorage.getItem('username'),
+		...(password ? { password } : {}),
 	};
 
 	const token = getAuthToken();
