@@ -8,7 +8,7 @@ const ListSection = styled.section`
 	> p {
 		margin-top: 10rem;
 		text-align: center;
-		font-size: 5rem;
+		font-size: 4rem;
 		color: #999;
 	}
 `;

@@ -71,7 +71,7 @@ const Button = styled.button`
 
 	overflow: hidden;
 
-	&.start_btn a {
+	&.start_btn {
 		display: block;
 		width: 100%;
 		padding: 0.8rem 0;
@@ -80,7 +80,7 @@ const Button = styled.button`
 		font-weight: 600;
 	}
 
-	&.start_btn a:hover {
+	&.start_btn:hover {
 		background-color: #ff7a7a;
 	}
 
