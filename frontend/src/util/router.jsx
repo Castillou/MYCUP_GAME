@@ -4,7 +4,7 @@ import HomePage from '../pages/Home';
 import SubRootLayout from '../pages/SubRoot';
 import ListPage from '../pages/List';
 import GamePage from '../pages/Game';
-import ErrorPage from '../pages/Error';
+import ErrorPage from '../UI/Error';
 import LoginPage from '../pages/Login';
 import MakePage from '../pages/Make';
 import EditPage from '../pages/Edit';
@@ -35,6 +35,7 @@ const router = createBrowserRouter([
 				element: <LoginPage />,
 				action: authAction,
 			},
+
 			{
 				path: 'list',
 				id: 'list-root',

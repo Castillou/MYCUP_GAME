@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 import OptionComp from './OptionComp';
@@ -16,7 +16,7 @@ const Title = styled.h2`
 
 	position: relative;
 
-	a {
+	button {
 		position: absolute;
 		top: 50%;
 		right: 2rem;
@@ -25,6 +25,7 @@ const Title = styled.h2`
 		font-weight: 500;
 		background-color: #dfdfdf;
 		color: #333;
+		border: none;
 		padding: 1rem 2rem;
 		border-radius: 4rem;
 	}
@@ -63,6 +64,7 @@ const Vstext = styled.span`
 
 /* eslint-disable react/prop-types */
 export default function OptionBox({ events }) {
+	const navigate = useNavigate();
 	const params = useParams().gameId;
 	const gameItem = events.filter((item) => item.id === params)[0];
 
@@ -76,7 +78,7 @@ export default function OptionBox({ events }) {
 		<>
 			<Title>
 				{`${gameItem.date.slice(0, 4)} ${gameItem.title}`}
-				<Link to="..">Back</Link>
+				<button onClick={() => navigate(-1)}>Back</button>
 			</Title>
 			<OptionList>
 				<OptionComp

@@ -33,8 +33,6 @@ const InputConatiner = styled.div`
 		border: 1px solid #ccc;
 		border-radius: 5rem;
 
-		position: relative;
-
 		&:focus {
 			outline: 1.5px solid #2e93ff;
 
@@ -96,15 +94,17 @@ export default function LoginForm() {
 	const [icon, setIcon] = useState(eye);
 
 	const [searchParams] = useSearchParams();
-	const isLogin = searchParams.get('mode') === 'login';
-	const isSignup = searchParams.get('mode') === 'signup';
+	const isLogin = searchParams.get('mode').includes('login');
+	const isSignup = searchParams.get('mode').includes('signup');
 	const isSubmitting = navigation.state === 'submitting';
+	console.log(searchParams.get('mode'));
 
 	let buttonText;
 
 	if (isLogin) {
 		buttonText = '로그인';
-	} else if (isSignup) {
+	}
+	if (isSignup) {
 		buttonText = '가입하기';
 	}
 

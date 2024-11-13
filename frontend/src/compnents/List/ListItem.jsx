@@ -1,5 +1,8 @@
+import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Link, useNavigate, useSubmit } from 'react-router-dom';
 import styled from 'styled-components';
+import PasswordModal from './PasswordModal';
 
 const ListItemContainer = styled.li`
 	width: 34rem;
@@ -102,6 +105,7 @@ export default function ListItem({
 	const submit = useSubmit();
 	const navigate = useNavigate();
 	const username = localStorage.getItem('username');
+	const [showModal, setShowModal] = useState(false);
 
 	const deleteItemHandler = () => {
 		const doubleCheck = window.confirm('정말 삭제하시겠습니까?');
@@ -111,32 +115,25 @@ export default function ListItem({
 		}
 	};
 
-	const handleCheckPassword = () => {
-		if (radio !== 'friends') {
+	const handleShowModal = () => {
+		if (radio === 'friends') {
+			setShowModal(true);
+		} else {
 			navigate(`/list/${id}`);
-			return;
-		}
-
-		const passwordInput = window.prompt('비밀번호를 입력해주세요.');
-
-		if (passwordInput === null) {
-			return;
-		}
-		if (passwordInput === password) {
-			navigate(`/list/${id}`);
-			return;
-		}
-		if (passwordInput.trim() === '') {
-			window.alert('비밀번호를 입력해주세요.');
-			return;
-		}
-		if (passwordInput !== password) {
-			window.alert('비밀번호를 일치하지 않습니다.');
 		}
 	};
 
 	return (
 		<ListItemContainer option={radio}>
+			{showModal &&
+				createPortal(
+					<PasswordModal
+						password={password}
+						id={id}
+						onClose={() => setShowModal(false)}
+					/>,
+					document.body
+				)}
 			<ImgBox>
 				<img src={img[0]} />
 				<img src={img[1]} />
@@ -144,7 +141,7 @@ export default function ListItem({
 			<h2>{title}</h2>
 			<p>{description}</p>
 			<ButtonContainer>
-				<Button className="start_btn" onClick={handleCheckPassword}>
+				<Button className="start_btn" onClick={handleShowModal}>
 					시작하기
 				</Button>
 				{username === name && (
@@ -159,3 +156,20 @@ export default function ListItem({
 		</ListItemContainer>
 	);
 }
+
+// const passwordInput = window.prompt('비밀번호를 입력해주세요.');
+
+// if (passwordInput === null) {
+// 	return;
+// }
+// if (passwordInput === password) {
+// 	navigate(`/list/${id}`);
+// 	return;
+// }
+// if (passwordInput.trim() === '') {
+// 	window.alert('비밀번호를 입력해주세요.');
+// 	return;
+// }
+// if (passwordInput !== password) {
+// 	window.alert('비밀번호를 일치하지 않습니다.');
+// }

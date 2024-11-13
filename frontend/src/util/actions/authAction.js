@@ -5,7 +5,7 @@ export async function authAction({ request }) {
 	const mode = searchParams.get('mode') || 'login';
 
 	if (mode !== 'login' && mode !== 'signup') {
-		throw json({ message: 'Unsupported mode.' }, { status: 422 });
+		throw json({ message: '지원되지 않는 모드입니다.' }, { status: 422 });
 	}
 
 	const data = await request.formData();
@@ -28,7 +28,7 @@ export async function authAction({ request }) {
 	}
 
 	if (!response.ok) {
-		throw json({ message: 'Could not authenticate user.' }, { status: 500 });
+		throw json({ message: '인증된 사용자가 아닙니다.' }, { status: 500 });
 	}
 
 	const resData = await response.json();
