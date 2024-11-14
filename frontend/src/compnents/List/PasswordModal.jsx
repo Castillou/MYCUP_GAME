@@ -10,6 +10,8 @@ export default function PasswordModal({ password, id, onClose }) {
 
 		const data = new FormData(event.target);
 
+		console.log(password);
+
 		if (data.get('password') === password) {
 			navigate(`/list/${id}`);
 		} else {

@@ -97,7 +97,6 @@ export default function LoginForm() {
 	const isLogin = searchParams.get('mode').includes('login');
 	const isSignup = searchParams.get('mode').includes('signup');
 	const isSubmitting = navigation.state === 'submitting';
-	console.log(searchParams.get('mode'));
 
 	let buttonText;
 

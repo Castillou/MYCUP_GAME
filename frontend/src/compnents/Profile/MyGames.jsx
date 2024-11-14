@@ -40,6 +40,7 @@ export default function MyGames({ events }) {
 							description={item.description}
 							radio={item.radio}
 							name={item.username}
+							password={item.password}
 						/>
 					))}
 				</ListBox>
