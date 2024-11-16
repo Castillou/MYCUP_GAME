@@ -30,5 +30,23 @@ async function get(email) {
 	return user;
 }
 
+async function replace(username, data) {
+	const storedData = await readData();
+	if (!storedData.users || storedData.users.length === 0) {
+		throw new NotFoundError('Could not find any users.');
+	}
+
+	const user = storedData.users.find((ev) => ev.username === username);
+	const index = storedData.users.findIndex((ev) => ev.username === username);
+	if (index < 0) {
+		throw new NotFoundError('Could not find user for username ' + username);
+	}
+
+	storedData.users[index] = { ...user, data };
+
+	await writeData(storedData);
+}
+
 exports.add = add;
 exports.get = get;
+exports.replace = replace;

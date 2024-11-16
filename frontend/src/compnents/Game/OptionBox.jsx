@@ -77,7 +77,7 @@ export default function OptionBox({ events }) {
 	return (
 		<>
 			<Title>
-				{`${gameItem.date.slice(0, 4)} ${gameItem.title}`}
+				{`${gameItem.title}`}
 				<button onClick={() => navigate(-1)}>Back</button>
 			</Title>
 			<OptionList>

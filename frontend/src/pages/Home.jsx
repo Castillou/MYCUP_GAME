@@ -9,7 +9,7 @@ const Container = styled.div`
 	grid-template-rows: repeat(7, 1fr);
 	grid-template-columns: repeat(11, 1fr);
 	width: 100%;
-	height: 90rem;
+	height: 93vh;
 
 	position: relative;
 
