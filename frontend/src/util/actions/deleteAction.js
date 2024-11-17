@@ -1,4 +1,4 @@
-import { json, redirect } from 'react-router-dom';
+import { json } from 'react-router-dom';
 import { getAuthToken } from '../auth';
 
 export async function action({ id }) {
@@ -14,6 +14,4 @@ export async function action({ id }) {
 	if (!response.ok) {
 		throw json({ message: 'Could not delete it' }, { status: 500 });
 	}
-
-	return redirect('/list');
 }

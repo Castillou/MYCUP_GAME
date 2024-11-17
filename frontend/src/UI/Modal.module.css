@@ -64,6 +64,14 @@
 	gap: 1rem;
 }
 
+.modal > div > div button:first-child {
+	background-color: #999;
+}
+
+.modal > div > div button:first-child:hover {
+	background-color: #a4a4a4;
+}
+
 .modal::backdrop {
 	width: 100%;
 	height: 100vh;

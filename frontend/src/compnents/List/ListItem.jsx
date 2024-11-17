@@ -113,7 +113,7 @@ export default function ListItem({
 		if (radio === 'friends') {
 			setIsFriendsGame(true);
 		} else {
-			navigate(`/list/${id}`);
+			navigate;
 		}
 	};
 
@@ -139,7 +139,8 @@ export default function ListItem({
 	};
 
 	const handleDelete = async () => {
-		await deleteAction({ id });
+		await deleteAction({ id: id });
+		navigate('/list');
 	};
 
 	return (
