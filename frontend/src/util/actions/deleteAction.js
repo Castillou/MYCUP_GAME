@@ -1,13 +1,10 @@
 import { json, redirect } from 'react-router-dom';
 import { getAuthToken } from '../auth';
 
-export async function action({ request }) {
-	const data = await request.formData();
-	const id = data.get('id');
-
+export async function action({ id }) {
 	const token = getAuthToken();
 	const response = await fetch(`http://localhost:8080/events/${id}`, {
-		method: request.method,
+		method: 'DELETE',
 		headers: {
 			'Content-type': 'application/json',
 			Authorization: `Bearer ${token}`,

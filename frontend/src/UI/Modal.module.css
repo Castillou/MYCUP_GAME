@@ -2,7 +2,7 @@
 	margin: 0;
 	padding: 3rem;
 	position: fixed;
-	top: 40vh;
+	top: 40%;
 	left: calc(50% - 20rem);
 	width: 40rem;
 	max-height: 80vh;
@@ -12,19 +12,14 @@
 	border-radius: 1rem;
 	z-index: 100;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	animation: slide-down-fade-in 300ms ease-out forwards;
-}
 
-.modal form {
 	display: flex;
 	justify-content: space-between;
 	gap: 1.5rem;
+	animation: slide-down-fade-in 300ms ease-out forwards;
 }
 
-.modal form input {
+.modal input {
 	width: 70%;
 	font-size: 2rem;
 	text-align: center;
@@ -32,11 +27,11 @@
 	border: 1px solid #ccc;
 	border-radius: 0.8rem;
 }
-.modal form input:focus {
+.modal input:focus {
 	outline: 1.5px solid #2e93ff;
 }
 
-.modal form button {
+.modal button {
 	flex: 1;
 	padding: 1rem 0;
 	font-size: 1.6rem;
@@ -49,8 +44,24 @@
 	cursor: pointer;
 }
 
-.modal form button:hover {
+.modal button:hover {
 	background-color: #0e75e4;
+}
+
+.modal > div {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+.modal > div h2 {
+	width: 100%;
+	font-size: 3rem;
+	text-align: center;
+}
+.modal > div > div {
+	display: flex;
+	gap: 1rem;
 }
 
 .modal::backdrop {
