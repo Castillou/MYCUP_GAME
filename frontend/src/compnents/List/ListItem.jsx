@@ -11,39 +11,39 @@ const ListItemContainer = styled.li`
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 	border-radius: 2rem;
 	overflow: hidden;
+`;
+
+const InfoContainer = styled.div`
+	position: relative;
 
 	h2 {
 		font-weight: 600;
 		padding: 2rem 2rem 1rem;
 		font-size: 2rem;
 		position: relative;
-
-		&::after {
-			position: absolute;
-			right: 2rem;
-			font-size: 1rem;
-			text-align: center;
-			line-height: 1rem;
-			content: '';
-
-			width: 2rem;
-			height: 2rem;
-			border-radius: 50%;
-			border: 5px solid transparent;
-			border-color: ${({ option }) => {
-				if (option === 'personal') {
-					return '#435dd8';
-				} else if (option === 'friends') {
-					return '#FC5185';
-				}
-			}};
-		}
 	}
 
 	p {
 		padding: 0.5rem 2rem 1.5rem;
 		font-size: 1.5rem;
 		font-weight: 300;
+	}
+
+	span {
+		position: absolute;
+		top: 1.75rem;
+		right: 2rem;
+
+		padding: 0.5rem 0.75rem;
+		border-radius: 5px;
+
+		font-size: 1.2rem;
+		color: #f9f9f9;
+		background-color: #435dd8;
+
+		&.friends-label {
+			background-color: #fc5185;
+		}
 	}
 `;
 
@@ -143,6 +143,16 @@ export default function ListItem({
 		navigate('/list');
 	};
 
+	let optionLabel;
+
+	if (radio === 'personal') {
+		optionLabel = <span className="personal-label">비공개</span>;
+	}
+
+	if (radio === 'friends') {
+		optionLabel = <span className="friends-label">친구 공개</span>;
+	}
+
 	return (
 		<>
 			{isFriendsGame &&
@@ -177,8 +187,11 @@ export default function ListItem({
 					<img src={img[0]} />
 					<img src={img[1]} />
 				</ImgBox>
-				<h2>{title}</h2>
-				<p>{description}</p>
+				<InfoContainer>
+					<h2>{title}</h2>
+					<p>{description}</p>
+					{optionLabel}
+				</InfoContainer>
 				<ButtonContainer>
 					<Button className="start_btn" onClick={handleCheckFriends}>
 						시작하기
@@ -196,20 +209,3 @@ export default function ListItem({
 		</>
 	);
 }
-
-// const passwordInput = window.prompt('비밀번호를 입력해주세요.');
-
-// if (passwordInput === null) {
-// 	return;
-// }
-// if (passwordInput === password) {
-// 	navigate(`/list/${id}`);
-// 	return;
-// }
-// if (passwordInput.trim() === '') {
-// 	window.alert('비밀번호를 입력해주세요.');
-// 	return;
-// }
-// if (passwordInput !== password) {
-// 	window.alert('비밀번호를 일치하지 않습니다.');
-// }
