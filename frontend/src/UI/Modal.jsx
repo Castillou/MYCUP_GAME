@@ -9,9 +9,14 @@ export default function Modal({ children, onClose }) {
 		const modal = dialog.current;
 		modal.showModal();
 
-		// return () => {
-		// 	modal.close();
-		// };
+		const escKeyModalClose = (e) => {
+			if (e.key === 'Escape') {
+				modal.close();
+			}
+		};
+
+		window.addEventListener('keydown', escKeyModalClose);
+		return () => window.removeEventListener('keydown', escKeyModalClose);
 	}, []);
 
 	return (

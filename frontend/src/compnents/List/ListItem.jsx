@@ -113,7 +113,7 @@ export default function ListItem({
 		if (radio === 'friends') {
 			setIsFriendsGame(true);
 		} else {
-			navigate;
+			navigate(`/list/${id}`);
 		}
 	};
 
