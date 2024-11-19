@@ -121,6 +121,12 @@ export default function ListItem({
 		setIsFriendsGame(false);
 	};
 
+	const handleKeyDown = (e) => {
+		if (e.key === 'Enter') {
+			handleStartFriendsGame();
+		}
+	};
+
 	const handleStartFriendsGame = () => {
 		if (input.current.value === password) {
 			navigate(`/list/${id}`);
@@ -158,7 +164,12 @@ export default function ListItem({
 			{isFriendsGame &&
 				createPortal(
 					<Modal onClose={handleStopCheck}>
-						<input type="password" ref={input} name="password" />
+						<input
+							type="password"
+							ref={input}
+							name="password"
+							onKeyDown={handleKeyDown}
+						/>
 						<button type="button" onClick={handleStartFriendsGame}>
 							확인
 						</button>
