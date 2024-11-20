@@ -1,9 +1,9 @@
 import { json, redirect } from 'react-router-dom';
 import { getAuthToken } from '../auth';
 
-export async function action({ request }) {
+export async function action({ request, params }) {
 	const data = await request.formData();
-	const id = data.get('id');
+	const id = params.gameId;
 	const radio = data.get('group');
 	const password = radio === 'friends' ? data.get('password') : null;
 

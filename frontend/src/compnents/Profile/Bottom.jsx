@@ -11,7 +11,7 @@ const Wrapper = styled.section`
 	width: 100%;
 	min-height: 80rem;
 
-	padding: 0 23rem;
+	padding: 0 22rem;
 	background-color: #fff;
 `;
 
