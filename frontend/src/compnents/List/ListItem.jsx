@@ -75,7 +75,7 @@ const Button = styled.button`
 
 	overflow: hidden;
 
-	&.start_btn {
+	&.start-btn {
 		display: block;
 		width: 100%;
 		padding: 0.8rem 0;
@@ -84,7 +84,7 @@ const Button = styled.button`
 		font-weight: 600;
 	}
 
-	&.start_btn:hover {
+	&.start-btn:hover {
 		background-color: #ff7a7a;
 	}
 
@@ -204,7 +204,7 @@ export default function ListItem({
 					{optionLabel}
 				</InfoContainer>
 				<ButtonContainer>
-					<Button className="start_btn" onClick={handleCheckFriends}>
+					<Button className="start-btn" onClick={handleCheckFriends}>
 						시작하기
 					</Button>
 					{username === name && (

@@ -20,14 +20,14 @@ export default function ImageUpload({ initialValue = ['', ''] }) {
 		<Container>
 			<h2>이상형 월드컵 이미지 업로드</h2>
 			<InputRow
-				id="r3"
+				id="image1"
 				name="image"
 				label="1번 이미지"
 				description="첫 번째 이미지 링크를 입력해주세요."
 				initialValue={initialValue[0]}
 			/>
 			<InputRow
-				id="r4"
+				id="image2"
 				name="image"
 				label="2번 이미지"
 				description="두 번째 이미지 링크를 입력해주세요."

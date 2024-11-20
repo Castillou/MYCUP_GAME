@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import userImage from '../../assets/user.svg';
+import userDefault from '../../assets/user.svg';
+import { useRef, useState } from 'react';
 
 const Wrapper = styled.section`
 	width: 100%;
@@ -49,15 +50,19 @@ const ImageBox = styled.article`
 
 	border-radius: 5rem;
 	backdrop-filter: blur(50px);
+	box-shadow: 0 5px 10px rgba(100, 100, 100, 0.2);
 
 	div {
 		width: 100%;
-		border-radius: 4rem;
+		overflow: hidden;
 		background-color: #eee;
+		border-radius: 4rem;
 
 		img {
 			width: 100%;
 			height: 26rem;
+			cursor: pointer;
+			object-fit: cover;
 		}
 	}
 `;
@@ -65,12 +70,41 @@ const ImageBox = styled.article`
 export default function Top() {
 	const username = localStorage.getItem('username');
 
+	const inputRef = useRef();
+	const [userImage, setUserImage] = useState(null);
+	console.log(userImage);
+
+	const handleChooseFile = () => {
+		inputRef.current.click();
+	};
+
+	const handleImageChange = (event) => {
+		const newImage = event.target.files[0];
+		setUserImage(newImage);
+	};
+
 	return (
 		<Wrapper>
 			<Inner>
 				<ImageBox>
 					<div>
-						<img src={userImage} alt="프로필 이미지" />
+						<img
+							src={
+								userImage === null
+									? userDefault
+									: URL.createObjectURL(userImage)
+							}
+							alt="프로필 이미지"
+							onClick={handleChooseFile}
+						/>
+						<input
+							ref={inputRef}
+							name="userImage"
+							type="file"
+							accept="image/*"
+							onChange={handleImageChange}
+							hidden
+						/>
 					</div>
 				</ImageBox>
 				<h2>{username}</h2>

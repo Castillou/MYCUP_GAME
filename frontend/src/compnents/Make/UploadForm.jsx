@@ -44,13 +44,13 @@ export default function UploadForm({ method }) {
 		<Form method={method} className={classes.upload_form}>
 			<Title>이상형 월드컵 기본정보</Title>
 			<InputRow
-				id="r1"
+				id="title"
 				name="title"
 				label="1) 제목"
 				description="이상형월드컵의 제목을 입력하세요. 예) 여자 아이돌 이상형월드컵, 남자연예인 이상형월드컵"
 			/>
 			<InputRow
-				id="r2"
+				id="description"
 				name="description"
 				label="2) 설명"
 				description="설명, 하고싶은 말 등을 자유롭게 쓰세요."
