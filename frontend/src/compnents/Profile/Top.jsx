@@ -16,24 +16,44 @@ const Inner = styled.article`
 
 	background-color: #fff;
 
-	h2 {
-		grid-row: 1/2;
+	.profile-info {
+		grid-row: 1/3;
 		grid-column: 4/8;
-		margin-top: 6rem;
+		padding: 5rem 0;
 
-		font-family: 'Audiowide', sans-serif;
-		font-weight: bold;
-		font-size: 4rem;
-	}
+		.name-box {
+			display: flex;
+			align-items: center;
+			gap: 2rem;
 
-	p {
-		grid-row: 2/3;
-		grid-column: 4/7;
-		margin-top: 1.5rem;
+			label {
+				font-family: 'Audiowide', sans-serif;
+				font-weight: bold;
+				font-size: 4rem;
+			}
 
-		font-size: 2rem;
-		line-height: 1.3;
-		color: #555;
+			input {
+				border: 1px solid #d1d1d1;
+				font-size: 1.6rem;
+				padding: 0.8rem 1rem;
+				border-radius: 5px;
+			}
+
+			button {
+				border: none;
+				background-color: #efefef;
+				padding: 0.8rem 1rem;
+				border-radius: 5px;
+			}
+		}
+
+		p {
+			margin-top: 2rem;
+
+			font-size: 2rem;
+			line-height: 1.3;
+			color: #555;
+		}
 	}
 `;
 
@@ -68,11 +88,12 @@ const ImageBox = styled.article`
 `;
 
 export default function Top() {
-	const username = localStorage.getItem('username');
+	const name = localStorage.getItem('username');
 
 	const inputRef = useRef();
 	const [userImage, setUserImage] = useState(null);
-	console.log(userImage);
+	const [userName, setUserName] = useState(name);
+	const [isEditing, setIsEditing] = useState(false);
 
 	const handleChooseFile = () => {
 		inputRef.current.click();
@@ -82,6 +103,22 @@ export default function Top() {
 		const newImage = event.target.files[0];
 		setUserImage(newImage);
 	};
+
+	const handleEditing = () => {
+		setIsEditing((editing) => !editing);
+	};
+
+	const handleUsernameChange = (event) => {
+		setUserName(event.target.value);
+	};
+
+	let editableUserName = <label>{userName}</label>;
+
+	if (isEditing) {
+		editableUserName = (
+			<input type="text" value={userName} onChange={handleUsernameChange} />
+		);
+	}
 
 	return (
 		<Wrapper>
@@ -107,8 +144,15 @@ export default function Top() {
 						/>
 					</div>
 				</ImageBox>
-				<h2>{username}</h2>
-				<p>한줄로 자신을 표현해보세요.</p>
+				<div className="profile-info">
+					<div className="name-box">
+						{editableUserName}
+						<button onClick={handleEditing}>
+							{isEditing ? '저장하기' : '수정하기'}
+						</button>
+					</div>
+					<p>한줄로 자신을 표현해보세요.</p>
+				</div>
 			</Inner>
 		</Wrapper>
 	);
