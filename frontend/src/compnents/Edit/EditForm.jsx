@@ -45,7 +45,6 @@ export default function EditForm({ method, id, events }) {
 	return (
 		<Form method={method} className={classes.upload_form}>
 			<Title>이상형 월드컵 기본정보</Title>
-			{/* <input type="hidden" name="id" value={id} /> */}
 			<InputRow
 				id="r1"
 				name="title"

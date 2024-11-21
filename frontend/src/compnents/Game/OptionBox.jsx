@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 import OptionComp from './OptionComp';
+import voteAction from '../../util/voteAction';
 
 const Title = styled.h2`
 	width: 100%;
@@ -65,36 +66,52 @@ const Vstext = styled.span`
 /* eslint-disable react/prop-types */
 export default function OptionBox({ events }) {
 	const navigate = useNavigate();
-	const params = useParams().gameId;
-	const gameItem = events.filter((item) => item.id === params)[0];
-
+	const gameId = useParams().gameId;
+	const gameData = events.filter((item) => item.id === gameId)[0];
 	const [clickedOption, setClickedOption] = useState();
 
+	const updateVote = useCallback(
+		async (optionNumber) => {
+			await voteAction({
+				optionNumber: optionNumber,
+				id: gameId,
+				data: gameData,
+			});
+		},
+		[gameId, gameData]
+	);
+
 	const handleClick = (id) => {
-		setClickedOption(Number(id));
+		const optionNumber = Number(id) - 1;
+		setClickedOption(optionNumber);
+
+		setTimeout(async () => {
+			await updateVote(optionNumber);
+			navigate('/list');
+		}, 2000);
 	};
 
 	return (
 		<>
 			<Title>
-				{`${gameItem.title}`}
+				{`${gameData.title}`}
 				<button onClick={() => navigate(-1)}>Back</button>
 			</Title>
 			<OptionList>
 				<OptionComp
 					id="1"
-					src={gameItem.images[0]}
+					src={gameData.images[0]}
 					name="1번"
 					onClick={(e) => handleClick(e.target.id)}
-					className={clickedOption === 2 && 'slide_left'}
+					className={clickedOption === 1 && 'slide_left'}
 				/>
 				<Vstext className={clickedOption && 'hidden'}>VS</Vstext>
 				<OptionComp
 					id="2"
-					src={gameItem.images[1]}
+					src={gameData.images[1]}
 					name="2번"
 					onClick={(e) => handleClick(e.target.id)}
-					className={clickedOption === 1 && 'slide_right'}
+					className={clickedOption === 0 && 'slide_right'}
 				/>
 			</OptionList>
 		</>

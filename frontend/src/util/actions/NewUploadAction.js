@@ -13,6 +13,7 @@ export async function action({ request }) {
 		radio,
 		images: data.getAll('image'),
 		username: localStorage.getItem('username'),
+		score: [0, 0],
 		...(password ? { password } : {}),
 	};
 

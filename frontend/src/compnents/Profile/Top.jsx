@@ -23,7 +23,7 @@ const Inner = styled.article`
 
 		.name-box {
 			display: flex;
-			align-items: center;
+			align-items: flex-end;
 			gap: 2rem;
 
 			label {
