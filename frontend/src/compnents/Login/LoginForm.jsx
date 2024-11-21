@@ -89,11 +89,11 @@ const ToggleTxt = styled.span`
 export default function LoginForm() {
 	const data = useActionData();
 	const navigation = useNavigation();
+	const [searchParams] = useSearchParams();
 
 	const [showPassword, setShowPassword] = useState('password');
 	const [icon, setIcon] = useState(eye);
 
-	const [searchParams] = useSearchParams();
 	const isLogin = searchParams.get('mode').includes('login');
 	const isSignup = searchParams.get('mode').includes('signup');
 	const isSubmitting = navigation.state === 'submitting';

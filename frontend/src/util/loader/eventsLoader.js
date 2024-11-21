@@ -1,4 +1,6 @@
 import { defer, json } from 'react-router-dom';
+import { QueryClient } from '@tanstack/react-query';
+export const queryClient = new QueryClient();
 
 async function loadEvents() {
 	const response = await fetch('http://localhost:8080/events');
