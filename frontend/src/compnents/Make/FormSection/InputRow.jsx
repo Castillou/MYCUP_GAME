@@ -9,7 +9,7 @@ const Row = styled.div`
 
 	border-bottom: 1px dashed #d1d1d1;
 
-	label {
+	> label {
 		grid-row: 1/3;
 		grid-column: 1/2;
 		font-size: 2rem;
@@ -18,7 +18,7 @@ const Row = styled.div`
 		padding-left: 1rem;
 	}
 
-	input {
+	> input {
 		grid-row: 1/3;
 		grid-column: 2/13;
 		font-size: 2rem;
@@ -31,7 +31,7 @@ const Row = styled.div`
 		}
 	}
 
-	span {
+	> span {
 		grid-row: 3/4;
 		grid-column: 2/8;
 		font-size: 1.6rem;

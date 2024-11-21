@@ -27,7 +27,7 @@ const InputConatiner = styled.div`
 	margin-bottom: 2rem;
 	position: relative;
 
-	input {
+	> input {
 		font-size: 2rem;
 		padding: 1.7rem 2rem;
 		border: 1px solid #ccc;
@@ -42,7 +42,7 @@ const InputConatiner = styled.div`
 		}
 	}
 
-	span {
+	> span {
 		display: none;
 
 		position: absolute;
@@ -120,15 +120,16 @@ export default function LoginForm() {
 		<>
 			<Form method="post" className={classes.form}>
 				<Title>{isLogin ? 'LOG IN' : 'Create an account'}</Title>
-				{data && data.errors && (
-					<ul>
-						{Object.values(data.errors).map((err) => (
-							<li key={err}>{err}</li>
-						))}
-					</ul>
-				)}
-				{data && data.message && <p>{data.message}</p>}
+
 				<InputConatiner>
+					{data && data.errors && (
+						<ul>
+							{Object.values(data.errors).map((err) => (
+								<li key={err}>{err}</li>
+							))}
+						</ul>
+					)}
+					{data && data.message && <p>{data.message}</p>}
 					{isSignup && (
 						<input
 							id="username"

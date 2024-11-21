@@ -18,7 +18,7 @@ const SubmitRow = styled.div`
 	justify-content: flex-end;
 	padding: 2rem 3rem 2rem;
 
-	button {
+	> button {
 		grid-column: 12/13;
 		padding: 1rem 3rem;
 

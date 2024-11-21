@@ -10,7 +10,7 @@ const Row = styled.div`
 	grid-template-rows: repeat(3, 1fr);
 	border-bottom: 1px dashed #d1d1d1;
 
-	label {
+	> label {
 		grid-row: 1/3;
 		grid-column: 1/2;
 		font-size: 2rem;
@@ -19,7 +19,7 @@ const Row = styled.div`
 		padding-left: 1rem;
 	}
 
-	div {
+	> div {
 		grid-row: 1/4;
 		grid-column: 2/8;
 

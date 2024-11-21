@@ -5,7 +5,7 @@ const Container = styled.div`
 	width: 100%;
 	background-color: #fff;
 
-	h2 {
+	> h2 {
 		padding: 2rem 3rem;
 		font-size: 2rem;
 		font-weight: 800;

@@ -1,4 +1,4 @@
-import { Form } from 'react-router-dom';
+import { Form, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import InputRow from '../Make/FormSection/InputRow';
 import RadioRow from '../Make/FormSection/RadioRow';
@@ -17,6 +17,7 @@ const SubmitRow = styled.div`
 	display: flex;
 	justify-content: flex-end;
 	padding: 2rem 3rem 2rem;
+	gap: 2rem;
 
 	button {
 		grid-column: 12/13;
@@ -35,12 +36,25 @@ const SubmitRow = styled.div`
 		&:hover {
 			background-color: #56a8ff;
 		}
+
+		&.back {
+			background-color: #c1c1c1;
+
+			&:hover {
+				background-color: #d1d1d1;
+			}
+		}
 	}
 `;
 
 /* eslint-disable react/prop-types */
 export default function EditForm({ method, id, events }) {
+	const navigate = useNavigate();
 	const item = events.filter((item) => item.id === id)[0];
+
+	const handleCancel = () => {
+		navigate(-1);
+	};
 
 	return (
 		<Form method={method} className={classes.upload_form}>
@@ -62,6 +76,9 @@ export default function EditForm({ method, id, events }) {
 			<RadioRow label="3) 공개여부" initialValue={item.radio} />
 			<ImageUpload initialValue={item.images} />
 			<SubmitRow className="submit-row">
+				<button className="back" onClick={handleCancel}>
+					취소하기
+				</button>
 				<button type="submit">수정하기</button>
 			</SubmitRow>
 		</Form>

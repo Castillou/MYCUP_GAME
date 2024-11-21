@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import eye from '../../../assets/eye.svg';
 import eyeS from '../../../assets/eye-slash.svg';
 
-const PsdInputContainer = styled.div`
+const PsdInputContainer = styled.article`
 	width: 100%;
 	padding-left: 1.5rem;
 
@@ -12,7 +12,7 @@ const PsdInputContainer = styled.div`
 
 	position: relative;
 
-	svg {
+	> svg {
 		width: 2.5rem;
 		height: 2.5rem;
 		margin-top: 0.3rem;
@@ -20,7 +20,7 @@ const PsdInputContainer = styled.div`
 		stroke-dasharray: 1 3;
 	}
 
-	input {
+	> input {
 		width: 45.5rem;
 		font-size: 1.5rem;
 		padding: 1rem 2rem;
@@ -36,7 +36,7 @@ const PsdInputContainer = styled.div`
 		}
 	}
 
-	span {
+	> span {
 		display: none;
 
 		position: absolute;
@@ -75,7 +75,6 @@ export default function PasswordInput() {
 					d="m16.49 12 3.75 3.75m0 0-3.75 3.75m3.75-3.75H3.74V4.499"
 				/>
 			</svg>
-
 			<input
 				type={showPassword}
 				name="password"
