@@ -1,4 +1,4 @@
-import { defer, json } from 'react-router-dom';
+import { json } from 'react-router-dom';
 import { QueryClient } from '@tanstack/react-query';
 export const queryClient = new QueryClient();
 
@@ -14,7 +14,5 @@ async function loadEvents() {
 }
 
 export function loader() {
-	return defer({
-		events: loadEvents(),
-	});
+	return loadEvents();
 }

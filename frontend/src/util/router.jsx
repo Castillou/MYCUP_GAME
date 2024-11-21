@@ -15,7 +15,6 @@ import { action as logoutAction } from '../pages/Logout';
 import authAction from './actions/authAction';
 import { action as uploadAction } from './actions/NewUploadAction';
 import { action as editAction } from './actions/editAction';
-import { loader as eventsLoader } from './loader/eventsLoader';
 
 const router = createBrowserRouter([
 	{
@@ -34,12 +33,10 @@ const router = createBrowserRouter([
 				element: <LoginPage />,
 				action: authAction,
 			},
-
 			{
 				path: 'list',
 				id: 'list-root',
 				element: <SubRootLayout />,
-				loader: eventsLoader,
 				children: [
 					{
 						index: true,

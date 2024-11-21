@@ -1,6 +1,9 @@
-import { Suspense, useState } from 'react';
-import { Await, useRouteLoaderData } from 'react-router-dom';
+import { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 import styled from 'styled-components';
+import { loader as eventLoader } from '../../util/loader/eventsLoader';
+
 import MyGames from './MyGames';
 import Personal from './Personal';
 import Friends from './Friends';
@@ -53,12 +56,33 @@ const tabs = [
 ];
 
 export default function Bottom() {
-	const { events } = useRouteLoaderData('user-root');
+	const username = useParams.username;
 	const [clickedTab, setClickedTab] = useState('myGames_tab');
+
+	const { data, isPending } = useQuery({
+		queryKey: ['events', username],
+		queryFn: eventLoader,
+	});
 
 	const handleToggle = (e) => {
 		setClickedTab(e.currentTarget.id);
 	};
+
+	let content;
+
+	if (isPending) {
+		content = <LoadingSpinner />;
+	}
+
+	if (data) {
+		if (clickedTab === 'myGames_tab') {
+			content = <MyGames events={data} />;
+		} else if (clickedTab === 'personal_tab') {
+			content = <Personal events={data} />;
+		} else if (clickedTab === 'friends_tab') {
+			content = <Friends events={data} />;
+		}
+	}
 
 	return (
 		<Wrapper>
@@ -74,19 +98,7 @@ export default function Bottom() {
 					</TabButton>
 				))}
 			</ToggleList>
-			<Suspense fallback={<LoadingSpinner />}>
-				<Await resolve={events}>
-					{(LoadedEvents) => {
-						if (clickedTab === 'myGames_tab') {
-							return <MyGames events={LoadedEvents} />;
-						} else if (clickedTab === 'personal_tab') {
-							return <Personal events={LoadedEvents} />;
-						} else if (clickedTab === 'friends_tab') {
-							return <Friends events={LoadedEvents} />;
-						}
-					}}
-				</Await>
-			</Suspense>
+			{content}
 		</Wrapper>
 	);
 }
