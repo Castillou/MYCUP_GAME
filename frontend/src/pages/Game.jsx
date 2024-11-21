@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import OptionBox from '../compnents/Game/OptionBox';
 import LoadingSpinner from '../compnents/Interface/LoadingSpinner';
+import ErrorBlock from '../UI/ErrorBlock';
 import { useQuery } from '@tanstack/react-query';
 import { loader as eventLoader } from '../util/loader/eventsLoader';
 
@@ -14,7 +15,7 @@ const Wrapper = styled.section`
 export default function GamePage() {
 	const gameId = useParams.gameId;
 
-	const { data, isPending } = useQuery({
+	const { data, isPending, isError, error } = useQuery({
 		queryKey: ['events', gameId],
 		queryFn: eventLoader,
 	});
@@ -23,6 +24,15 @@ export default function GamePage() {
 
 	if (isPending) {
 		content = <LoadingSpinner />;
+	}
+
+	if (isError) {
+		content = (
+			<ErrorBlock
+				title="An error occurred"
+				message={error.info?.message || 'Failed to fetch events'}
+			/>
+		);
 	}
 
 	if (data) {

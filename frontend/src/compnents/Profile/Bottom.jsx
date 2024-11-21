@@ -9,6 +9,7 @@ import Personal from './Personal';
 import Friends from './Friends';
 import TabButton from './TabButton';
 import LoadingSpinner from '../Interface/LoadingSpinner';
+import ErrorBlock from '../../UI/ErrorBlock';
 
 const Wrapper = styled.section`
 	width: 100%;
@@ -59,7 +60,7 @@ export default function Bottom() {
 	const username = useParams.username;
 	const [clickedTab, setClickedTab] = useState('myGames_tab');
 
-	const { data, isPending } = useQuery({
+	const { data, isPending, isError, error } = useQuery({
 		queryKey: ['events', username],
 		queryFn: eventLoader,
 	});
@@ -72,6 +73,15 @@ export default function Bottom() {
 
 	if (isPending) {
 		content = <LoadingSpinner />;
+	}
+
+	if (isError) {
+		content = (
+			<ErrorBlock
+				title="An error occurred"
+				message={error.info?.message || 'Failed to fetch events'}
+			/>
+		);
 	}
 
 	if (data) {

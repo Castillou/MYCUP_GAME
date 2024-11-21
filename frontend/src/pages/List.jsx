@@ -7,6 +7,7 @@ import AppContext from '../apis/appContext';
 import ListButtons from '../compnents/List/ListButtons';
 import ListContainer from '../compnents/List/ListContainer';
 import LoadingSpinner from '../compnents/Interface/LoadingSpinner';
+import ErrorBlock from '../UI/ErrorBlock';
 
 const Wrapper = styled.section`
 	width: 100%;
@@ -16,7 +17,7 @@ const Wrapper = styled.section`
 export default function ListPage() {
 	const token = useRouteLoaderData('root');
 
-	const { data, isPending } = useQuery({
+	const { data, isPending, isError, error } = useQuery({
 		queryKey: ['events'],
 		queryFn: eventLoader,
 	});
@@ -25,6 +26,15 @@ export default function ListPage() {
 
 	if (isPending) {
 		content = <LoadingSpinner />;
+	}
+
+	if (isError) {
+		content = (
+			<ErrorBlock
+				title="An error occurred"
+				message={error.info?.message || 'Failed to fetch events'}
+			/>
+		);
 	}
 
 	if (data) {

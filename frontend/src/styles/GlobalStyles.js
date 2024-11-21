@@ -22,6 +22,10 @@ const GlobalStyles = createGlobalStyle`
     text-decoration: none;
     color: inherit;
   }
+
+  .center {
+    text-align: center;
+  }
 `;
 
 export default GlobalStyles;

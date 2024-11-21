@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import LoadingSpinner from '../compnents/Interface/LoadingSpinner';
+import ErrorBlock from '../UI/ErrorBlock';
 import TopButtons from '../compnents/Make/TopButtons';
 import EditForm from '../compnents/Edit/EditForm';
 import { useQuery } from '@tanstack/react-query';
@@ -14,7 +15,7 @@ const Wrapper = styled.section`
 export default function EditPage() {
 	const gameId = useParams().gameId;
 
-	const { data, isPending } = useQuery({
+	const { data, isPending, isError, error } = useQuery({
 		queryKey: ['events', gameId],
 		queryFn: eventLoader,
 	});
@@ -23,6 +24,15 @@ export default function EditPage() {
 
 	if (isPending) {
 		content = <LoadingSpinner />;
+	}
+
+	if (isError) {
+		content = (
+			<ErrorBlock
+				title="An error occurred"
+				message={error.info?.message || 'Failed to fetch events'}
+			/>
+		);
 	}
 
 	if (data) {

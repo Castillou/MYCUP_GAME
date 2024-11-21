@@ -1,18 +1,16 @@
-import { json } from 'react-router-dom';
 import { QueryClient } from '@tanstack/react-query';
 export const queryClient = new QueryClient();
 
-async function loadEvents() {
+export async function loader() {
 	const response = await fetch('http://localhost:8080/events');
 
 	if (!response.ok) {
-		throw json({ message: 'Could not fetch events.' }, { status: 500 });
+		const error = new Error('An error occurred while fetching the events');
+		error.code = response.status;
+		error.info = await response.json();
+		throw error;
 	}
 
-	const resData = await response.json();
-	return resData.events;
-}
-
-export function loader() {
-	return loadEvents();
+	const { events } = await response.json();
+	return events;
 }
