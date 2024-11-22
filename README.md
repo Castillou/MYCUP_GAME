@@ -8,6 +8,14 @@
 사용자는 두 가지 후보를 정해 투표를 시작할 수 있고,
 투표에 참여한 유저들은 투표를 진행하고 현황을 확인하며 투표에 참여한 다른 참가자들과 댓글을 통해 소통할 수 있습니다.
 
+---
+
+## Flowchart
+
+<img width="1200" alt="MYCUP_GAME Flowchart" src="https://github.com/user-attachments/assets/505e88be-dcc4-4124-ba4b-6f4c0d1c76ab">
+
+---
+
 ## 주요 기능
 
 ### 사용자 인증(로그인, 로그아웃, 계정 생성)

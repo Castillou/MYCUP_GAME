@@ -54,6 +54,10 @@ const Inner = styled.article`
 			line-height: 1.3;
 			color: #555;
 		}
+
+		@media screen and (max-width: 1919px) {
+			grid-column: 5/9;
+		}
 	}
 `;
 
@@ -65,7 +69,6 @@ const ImageBox = styled.article`
 	grid-row: 1/-1;
 	grid-column: 1/3;
 	width: 30rem;
-	height: 30rem;
 	padding: 2rem;
 
 	border-radius: 5rem;

@@ -8,6 +8,13 @@ const Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
+	max-width: 192rem;
+	margin: 0 auto;
+
+	@media screen and (max-width: 1919px) {
+		max-width: 155rem;
+	}
 `;
 const Header = styled.header`
 	width: 100%;
