@@ -16,12 +16,12 @@ const Inner = styled.article`
 
 	background-color: #fff;
 
-	.profile-info {
+	.profile_info {
 		grid-row: 1/3;
-		grid-column: 4/8;
+		grid-column: 4/-1;
 		padding: 5rem 0;
 
-		.name-box {
+		.info_box {
 			display: flex;
 			align-items: flex-end;
 			gap: 2rem;
@@ -56,7 +56,7 @@ const Inner = styled.article`
 		}
 
 		@media screen and (max-width: 1919px) {
-			grid-column: 5/9;
+			grid-column: 5/-1;
 		}
 	}
 `;
@@ -96,7 +96,7 @@ export default function Top() {
 	const inputRef = useRef();
 	const [userImage, setUserImage] = useState(null);
 	const [userName, setUserName] = useState(name);
-	const [isEditing, setIsEditing] = useState(false);
+	const [isNameEditing, setIsNameEditing] = useState(false);
 
 	const handleChooseFile = () => {
 		inputRef.current.click();
@@ -108,7 +108,7 @@ export default function Top() {
 	};
 
 	const handleEditing = () => {
-		setIsEditing((editing) => !editing);
+		setIsNameEditing((editing) => !editing);
 	};
 
 	const handleUsernameChange = (event) => {
@@ -117,7 +117,7 @@ export default function Top() {
 
 	let editableUserName = <label>{userName}</label>;
 
-	if (isEditing) {
+	if (isNameEditing) {
 		editableUserName = (
 			<input type="text" value={userName} onChange={handleUsernameChange} />
 		);
@@ -147,14 +147,16 @@ export default function Top() {
 						/>
 					</div>
 				</ImageBox>
-				<div className="profile-info">
-					<div className="name-box">
+				<div className="profile_info">
+					<div className="info_box">
 						{editableUserName}
 						<button onClick={handleEditing}>
-							{isEditing ? '저장하기' : '수정하기'}
+							{isNameEditing ? '저장하기' : '수정하기'}
 						</button>
 					</div>
-					<p>한줄로 자신을 표현해보세요.</p>
+					<div className="info_box">
+						<p>한줄로 자신을 표현해보세요.</p>
+					</div>
 				</div>
 			</Inner>
 		</Wrapper>

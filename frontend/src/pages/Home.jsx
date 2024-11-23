@@ -15,7 +15,7 @@ const Container = styled.div`
 
 	h1 {
 		grid-row: 2/4;
-		grid-column: 2/7;
+		grid-column: 2/8;
 		color: #c1c1c1;
 
 		font-size: 10rem;
@@ -30,7 +30,7 @@ const Container = styled.div`
 
 	p {
 		grid-row: 4/5;
-		grid-column: 2/5;
+		grid-column: 2/6;
 		padding-left: 0.5rem;
 
 		font-size: 3rem;
