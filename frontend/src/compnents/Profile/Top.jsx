@@ -11,7 +11,7 @@ const Wrapper = styled.section`
 const Inner = styled.article`
 	display: grid;
 	grid-template-rows: repeat(2, 1fr);
-	grid-template-columns: repeat(12, 1fr);
+	grid-template-columns: repeat(13, 1fr);
 	position: relative;
 
 	background-color: #fff;
@@ -68,8 +68,8 @@ const ImageBox = styled.article`
 
 	grid-row: 1/-1;
 	grid-column: 1/3;
-	width: 30rem;
-	padding: 2rem;
+	width: 26rem;
+	padding: 1.5rem;
 
 	border-radius: 5rem;
 	backdrop-filter: blur(50px);
@@ -83,7 +83,7 @@ const ImageBox = styled.article`
 
 		img {
 			width: 100%;
-			height: 26rem;
+			height: 23rem;
 			cursor: pointer;
 			object-fit: cover;
 		}
@@ -91,12 +91,10 @@ const ImageBox = styled.article`
 `;
 
 export default function Top() {
-	const name = localStorage.getItem('username');
+	const username = localStorage.getItem('username');
 
 	const inputRef = useRef();
 	const [userImage, setUserImage] = useState(null);
-	const [userName, setUserName] = useState(name);
-	const [isNameEditing, setIsNameEditing] = useState(false);
 
 	const handleChooseFile = () => {
 		inputRef.current.click();
@@ -106,22 +104,6 @@ export default function Top() {
 		const newImage = event.target.files[0];
 		setUserImage(newImage);
 	};
-
-	const handleEditing = () => {
-		setIsNameEditing((editing) => !editing);
-	};
-
-	const handleUsernameChange = (event) => {
-		setUserName(event.target.value);
-	};
-
-	let editableUserName = <label>{userName}</label>;
-
-	if (isNameEditing) {
-		editableUserName = (
-			<input type="text" value={userName} onChange={handleUsernameChange} />
-		);
-	}
 
 	return (
 		<Wrapper>
@@ -149,10 +131,7 @@ export default function Top() {
 				</ImageBox>
 				<div className="profile_info">
 					<div className="info_box">
-						{editableUserName}
-						<button onClick={handleEditing}>
-							{isNameEditing ? '저장하기' : '수정하기'}
-						</button>
+						<label>{username}</label>;
 					</div>
 					<div className="info_box">
 						<p>한줄로 자신을 표현해보세요.</p>

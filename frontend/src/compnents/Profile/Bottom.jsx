@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import styled from 'styled-components';
 import { loader as eventLoader } from '../../util/loader/eventsLoader';
@@ -57,7 +56,7 @@ const tabs = [
 ];
 
 export default function Bottom() {
-	const username = useParams.username;
+	const username = localStorage.getItem('username');
 	const [clickedTab, setClickedTab] = useState('myGames_tab');
 
 	const { data, isPending, isError, error } = useQuery({

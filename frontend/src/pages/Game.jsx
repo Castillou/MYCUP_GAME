@@ -13,7 +13,7 @@ const Wrapper = styled.section`
 `;
 
 export default function GamePage() {
-	const gameId = useParams.gameId;
+	const gameId = useParams().gameId;
 
 	const { data, isPending, isError, error } = useQuery({
 		queryKey: ['events', gameId],
