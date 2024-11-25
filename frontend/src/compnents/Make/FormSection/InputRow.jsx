@@ -1,5 +1,6 @@
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import useInput from '../../../hooks/useInput';
 
 const Row = styled.div`
 	display: grid;
@@ -54,11 +55,7 @@ export default function InputRow({
 	description,
 	initialValue = '',
 }) {
-	const [value, setValue] = useState(initialValue);
-
-	const handleChange = useCallback((e) => {
-		setValue(e.target.value);
-	}, []);
+	const [inputValue, handleInput] = useInput(initialValue);
 
 	return (
 		<Row>
@@ -66,8 +63,8 @@ export default function InputRow({
 			<MemoizedInput
 				id={id}
 				name={name}
-				onChange={handleChange}
-				value={value}
+				onChange={handleInput}
+				value={inputValue}
 			/>
 			<span>{description}</span>
 		</Row>
