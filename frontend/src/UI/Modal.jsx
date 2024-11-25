@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import classes from './Modal.module.css';
+import { createPortal } from 'react-dom';
 
-// eslint-disable-next-line react/prop-types
 export default function Modal({ children, onClose }) {
 	const dialog = useRef();
 
@@ -19,9 +19,10 @@ export default function Modal({ children, onClose }) {
 		return () => window.removeEventListener('keydown', escKeyModalClose);
 	}, []);
 
-	return (
+	return createPortal(
 		<dialog className={classes.modal} ref={dialog} onClose={onClose}>
 			{children}
-		</dialog>
+		</dialog>,
+		document.getElementById('modal')
 	);
 }

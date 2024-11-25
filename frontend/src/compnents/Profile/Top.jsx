@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import userDefault from '../../assets/user.svg';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
+import UserEditModal from './UserEditModal';
 
 const Wrapper = styled.section`
 	width: 100%;
@@ -10,49 +11,44 @@ const Wrapper = styled.section`
 
 const Inner = styled.article`
 	display: grid;
-	grid-template-rows: repeat(2, 1fr);
+	grid-template-rows: repeat(3, 1fr);
 	grid-template-columns: repeat(13, 1fr);
 	position: relative;
 
 	background-color: #fff;
 
 	.profile_info {
-		grid-row: 1/3;
-		grid-column: 4/-1;
-		padding: 5rem 0;
+		grid-row: 1 / 4;
+		grid-column: 4/10;
+		padding: 5rem 0 2rem;
 
 		.info_box {
 			display: flex;
-			align-items: flex-end;
+			flex-direction: column;
 			gap: 2rem;
 
-			label {
+			h3 {
 				font-family: 'Audiowide', sans-serif;
 				font-weight: bold;
 				font-size: 4rem;
 			}
 
-			input {
-				border: 1px solid #d1d1d1;
-				font-size: 1.6rem;
-				padding: 0.8rem 1rem;
-				border-radius: 5px;
+			p {
+				font-size: 2rem;
+				color: #555;
 			}
 
 			button {
+				width: 10rem;
+				padding: 0.5rem;
 				border: none;
-				background-color: #efefef;
-				padding: 0.8rem 1rem;
-				border-radius: 5px;
+				border-radius: 48px;
+				cursor: pointer;
+
+				&:hover {
+					background-color: #f7f7f7;
+				}
 			}
-		}
-
-		p {
-			margin-top: 2rem;
-
-			font-size: 2rem;
-			line-height: 1.3;
-			color: #555;
 		}
 
 		@media screen and (max-width: 1919px) {
@@ -66,8 +62,7 @@ const ImageBox = styled.article`
 	left: 0;
 	bottom: 0;
 
-	grid-row: 1/-1;
-	grid-column: 1/3;
+	grid-row: 1/4;
 	width: 26rem;
 	padding: 1.5rem;
 
@@ -84,7 +79,6 @@ const ImageBox = styled.article`
 		img {
 			width: 100%;
 			height: 23rem;
-			cursor: pointer;
 			object-fit: cover;
 		}
 	}
@@ -92,49 +86,30 @@ const ImageBox = styled.article`
 
 export default function Top() {
 	const username = localStorage.getItem('username');
+	const [isEditing, setIsEditing] = useState(false);
 
-	const inputRef = useRef();
-	const [userImage, setUserImage] = useState(null);
-
-	const handleChooseFile = () => {
-		inputRef.current.click();
+	const handleStartEdit = () => {
+		setIsEditing(true);
 	};
 
-	const handleImageChange = (event) => {
-		const newImage = event.target.files[0];
-		setUserImage(newImage);
+	const handleCancelEdit = () => {
+		setIsEditing(false);
 	};
 
 	return (
 		<Wrapper>
+			{isEditing && <UserEditModal onClose={handleCancelEdit}></UserEditModal>}
 			<Inner>
 				<ImageBox>
 					<div>
-						<img
-							src={
-								userImage === null
-									? userDefault
-									: URL.createObjectURL(userImage)
-							}
-							alt="프로필 이미지"
-							onClick={handleChooseFile}
-						/>
-						<input
-							ref={inputRef}
-							name="userImage"
-							type="file"
-							accept="image/*"
-							onChange={handleImageChange}
-							hidden
-						/>
+						<img src={userDefault} alt="프로필 이미지" />
 					</div>
 				</ImageBox>
 				<div className="profile_info">
 					<div className="info_box">
-						<label>{username}</label>;
-					</div>
-					<div className="info_box">
+						<h3>{username}</h3>
 						<p>한줄로 자신을 표현해보세요.</p>
+						<button onClick={handleStartEdit}>수정하기</button>
 					</div>
 				</div>
 			</Inner>

@@ -1,9 +1,8 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { createPortal } from 'react-dom';
 import styled from 'styled-components';
-import { action as deleteAction } from '../../util/actions/deleteAction';
-import Modal from '../../UI/Modal';
+import PasswordModal from './PasswordModal';
+import DeleteCheckModal from './DeleteCheckModal';
 
 const ListItemContainer = styled.li`
 	width: 34rem;
@@ -104,7 +103,6 @@ export default function ListItem({
 	password,
 }) {
 	const navigate = useNavigate();
-	const input = useRef();
 	const username = localStorage.getItem('username');
 	const [isFriendsGame, setIsFriendsGame] = useState(false);
 	const [isDeleting, setIsDeleting] = useState(false);
@@ -116,24 +114,8 @@ export default function ListItem({
 			navigate(`/list/${id}`);
 		}
 	};
-
 	const handleStopCheck = () => {
 		setIsFriendsGame(false);
-	};
-
-	const handleKeyDown = (e) => {
-		if (e.key === 'Enter') {
-			handleStartFriendsGame();
-		}
-	};
-
-	const handleStartFriendsGame = () => {
-		if (input.current.value === password) {
-			navigate(`/list/${id}`);
-		} else {
-			alert('비밀번호가 일치하지 않습니다.');
-			setIsFriendsGame(false);
-		}
 	};
 
 	const handleStartDelete = () => {
@@ -142,11 +124,6 @@ export default function ListItem({
 
 	const handleStopDelete = () => {
 		setIsDeleting(false);
-	};
-
-	const handleDelete = async () => {
-		await deleteAction({ id: id });
-		navigate('/list');
 	};
 
 	let optionLabel;
@@ -161,38 +138,10 @@ export default function ListItem({
 
 	return (
 		<>
-			{isFriendsGame &&
-				createPortal(
-					<Modal onClose={handleStopCheck}>
-						<input
-							type="password"
-							ref={input}
-							name="password"
-							onKeyDown={handleKeyDown}
-						/>
-						<button type="button" onClick={handleStartFriendsGame}>
-							확인
-						</button>
-					</Modal>,
-					document.getElementById('modal')
-				)}
-			{isDeleting &&
-				createPortal(
-					<Modal onClose={handleStopCheck}>
-						<div>
-							<h2>정말 삭제하시겠습니까?</h2>
-							<div>
-								<button type="button" onClick={handleStopDelete}>
-									취소
-								</button>
-								<button type="button" onClick={handleDelete}>
-									확인
-								</button>
-							</div>
-						</div>
-					</Modal>,
-					document.getElementById('modal')
-				)}
+			{isFriendsGame && (
+				<PasswordModal id={id} password={password} onClose={handleStopCheck} />
+			)}
+			{isDeleting && <DeleteCheckModal id={id} onClose={handleStopDelete} />}
 			<ListItemContainer option={radio}>
 				<ImgBox>
 					<img src={img[0]} />

@@ -42,7 +42,7 @@ async function replace(username, data) {
 		throw new NotFoundError('Could not find user for username ' + username);
 	}
 
-	storedData.users[index] = { ...user, data };
+	storedData.users[index] = { ...user, ...data };
 
 	await writeData(storedData);
 }

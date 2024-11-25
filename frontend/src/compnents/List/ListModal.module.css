@@ -1,0 +1,71 @@
+.password_modal {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	gap: 1.5rem;
+}
+
+.password_modal input {
+	width: 70%;
+	font-size: 2rem;
+	text-align: center;
+	padding: 1rem 0;
+	border: 1px solid #ccc;
+	border-radius: 0.8rem;
+}
+.password_modal input:focus {
+	outline: 1.5px solid #2e93ff;
+}
+
+.password_modal button {
+	flex: 1;
+	padding: 1rem 0;
+	font-size: 1.6rem;
+
+	border: none;
+	border-radius: 0.8rem;
+
+	background-color: #0068d6;
+	color: white;
+	cursor: pointer;
+}
+
+.password_modal button:hover {
+	background-color: #0e75e4;
+}
+
+/* delete_modal */
+.delete_modal {
+	width: 100%;
+}
+.delete_modal h3 {
+	width: 100%;
+	font-size: 3rem;
+	margin-bottom: 2rem;
+	text-align: center;
+}
+.delete_modal_btn_box {
+	display: flex;
+	gap: 1.5rem;
+}
+.delete_modal_btn_box button {
+	flex: 1;
+	border: none;
+	font-size: 1.6rem;
+	padding: 1rem 0;
+	border-radius: 2.2rem;
+	background-color: #f9f9f9;
+
+	cursor: pointer;
+}
+.delete_modal_btn_box button:first-child {
+	color: white;
+	background-color: #a4a4a4;
+}
+
+.delete_modal_btn_box button:hover {
+	background-color: #f1f1f1;
+}
+.delete_modal_btn_box button:first-child:hover {
+	background-color: #b4b4b4;
+}
