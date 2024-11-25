@@ -7,9 +7,7 @@ import {
 } from 'react-router-dom';
 import styled from 'styled-components';
 import classes from './LoginForm.module.css';
-import { useState } from 'react';
-import eye from '../../assets/eye.svg';
-import eyeS from '../../assets/eye-slash.svg';
+import useShowPassword from '../../hooks/useShowPassword';
 
 const Title = styled.h1`
 	font-size: 6rem;
@@ -91,8 +89,7 @@ export default function LoginForm() {
 	const navigation = useNavigation();
 	const [searchParams] = useSearchParams();
 
-	const [showPassword, setShowPassword] = useState('password');
-	const [icon, setIcon] = useState(eye);
+	const [inputType, icon, handleShow, handleHide] = useShowPassword();
 
 	const isLogin = searchParams.get('mode').includes('login');
 	const isSignup = searchParams.get('mode').includes('signup');
@@ -106,15 +103,6 @@ export default function LoginForm() {
 	if (isSignup) {
 		buttonText = '가입하기';
 	}
-
-	const handleMouseOver = () => {
-		setIcon(eyeS);
-		setShowPassword('text');
-	};
-	const handleMouseOut = () => {
-		setIcon(eye);
-		setShowPassword('password');
-	};
 
 	return (
 		<>
@@ -148,12 +136,12 @@ export default function LoginForm() {
 					/>
 					<input
 						id="password"
-						type={showPassword}
+						type={inputType}
 						name="password"
 						placeholder="비밀번호"
 						required
 					/>
-					<span onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+					<span onMouseOver={handleShow} onMouseOut={handleHide}>
 						<img src={icon} alt="눈 아이콘" />
 					</span>
 				</InputConatiner>
