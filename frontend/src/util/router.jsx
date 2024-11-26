@@ -4,6 +4,7 @@ import HomePage from '../pages/Home';
 import SubRootLayout from '../pages/SubRoot';
 import ListPage from '../pages/List';
 import GamePage from '../pages/Game';
+import VoteDashboardPage from '../pages/VoteDashboard';
 import ErrorPage from '../UI/Error';
 import LoginPage from '../pages/Login';
 import MakePage from '../pages/Make';
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
 					{
 						path: ':gameId',
 						element: <GamePage />,
+					},
+					{
+						path: ':gameId/vote',
+						element: <VoteDashboardPage />,
 					},
 				],
 			},

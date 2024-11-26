@@ -1,10 +1,10 @@
 import { useParams } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 import styled from 'styled-components';
 
 import OptionBox from '../compnents/Game/OptionBox';
 import LoadingSpinner from '../compnents/Interface/LoadingSpinner';
 import ErrorBlock from '../UI/ErrorBlock';
-import { useQuery } from '@tanstack/react-query';
 import { loader as eventLoader } from '../util/loader/eventsLoader';
 
 const Wrapper = styled.section`

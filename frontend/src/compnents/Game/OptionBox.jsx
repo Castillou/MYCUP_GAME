@@ -87,7 +87,7 @@ export default function OptionBox({ events }) {
 
 		setTimeout(async () => {
 			await updateVote(optionNumber);
-			navigate('/list');
+			navigate('vote');
 		}, 2000);
 	};
 
