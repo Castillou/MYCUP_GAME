@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import userDefault from '../../assets/user.svg';
-import { useState } from 'react';
 import UserEditModal from './UserEditModal';
+import useProcessStatus from '../../hooks/useProcessStatus';
 
 const Wrapper = styled.section`
 	width: 100%;
@@ -86,19 +86,14 @@ const ImageBox = styled.article`
 
 export default function Top() {
 	const username = localStorage.getItem('username');
-	const [isEditing, setIsEditing] = useState(false);
-
-	const handleStartEdit = () => {
-		setIsEditing(true);
-	};
-
-	const handleCancelEdit = () => {
-		setIsEditing(false);
-	};
+	const [isProcessing, handleStartProcess, handleStopProcess] =
+		useProcessStatus();
 
 	return (
 		<Wrapper>
-			{isEditing && <UserEditModal onClose={handleCancelEdit}></UserEditModal>}
+			{isProcessing && (
+				<UserEditModal onClose={handleStopProcess}></UserEditModal>
+			)}
 			<Inner>
 				<ImageBox>
 					<div>
@@ -109,7 +104,7 @@ export default function Top() {
 					<div className="info_box">
 						<h3>{username}</h3>
 						<p>한줄로 자신을 표현해보세요.</p>
-						<button onClick={handleStartEdit}>수정하기</button>
+						<button onClick={handleStartProcess}>수정하기</button>
 					</div>
 				</div>
 			</Inner>

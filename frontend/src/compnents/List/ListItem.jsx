@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import PasswordModal from './PasswordModal';
 import DeleteCheckModal from './DeleteCheckModal';
+import useProcessStatus from '../../hooks/useProcessStatus';
 
 const ListItemContainer = styled.li`
 	width: 34rem;
@@ -105,7 +106,8 @@ export default function ListItem({
 	const navigate = useNavigate();
 	const username = localStorage.getItem('username');
 	const [isFriendsGame, setIsFriendsGame] = useState(false);
-	const [isDeleting, setIsDeleting] = useState(false);
+	const [isProcessing, handleStartProcess, handleStopProcess] =
+		useProcessStatus();
 
 	const handleCheckFriends = () => {
 		if (radio === 'friends') {
@@ -116,14 +118,6 @@ export default function ListItem({
 	};
 	const handleStopCheck = () => {
 		setIsFriendsGame(false);
-	};
-
-	const handleStartDelete = () => {
-		setIsDeleting(true);
-	};
-
-	const handleStopDelete = () => {
-		setIsDeleting(false);
 	};
 
 	let optionLabel;
@@ -141,7 +135,7 @@ export default function ListItem({
 			{isFriendsGame && (
 				<PasswordModal id={id} password={password} onClose={handleStopCheck} />
 			)}
-			{isDeleting && <DeleteCheckModal id={id} onClose={handleStopDelete} />}
+			{isProcessing && <DeleteCheckModal id={id} onClose={handleStopProcess} />}
 			<ListItemContainer option={radio}>
 				<ImgBox>
 					<img src={img[0]} />
@@ -161,7 +155,7 @@ export default function ListItem({
 							<Button>
 								<Link to={`/${username}/edit/${id}`}>수정하기</Link>
 							</Button>
-							<Button onClick={handleStartDelete}>삭제</Button>
+							<Button onClick={handleStartProcess}>삭제</Button>
 						</>
 					)}
 				</ButtonContainer>

@@ -68,7 +68,7 @@ export default function OptionBox({ events }) {
 	const navigate = useNavigate();
 	const gameId = useParams().gameId;
 	const gameData = events.filter((item) => item.id === gameId)[0];
-	const [clickedOption, setClickedOption] = useState();
+	const [clickedOption, setClickedOption] = useState(null);
 
 	const updateVote = useCallback(
 		async (optionNumber) => {
@@ -105,7 +105,7 @@ export default function OptionBox({ events }) {
 					onClick={(e) => handleClick(e.target.id)}
 					className={clickedOption === 1 && 'slide_left'}
 				/>
-				<Vstext className={clickedOption && 'hidden'}>VS</Vstext>
+				<Vstext className={clickedOption !== null && 'hidden'}>VS</Vstext>
 				<OptionComp
 					id="2"
 					src={gameData.images[1]}
