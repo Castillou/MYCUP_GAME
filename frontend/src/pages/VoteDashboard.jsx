@@ -130,8 +130,6 @@ export default function VoteDashboardPage() {
 		queryFn: eventLoader,
 	});
 
-	const gameData = data.filter((item) => item.id === gameId)[0];
-
 	let content;
 	if (isPending) {
 		content = <LoadingSpinner />;
@@ -149,7 +147,8 @@ export default function VoteDashboardPage() {
 		);
 	}
 
-	if (gameData) {
+	if (data) {
+		const gameData = data.filter((item) => item.id === gameId)[0];
 		content = (
 			<>
 				<Title>투표 현황</Title>
