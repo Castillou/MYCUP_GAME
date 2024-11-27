@@ -69,3 +69,10 @@
 .delete_modal_btn_box button:first-child:hover {
 	background-color: #b4b4b4;
 }
+
+.invalid_txt {
+	margin-top: 1rem;
+	padding-left: 1rem;
+	font-size: 1.5rem;
+	color: #ff3d3d;
+}

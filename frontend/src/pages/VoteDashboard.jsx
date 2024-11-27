@@ -1,5 +1,10 @@
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 import styled from 'styled-components';
 import user from '../assets/user.svg';
+import { loader as eventLoader } from '../util/loader/eventsLoader';
+import ErrorBlock from '../UI/ErrorBlock';
+import LoadingSpinner from '../compnents/Interface/LoadingSpinner';
 
 const Wrapper = styled.section`
 	width: 100%;
@@ -89,55 +94,93 @@ const Bottom = styled.div`
 	}
 `;
 
+const DUMMY_COMMENT = [
+	{
+		id: 'c1',
+		username: 'sean',
+		comment: '당연히 1번을 선택했어야죠 이게 뭡니까!',
+	},
+	{
+		id: 'c2',
+		username: '홍길동',
+		comment: '중립을 지키시죠 여러분',
+	},
+	{
+		id: 'c3',
+		username: '김철수',
+		comment: '아니죠 2번을 선택했어야 합니다!',
+	},
+	{
+		id: 'c4',
+		username: '홍길동',
+		comment: '중립을 지키시죠 여러분',
+	},
+	{
+		id: 'c5',
+		username: '홍길동',
+		comment: '중립을 지키시죠 여러분',
+	},
+];
+
 export default function VoteDashboardPage() {
-	return (
-		<Wrapper>
-			<Title>투표 현황</Title>
-			<Top>
-				<div>
-					<span>20</span>
-				</div>
-				<div>
-					<span>12</span>
-				</div>
-			</Top>
-			<Bottom>
-				<ul>
-					<li>
-						<div className="nickname_box">
-							<a href="#">
-								<img src={user} alt="사용자 기본이미지" />
-							</a>
-							<span>닉네임</span>
-						</div>
-						<div className="comment_box">
-							<span>당연히 1번을 선택했어야죠 이게 뭡니까</span>
-						</div>
-					</li>
-					<li>
-						<div className="nickname_box">
-							<a href="#">
-								<img src={user} alt="사용자 기본이미지" />
-							</a>
-							<span>닉네임</span>
-						</div>
-						<div className="comment_box">
-							<span>당연히 1번을 선택했어야죠 이게 뭡니까</span>
-						</div>
-					</li>
-					<li>
-						<div className="nickname_box">
-							<a href="#">
-								<img src={user} alt="사용자 기본이미지" />
-							</a>
-							<span>닉네임</span>
-						</div>
-						<div className="comment_box">
-							<span>당연히 1번을 선택했어야죠 이게 뭡니까</span>
-						</div>
-					</li>
-				</ul>
-			</Bottom>
-		</Wrapper>
-	);
+	const gameId = useParams().gameId;
+
+	const { data, isPending, isError, error } = useQuery({
+		queryKey: ['event', gameId],
+		queryFn: eventLoader,
+	});
+
+	const gameData = data.filter((item) => item.id === gameId)[0];
+
+	let content;
+	if (isPending) {
+		content = <LoadingSpinner />;
+	}
+
+	if (isError) {
+		content = (
+			<ErrorBlock
+				title="게임 정보를 가져오지 못했습니다."
+				message={
+					error.info?.message ||
+					'정보를 가져오지 못했습니다. 잠시 후에 다시 시도해주세요.'
+				}
+			/>
+		);
+	}
+
+	if (gameData) {
+		content = (
+			<>
+				<Title>투표 현황</Title>
+				<Top>
+					<div>
+						<span>{gameData.score[0]}</span>
+					</div>
+					<div>
+						<span>{gameData.score[1]}</span>
+					</div>
+				</Top>
+				<Bottom>
+					<ul>
+						{DUMMY_COMMENT.map(({ id, username, comment }) => (
+							<li key={id}>
+								<div className="nickname_box">
+									<a href="#">
+										<img src={user} alt="사용자 기본이미지" />
+									</a>
+									<span>{username}</span>
+								</div>
+								<div className="comment_box">
+									<span>{comment}</span>
+								</div>
+							</li>
+						))}
+					</ul>
+				</Bottom>
+			</>
+		);
+	}
+
+	return <Wrapper>{content}</Wrapper>;
 }

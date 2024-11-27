@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import Modal from '../../UI/Modal';
 import classes from './ListModal.module.css';
 import { useNavigate } from 'react-router-dom';
@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 export default function PasswordModal({ id, password, onClose }) {
 	const input = useRef();
 	const navigate = useNavigate();
+	const [isInvalid, setIsInvalid] = useState(false);
 
 	const handleKeyDown = (e) => {
 		if (e.key === 'Enter') {
@@ -18,8 +19,7 @@ export default function PasswordModal({ id, password, onClose }) {
 		if (input.current.value === password) {
 			navigate(`/list/${id}`);
 		} else {
-			alert('비밀번호가 일치하지 않습니다.');
-			onClose();
+			setIsInvalid(true);
 		}
 	};
 
@@ -36,6 +36,9 @@ export default function PasswordModal({ id, password, onClose }) {
 					확인
 				</button>
 			</div>
+			{isInvalid && (
+				<p className={classes.invalid_txt}>비밀번호가 일치하지 않습니다.</p>
+			)}
 		</Modal>
 	);
 }
