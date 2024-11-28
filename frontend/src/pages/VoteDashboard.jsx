@@ -90,6 +90,33 @@ const Bottom = styled.div`
 					font-weight: 300;
 				}
 			}
+			&.comment_input {
+				display: flex;
+				justify-content: space-between;
+				gap: 2rem;
+				padding: 1rem;
+				background: none;
+
+				input {
+					flex: 1;
+					border: 1px solid #efefef;
+					border-radius: 3rem;
+					padding: 1.5rem 3rem;
+					font-size: 2rem;
+				}
+
+				button {
+					padding: 1.5rem 2rem;
+					font-size: 1.5rem;
+					border-radius: 3rem;
+					border: none;
+					background-color: #e9e9e9;
+
+					&:hover {
+						background-color: #e1e1e1;
+					}
+				}
+			}
 		}
 	}
 `;
@@ -162,6 +189,10 @@ export default function VoteDashboardPage() {
 				</Top>
 				<Bottom>
 					<ul>
+						<li className="comment_input">
+							<input type="text" id="new_comment" name="new_comment" />
+							<button>저장하기</button>
+						</li>
 						{DUMMY_COMMENT.map(({ id, username, comment }) => (
 							<li key={id}>
 								<div className="nickname_box">
