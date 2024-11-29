@@ -22,6 +22,7 @@ export async function action({ username, data }) {
 	}
 
 	const { user } = await response.json();
+	localStorage.setItem('username', username);
 
 	return user;
 }

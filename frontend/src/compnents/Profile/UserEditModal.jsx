@@ -17,7 +17,7 @@ export default function UserEditModal({ onClose }) {
 	const { mutate, isPending, isError, error } = useMutation({
 		mutationFn: userEditAction,
 		onSuccess: () => {
-			navigate('../');
+			navigate('/');
 		},
 	});
 
@@ -72,6 +72,7 @@ export default function UserEditModal({ onClose }) {
 						id="new_username"
 						name="new_username"
 						placeholder="이름을 입력해주세요."
+						required
 					/>
 				</div>
 				<div className={classes.input_row}>

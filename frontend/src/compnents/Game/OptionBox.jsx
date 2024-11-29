@@ -66,6 +66,7 @@ const Vstext = styled.span`
 /* eslint-disable react/prop-types */
 export default function OptionBox({ events }) {
 	const navigate = useNavigate();
+	const username = localStorage.getItem('username');
 	const gameId = useParams().gameId;
 	const gameData = events.filter((item) => item.id === gameId)[0];
 	const [clickedOption, setClickedOption] = useState(null);
@@ -86,7 +87,9 @@ export default function OptionBox({ events }) {
 		setClickedOption(optionNumber);
 
 		setTimeout(async () => {
-			await updateVote(optionNumber);
+			if (username) {
+				await updateVote(optionNumber);
+			}
 			navigate('vote');
 		}, 2000);
 	};
