@@ -5,6 +5,7 @@ import user from '../assets/user.svg';
 import { loader as eventLoader } from '../util/loader/eventsLoader';
 import ErrorBlock from '../UI/ErrorBlock';
 import LoadingSpinner from '../compnents/Interface/LoadingSpinner';
+import VoteScore from '../compnents/Vote/VoteScore';
 
 const Wrapper = styled.section`
 	width: 100%;
@@ -21,29 +22,6 @@ const Title = styled.h2`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-`;
-
-const Top = styled.div`
-	width: 103rem;
-	margin: 0 auto 3rem;
-	display: flex;
-	gap: 3rem;
-
-	div {
-		width: 50rem;
-		height: 50rem;
-		background-color: #fff;
-		border: 2px solid #86c1ff;
-		border-radius: 3rem;
-
-		display: flex;
-		align-items: center;
-		justify-content: center;
-
-		span {
-			font-size: 10rem;
-		}
-	}
 `;
 
 const Bottom = styled.div`
@@ -179,14 +157,7 @@ export default function VoteDashboardPage() {
 		content = (
 			<>
 				<Title>투표 현황</Title>
-				<Top>
-					<div>
-						<span>{gameData.score[0]}</span>
-					</div>
-					<div>
-						<span>{gameData.score[1]}</span>
-					</div>
-				</Top>
+				<VoteScore score={gameData.score} />
 				<Bottom>
 					<ul>
 						<li className="comment_input">
