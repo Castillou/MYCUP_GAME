@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import user from '../../assets/user.svg';
+import Comment from './Comment';
 
 const Wrapper = styled.div`
 	width: 100rem;
@@ -113,17 +113,7 @@ export default function VoteComment() {
 					<button>저장하기</button>
 				</li>
 				{DUMMY_COMMENT.map(({ id, username, comment }) => (
-					<li key={id}>
-						<div className="nickname_box">
-							<a href="#">
-								<img src={user} alt="사용자 기본이미지" />
-							</a>
-							<span>{username}</span>
-						</div>
-						<div className="comment_box">
-							<span>{comment}</span>
-						</div>
-					</li>
+					<Comment key={id} id={id} username={username} comment={comment} />
 				))}
 			</ul>
 		</Wrapper>
