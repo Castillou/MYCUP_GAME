@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 import Comment from './Comment';
+import useInput from '../../hooks/useInput';
+import { useMutation } from '@tanstack/react-query';
+import { action as addComment } from '../../util/actions/addComment';
+import { useParams } from 'react-router-dom';
+import { queryClient } from '../../util/loader/eventsLoader';
 
 const Wrapper = styled.div`
 	width: 100rem;
@@ -76,45 +81,75 @@ const Wrapper = styled.div`
 	}
 `;
 
-const DUMMY_COMMENT = [
-	{
-		id: 'c1',
-		username: 'sean',
-		comment: '당연히 1번을 선택했어야죠 이게 뭡니까!',
-	},
-	{
-		id: 'c2',
-		username: '홍길동',
-		comment: '중립을 지키시죠 여러분',
-	},
-	{
-		id: 'c3',
-		username: '김철수',
-		comment: '아니죠 2번을 선택했어야 합니다!',
-	},
-	{
-		id: 'c4',
-		username: '홍길동',
-		comment: '중립을 지키시죠 여러분',
-	},
-	{
-		id: 'c5',
-		username: '홍길동',
-		comment: '중립을 지키시죠 여러분',
-	},
-];
+// const DUMMY_COMMENT = [
+// 	{
+// 		id: 'c1',
+// 		username: 'sean',
+// 		comment: '당연히 1번을 선택했어야죠 이게 뭡니까!',
+// 	},
+// 	{
+// 		id: 'c2',
+// 		username: '홍길동',
+// 		comment: '중립을 지키시죠 여러분',
+// 	},
+// 	{
+// 		id: 'c3',
+// 		username: '김철수',
+// 		comment: '아니죠 2번을 선택했어야 합니다!',
+// 	},
+// 	{
+// 		id: 'c4',
+// 		username: '홍길동',
+// 		comment: '중립을 지키시죠 여러분',
+// 	},
+// 	{
+// 		id: 'c5',
+// 		username: '홍길동',
+// 		comment: '중립을 지키시죠 여러분',
+// 	},
+// ];
 
-export default function VoteComment() {
+/* eslint-disable react/prop-types */
+export default function VoteComment({ data }) {
+	const gameId = useParams().gameId;
+	const username = localStorage.getItem('username');
+	const [inputValue, handleInput] = useInput('');
+
+	const { mutate, isPending } = useMutation({
+		mutationFn: addComment,
+		onSuccess: () => {
+			queryClient.invalidateQueries({ queryKey: ['event', gameId] });
+		},
+	});
+
+	const handleSubmit = () => {
+		mutate({ id: gameId, username: username, comment: inputValue, data: data });
+	};
+
 	return (
 		<Wrapper>
 			<ul>
 				<li className="comment_input">
-					<input type="text" id="new_comment" name="new_comment" />
-					<button>저장하기</button>
+					<input
+						type="text"
+						id="new_comment"
+						name="new_comment"
+						value={inputValue}
+						onChange={handleInput}
+					/>
+					<button onClick={handleSubmit}>
+						{isPending ? '저장중...' : '저장하기'}
+					</button>
 				</li>
-				{DUMMY_COMMENT.map(({ id, username, comment }) => (
-					<Comment key={id} id={id} username={username} comment={comment} />
-				))}
+				{!isPending &&
+					data.comment.map(({ id, username, comment }, index) => (
+						<Comment
+							key={index}
+							id={id}
+							username={username}
+							comment={comment}
+						/>
+					))}
 			</ul>
 		</Wrapper>
 	);

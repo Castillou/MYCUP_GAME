@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import classes from './ProfileEditModal.module.css';
 import userDefault from '../../assets/user.svg';
 import Modal from '../../UI/Modal';
-import { action as userEditAction } from '../../util/actions/userEditAction';
-import { useMutation } from '@tanstack/react-query';
 import ErrorBlock from '../../UI/ErrorBlock';
+import { useMutation } from '@tanstack/react-query';
+import { action as userEditAction } from '../../util/actions/userEditAction';
 
 // eslint-disable-next-line react/prop-types
 export default function UserEditModal({ onClose }) {

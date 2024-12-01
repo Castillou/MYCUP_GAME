@@ -55,7 +55,7 @@ export default function VoteDashboardPage() {
 			<>
 				<Title>투표 현황</Title>
 				<VoteScore score={gameData.score} />
-				<VoteComment />
+				<VoteComment data={gameData} />
 			</>
 		);
 	}
