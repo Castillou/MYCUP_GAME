@@ -10,7 +10,7 @@
 
 ## Flowchart
 
-<img width="1200" alt="MYCUP_GAME Flowchart" src="https://github.com/user-attachments/assets/9858b035-a532-42dd-9f73-51c598f9d222">
+<img width="1200" alt="MYCUP_GAME Flowchart_v1 2" src="https://github.com/user-attachments/assets/47d8104a-9abb-4171-b06f-0f3e8e5fe837">
 
 ## 주요 기능
 
