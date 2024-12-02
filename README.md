@@ -11,7 +11,7 @@
 
 <img width="1200" alt="MYCUP_GAME Flowchart_v1 2" src="https://github.com/user-attachments/assets/47d8104a-9abb-4171-b06f-0f3e8e5fe837">
 
-#### ⚙️ 기술 스택
+### ⚙️ 기술 스택
 
 - **Frontend**
 
@@ -76,7 +76,7 @@
 - [x] useQuery를 사용하여 에러시 ErrorBlock 나오게 하기
 - [x] 에러 페이지 UI 개선
 
-## 🔍 ISSUES
+### 🔍 ISSUES
 
 - [x] 회원 가입 후 자동 로그인 될 시 username에 undefined가 할당되는 오류
 - [x] input 요소의 value는 onChange 이벤트에 할당 -> 수정하기 시 이전 데이터가 입력되도록
@@ -85,7 +85,7 @@
   - useNavigate 훅을 사용하여 브라우저 히스토리에서 한 페이지 뒤로 이동
 - [x] 마이페이지 비밀번호 입력 오류 해결
 
-## 🔍 UX 개선
+### 🔍 UX 개선
 
 - [x] 모달에서 esc로 창 나가기 기능
 - [x] 비밀번호 모달에서 엔터 키로 제출 가능하게 변경
