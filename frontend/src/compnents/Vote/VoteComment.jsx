@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 import Comment from './Comment';
 import useInput from '../../hooks/useInput';
+import { nanoid } from 'nanoid';
 import { useMutation } from '@tanstack/react-query';
 import { action as addComment } from '../../util/actions/addComment';
 import { useParams } from 'react-router-dom';
 import { queryClient } from '../../util/loader/eventsLoader';
+import ErrorBlock from '../../UI/ErrorBlock';
 
 const Wrapper = styled.div`
 	width: 100rem;
@@ -81,49 +83,28 @@ const Wrapper = styled.div`
 	}
 `;
 
-// const DUMMY_COMMENT = [
-// 	{
-// 		id: 'c1',
-// 		username: 'sean',
-// 		comment: '당연히 1번을 선택했어야죠 이게 뭡니까!',
-// 	},
-// 	{
-// 		id: 'c2',
-// 		username: '홍길동',
-// 		comment: '중립을 지키시죠 여러분',
-// 	},
-// 	{
-// 		id: 'c3',
-// 		username: '김철수',
-// 		comment: '아니죠 2번을 선택했어야 합니다!',
-// 	},
-// 	{
-// 		id: 'c4',
-// 		username: '홍길동',
-// 		comment: '중립을 지키시죠 여러분',
-// 	},
-// 	{
-// 		id: 'c5',
-// 		username: '홍길동',
-// 		comment: '중립을 지키시죠 여러분',
-// 	},
-// ];
-
 /* eslint-disable react/prop-types */
 export default function VoteComment({ data }) {
 	const gameId = useParams().gameId;
 	const username = localStorage.getItem('username');
-	const [inputValue, handleInput] = useInput('');
+	const [inputValue, handleInput, inputReset] = useInput('');
 
-	const { mutate, isPending } = useMutation({
+	const { mutate, isPending, isError, error } = useMutation({
 		mutationFn: addComment,
 		onSuccess: () => {
 			queryClient.invalidateQueries({ queryKey: ['event', gameId] });
+			inputReset();
 		},
 	});
 
 	const handleSubmit = () => {
 		mutate({ id: gameId, username: username, comment: inputValue, data: data });
+	};
+
+	const handleEnter = (e) => {
+		if (e.key === 'Enter') {
+			handleSubmit();
+		}
 	};
 
 	return (
@@ -136,15 +117,25 @@ export default function VoteComment({ data }) {
 						name="new_comment"
 						value={inputValue}
 						onChange={handleInput}
+						onKeyDown={handleEnter}
 					/>
 					<button onClick={handleSubmit}>
 						{isPending ? '저장중...' : '저장하기'}
 					</button>
 				</li>
+				{isError && (
+					<ErrorBlock
+						title="댓글을 저장하지 못했습니다."
+						message={
+							error.info?.message ||
+							'댓글을 저장하지 못했습니다. 잠시 후에 다시 시도해주세요.'
+						}
+					/>
+				)}
 				{!isPending &&
-					data.comment.map(({ id, username, comment }, index) => (
+					data.comment.map(({ id, username, comment }) => (
 						<Comment
-							key={index}
+							key={nanoid()}
 							id={id}
 							username={username}
 							comment={comment}

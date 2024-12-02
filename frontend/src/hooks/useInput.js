@@ -7,5 +7,9 @@ export default function useInput(value) {
 		setInputValue(e.target.value);
 	}, []);
 
-	return [inputValue, handleInput];
+	const inputReset = () => {
+		setInputValue('');
+	};
+
+	return [inputValue, handleInput, inputReset];
 }

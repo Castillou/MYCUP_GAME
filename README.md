@@ -10,7 +10,7 @@
 
 ## Flowchart
 
-<img width="1200" alt="MYCUP_GAME Flowchart" src="https://github.com/user-attachments/assets/505e88be-dcc4-4124-ba4b-6f4c0d1c76ab">
+<img width="1200" alt="MYCUP_GAME Flowchart" src="https://github.com/user-attachments/assets/9858b035-a532-42dd-9f73-51c598f9d222">
 
 ## 주요 기능
 
@@ -40,7 +40,7 @@
 - [x] 투표 기능 구현 (투표를 하였을 경우 투표한 후보의 투표 인원 배열에 사용자 추가)
 - [x] 선택 시 지금까지 투표한 인원 수 보이는 기능 구현
 - [ ] 각 게임마다 모든 유저가 1표씩만 행사할 수 있도록 변경
-- [ ] 기존 투표 변경 기능 구현
+  - [ ] 기존 투표 변경 기능 구현
 
 ### 투표 집계 창
 
@@ -48,8 +48,8 @@
 - [x] 누적된 점수 화면에 출력 (그래프, 숫자)
 - [x] 댓글달기 기능 추가
   - [x] 댓글 입력 및 버튼 추가
-  - [ ] 댓글 에러 핸들러 추가
-  - [ ] 댓글 컴포넌트 key값 변경
+  - [x] 댓글 에러 핸들러 추가
+  - [x] 댓글 컴포넌트 key값 변경
 
 ### 마이페이지
 
