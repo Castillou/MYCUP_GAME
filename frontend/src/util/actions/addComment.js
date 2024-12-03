@@ -4,7 +4,7 @@ export async function action({ id, username, comment, data }) {
 	const eventData = {
 		...data,
 	};
-	eventData.comment = [{ id, username, comment }, ...eventData.comment];
+	eventData.comments = [{ id, username, comment }, ...eventData.comments];
 
 	const token = getAuthToken();
 	const response = await fetch(`http://localhost:8080/events/${id}`, {

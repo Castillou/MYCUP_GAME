@@ -4,7 +4,7 @@ import classes from './ListModal.module.css';
 import { useNavigate } from 'react-router-dom';
 
 // eslint-disable-next-line react/prop-types
-export default function PasswordModal({ id, password, onClose }) {
+export default function PasswordModal({ gameId, password, onClose }) {
 	const input = useRef();
 	const navigate = useNavigate();
 	const [isInvalid, setIsInvalid] = useState(false);
@@ -17,7 +17,7 @@ export default function PasswordModal({ id, password, onClose }) {
 
 	const handleStartFriendsGame = () => {
 		if (input.current.value === password) {
-			navigate(`/list/${id}`);
+			navigate(`/list/${gameId}`);
 		} else {
 			setIsInvalid(true);
 		}

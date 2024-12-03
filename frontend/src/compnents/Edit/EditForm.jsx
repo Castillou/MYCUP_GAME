@@ -1,9 +1,12 @@
-import { Form, useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import InputRow from '../Make/FormSection/InputRow';
 import RadioRow from '../Make/FormSection/RadioRow';
 import ImageUpload from '../Make/FormSection/ImageUpload';
 import classes from '../Make/UploadForm.module.css';
+import { useMutation } from '@tanstack/react-query';
+import { action as editAction } from '../../util/actions/editAction';
+import { queryClient } from '../../util/loader/eventsLoader';
 
 const Title = styled.h2`
 	padding: 2rem 3rem;
@@ -50,14 +53,33 @@ const SubmitRow = styled.div`
 /* eslint-disable react/prop-types */
 export default function EditForm({ method, id, events }) {
 	const navigate = useNavigate();
+	const gameId = useParams().gameId;
 	const item = events.filter((item) => item.id === id)[0];
 
-	const handleCancel = () => {
+	const { mutate } = useMutation({
+		mutationFn: editAction,
+		onSuccess: () => {
+			queryClient.invalidateQueries({ queryKey: ['events'] });
+			navigate(-1);
+		},
+	});
+
+	const handleEditDataSubmit = (event) => {
+		event.preventDefault();
+		const formData = new FormData(event.target);
+		mutate({ id: gameId, newData: formData, prevData: item });
+	};
+
+	const handleRedirectBeforePage = () => {
 		navigate(-1);
 	};
 
 	return (
-		<Form method={method} className={classes.upload_form}>
+		<form
+			method={method}
+			onSubmit={handleEditDataSubmit}
+			className={classes.upload_form}
+		>
 			<Title>이상형 월드컵 기본정보</Title>
 			<InputRow
 				id="r1"
@@ -76,11 +98,11 @@ export default function EditForm({ method, id, events }) {
 			<RadioRow label="3) 공개여부" initialValue={item.radio} />
 			<ImageUpload initialValue={item.images} />
 			<SubmitRow className="submit-row">
-				<button className="back" onClick={handleCancel}>
+				<button className="back" onClick={handleRedirectBeforePage}>
 					취소하기
 				</button>
 				<button type="submit">수정하기</button>
 			</SubmitRow>
-		</Form>
+		</form>
 	);
 }

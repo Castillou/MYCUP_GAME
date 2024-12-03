@@ -14,7 +14,7 @@ export async function action({ request }) {
 		images: data.getAll('image'),
 		username: localStorage.getItem('username'),
 		score: [0, 0],
-		comment: [],
+		comments: [],
 		...(password ? { password } : {}),
 	};
 

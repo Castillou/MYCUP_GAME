@@ -1,25 +1,27 @@
-import { json, redirect } from 'react-router-dom';
 import { getAuthToken } from '../auth';
 
-export async function action({ request, params }) {
-	const data = await request.formData();
-	const id = params.gameId;
-	const radio = data.get('group');
-	const password = radio === 'friends' ? data.get('password') : null;
+export async function action({ id, newData, prevData }) {
+	const radio = newData.get('group');
+	const password = radio === 'friends' ? newData.get('password') : null;
 
-	const eventData = {
-		title: data.get('title'),
-		description: data.get('description'),
+	const newDataTemp = {
+		title: newData.get('title'),
+		description: newData.get('description'),
 		date: new Date().toISOString(),
 		radio,
-		images: data.getAll('image'),
+		images: newData.getAll('image'),
 		username: localStorage.getItem('username'),
 		...(password ? { password } : {}),
 	};
 
+	const eventData = {
+		...prevData,
+		...newDataTemp,
+	};
+
 	const token = getAuthToken();
 	const response = await fetch(`http://localhost:8080/events/${id}`, {
-		method: request.method,
+		method: 'PATCH',
 		headers: {
 			'Content-Type': 'application/json',
 			Authorization: `Bearer ${token}`,
@@ -28,8 +30,13 @@ export async function action({ request, params }) {
 	});
 
 	if (!response.ok) {
-		throw json({ message: '양식를 저장하지 못했습니다.' }, { status: 500 });
+		const error = new Error('양식을 저장하지 못했습니다.');
+		error.code = response.status;
+		error.info = await response.json();
+		throw error;
 	}
 
-	return redirect('/list');
+	const { events } = await response.json();
+
+	return events;
 }

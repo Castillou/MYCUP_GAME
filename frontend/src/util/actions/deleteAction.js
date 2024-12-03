@@ -1,4 +1,3 @@
-import { json } from 'react-router-dom';
 import { getAuthToken } from '../auth';
 
 export async function action({ id }) {
@@ -12,6 +11,9 @@ export async function action({ id }) {
 	});
 
 	if (!response.ok) {
-		throw json({ message: 'Could not delete it' }, { status: 500 });
+		const error = new Error('게임을 삭제하지 못했습니다.');
+		error.code = response.status;
+		error.info = await response.json();
+		throw error;
 	}
 }

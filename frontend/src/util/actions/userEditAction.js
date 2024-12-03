@@ -4,7 +4,6 @@ export async function action({ username, data }) {
 		description: data.get('new_description'),
 		userImage: data.get('new_userimage').name,
 	};
-	console.log(userData);
 
 	const response = await fetch(`http://localhost:8080/${username}`, {
 		method: 'PATCH',

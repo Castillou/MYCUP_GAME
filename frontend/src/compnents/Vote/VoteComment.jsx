@@ -98,7 +98,15 @@ export default function VoteComment({ data }) {
 	});
 
 	const handleSubmit = () => {
-		mutate({ id: gameId, username: username, comment: inputValue, data: data });
+		if (!inputValue || inputValue.trim() === '') {
+			return;
+		}
+		mutate({
+			id: gameId,
+			username: username,
+			comment: inputValue,
+			data: data,
+		});
 	};
 
 	const handleEnter = (e) => {
@@ -133,7 +141,7 @@ export default function VoteComment({ data }) {
 					/>
 				)}
 				{!isPending &&
-					data.comment.map(({ id, username, comment }) => (
+					data.comments.map(({ id, username, comment }) => (
 						<Comment
 							key={nanoid()}
 							id={id}

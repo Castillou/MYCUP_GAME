@@ -133,9 +133,15 @@ export default function ListItem({
 	return (
 		<>
 			{isFriendsGame && (
-				<PasswordModal id={id} password={password} onClose={handleStopCheck} />
+				<PasswordModal
+					gameId={id}
+					password={password}
+					onClose={handleStopCheck}
+				/>
 			)}
-			{isProcessing && <DeleteCheckModal id={id} onClose={handleStopProcess} />}
+			{isProcessing && (
+				<DeleteCheckModal gameId={id} onClose={handleStopProcess} />
+			)}
 			<ListItemContainer option={radio}>
 				<ImgBox>
 					<img src={img[0]} />
