@@ -1,4 +1,3 @@
-import { json } from 'react-router-dom';
 import { getAuthToken } from './auth';
 
 export default async function voteAction({ optionNumber, id, data }) {
@@ -19,6 +18,13 @@ export default async function voteAction({ optionNumber, id, data }) {
 	});
 
 	if (!response.ok) {
-		throw json({ message: 'Could not update vote' }, { status: 500 });
+		const error = new Error('투표 정보를 업데이트하지 못했습니다.');
+		error.code = response.status;
+		error.info = await response.json();
+		throw error;
 	}
+
+	const { event } = await response.json();
+
+	return event;
 }

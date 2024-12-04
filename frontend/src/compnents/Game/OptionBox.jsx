@@ -1,9 +1,11 @@
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useMutation } from '@tanstack/react-query';
 import styled from 'styled-components';
 
 import OptionComp from './OptionComp';
 import voteAction from '../../util/voteAction';
+import { queryClient } from '../../util/loader/eventsLoader';
 
 const Title = styled.h2`
 	width: 100%;
@@ -71,24 +73,24 @@ export default function OptionBox({ events }) {
 	const gameData = events.filter((item) => item.id === gameId)[0];
 	const [clickedOption, setClickedOption] = useState(null);
 
-	const updateVote = useCallback(
-		async (optionNumber) => {
-			await voteAction({
-				optionNumber: optionNumber,
-				id: gameId,
-				data: gameData,
-			});
+	const { mutate } = useMutation({
+		mutationFn: voteAction,
+		onSuccess: () => {
+			queryClient.invalidateQueries({ queryKey: ['event', gameId] });
 		},
-		[gameId, gameData]
-	);
+	});
 
 	const handleClick = (id) => {
 		const optionNumber = Number(id) - 1;
 		setClickedOption(optionNumber);
 
-		setTimeout(async () => {
+		setTimeout(() => {
 			if (username) {
-				await updateVote(optionNumber);
+				mutate({
+					optionNumber: optionNumber,
+					id: gameId,
+					data: gameData,
+				});
 			}
 			navigate('vote');
 		}, 2000);
