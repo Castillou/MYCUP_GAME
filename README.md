@@ -24,7 +24,6 @@
 
 ```
 [PROJECT]MYCUP_GAME/
-NFE1_2_3_TurtleNeck/
 ├── frontend/
 │   ├── public/
 │   ├── src/
