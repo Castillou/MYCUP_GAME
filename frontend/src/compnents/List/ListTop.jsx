@@ -14,11 +14,12 @@ const Container = styled.div`
 	gap: 1rem;
 
 	input {
+		width: 40rem;
 		height: 5rem;
 		padding: 0 2rem;
 		border: 1px solid #efefef;
 		font-size: 1.6rem;
-		box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 0 2px rgba(5, 5, 5, 0.1);
 		border-radius: 5rem;
 	}
 
@@ -32,17 +33,12 @@ const Container = styled.div`
 		border-radius: 5rem;
 		cursor: pointer;
 
+		transition: all 0.2s ease-in-out;
+
 		&.active {
 			background-color: #2e93ff;
 			color: white;
 			font-weight: 600;
-
-			&:hover {
-				background-color: #86c1ff;
-			}
-		}
-		&:hover {
-			background-color: #fcfcfc;
 		}
 	}
 `;
