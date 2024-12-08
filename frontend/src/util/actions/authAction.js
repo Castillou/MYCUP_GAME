@@ -1,5 +1,4 @@
 import { json, redirect } from 'react-router-dom';
-import { isValidEmail, isValidPassword } from '../validator';
 
 export async function authAction({ request }) {
 	const searchParams = new URL(request.url).searchParams;
@@ -15,11 +14,6 @@ export async function authAction({ request }) {
 		email: data.get('email'),
 		password: data.get('password'),
 	};
-
-	if (!isValidEmail(authData.email) || !isValidPassword(authData.password)) {
-		console.log('유효한 이메일 혹은 패스워드가 아닙니다.');
-		return redirect('/auth?mode=signup');
-	}
 
 	const response = await fetch('http://localhost:8080/' + mode, {
 		method: 'POST',

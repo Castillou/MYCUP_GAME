@@ -4,5 +4,5 @@ export function isValidEmail(emailInput) {
 }
 
 export function isValidPassword(passwordInput) {
-	return !isNaN(Number(passwordInput)) && passwordInput.length >= 6;
+	return passwordInput && passwordInput.length >= 6;
 }

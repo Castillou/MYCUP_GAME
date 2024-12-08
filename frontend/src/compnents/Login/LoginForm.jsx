@@ -8,6 +8,9 @@ import {
 import styled from 'styled-components';
 import classes from './LoginForm.module.css';
 import useShowPassword from '../../hooks/useShowPassword';
+import { isValidEmail, isValidPassword } from '../../util/validator';
+import useInput from '../../hooks/useInput';
+import { useEffect, useState } from 'react';
 
 const Title = styled.h1`
 	font-size: 6rem;
@@ -20,7 +23,7 @@ const Title = styled.h1`
 const InputConatiner = styled.div`
 	display: flex;
 	flex-direction: column;
-	gap: 2rem;
+	gap: 1.5rem;
 
 	margin-bottom: 2rem;
 	position: relative;
@@ -36,6 +39,24 @@ const InputConatiner = styled.div`
 
 			+ span {
 				display: block;
+			}
+		}
+
+		&.invalid {
+			border: 1px solid #fa4032;
+
+			&:focus {
+				outline: 1.5px solid #fa4032;
+
+				+ span {
+					display: block;
+				}
+			}
+
+			+ p {
+				padding-left: 1rem;
+				font-size: 1.6rem;
+				color: #fa4032;
 			}
 		}
 	}
@@ -59,13 +80,13 @@ const Button = styled.button`
 	border: none;
 	font-size: 2rem;
 
-	background-color: #007bff;
+	background-color: ${({ disabled }) => (disabled ? '#858585' : '#007bff')};
 	color: white;
 	cursor: pointer;
 	border-radius: 5rem;
 
 	&:hover {
-		background-color: #0e75e4;
+		background-color: ${({ disabled }) => (disabled ? '#9b9b9b' : '#0e75e4')};
 	}
 `;
 
@@ -89,11 +110,33 @@ export default function LoginForm() {
 	const navigation = useNavigation();
 	const [searchParams] = useSearchParams();
 
+	const [emailInput, handleEmailInput] = useInput('');
+	const [passwordInput, handlePasswordInput] = useInput('');
+
+	const [emailIsValid, handleEmailIsValid] = useState(false);
+	const [passwordIsValid, handlePasswordIsValid] = useState(false);
+
 	const [inputType, icon, handleShow, handleHide] = useShowPassword();
 
 	const isLogin = searchParams.get('mode').includes('login');
 	const isSignup = searchParams.get('mode').includes('signup');
 	const isSubmitting = navigation.state === 'submitting';
+
+	useEffect(() => {
+		if (isValidEmail(emailInput)) {
+			handleEmailIsValid(true);
+		} else {
+			handleEmailIsValid(false);
+		}
+	}, [emailInput]);
+
+	useEffect(() => {
+		if (isValidPassword(passwordInput)) {
+			handlePasswordIsValid(true);
+		} else {
+			handlePasswordIsValid(false);
+		}
+	}, [passwordInput]);
 
 	let buttonText;
 
@@ -131,21 +174,31 @@ export default function LoginForm() {
 						id="email"
 						type="email"
 						name="email"
+						className={!emailIsValid ? 'invalid' : ''}
 						placeholder="이메일"
+						value={emailInput}
+						onChange={handleEmailInput}
 						required
 					/>
+					{!emailIsValid && <p>✓ 아이디는 이메일 형식이어야 합니다.</p>}
 					<input
 						id="password"
 						type={inputType}
 						name="password"
+						className={!passwordIsValid ? 'invalid' : ''}
 						placeholder="비밀번호"
+						value={passwordInput}
+						onChange={handlePasswordInput}
 						required
 					/>
+					{!passwordIsValid && (
+						<p>✓ 비밀번호는 최소 6자리 이상이어야 합니다.</p>
+					)}
 					<span onMouseOver={handleShow} onMouseOut={handleHide}>
 						<img src={icon} alt="눈 아이콘" />
 					</span>
 				</InputConatiner>
-				<Button disabled={isSubmitting}>
+				<Button disabled={!emailIsValid || !passwordIsValid || isSubmitting}>
 					{isSubmitting ? '로딩중...' : buttonText}
 				</Button>
 				<ToggleTxt>
