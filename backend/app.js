@@ -1,8 +1,8 @@
 const bodyParser = require('body-parser');
 const express = require('express');
 
-const eventRoutes = require('./routes/events');
 const authRoutes = require('./routes/auth');
+const eventRoutes = require('./routes/events');
 
 const app = express();
 
@@ -24,4 +24,6 @@ app.use((error, req, res, next) => {
 	res.status(status).json({ message: message });
 });
 
-app.listen(8080);
+app.listen(8080, () => {
+	console.log('Server ready on port 8080');
+});
