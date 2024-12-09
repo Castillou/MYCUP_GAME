@@ -84,7 +84,9 @@ export default function UserEditModal({ onClose }) {
 						placeholder="설명을 입력해주세요."
 					/>
 				</div>
-				<button type="sumbit">{isPending ? '저장중...' : '저장하기'}</button>
+				<button type="sumbit" disabled>
+					{isPending ? '저장중...' : '저장하기'}
+				</button>
 			</form>
 		</Modal>
 	);

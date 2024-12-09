@@ -113,8 +113,8 @@ export default function LoginForm() {
 	const [emailInput, handleEmailInput] = useInput('');
 	const [passwordInput, handlePasswordInput] = useInput('');
 
-	const [emailIsValid, handleEmailIsValid] = useState(false);
-	const [passwordIsValid, handlePasswordIsValid] = useState(false);
+	const [emailIsValid, handleEmailIsValid] = useState(true);
+	const [passwordIsValid, handlePasswordIsValid] = useState();
 
 	const [inputType, icon, handleShow, handleHide] = useShowPassword();
 
@@ -123,18 +123,28 @@ export default function LoginForm() {
 	const isSubmitting = navigation.state === 'submitting';
 
 	useEffect(() => {
-		if (isValidEmail(emailInput)) {
+		if (emailInput.trim() === '') {
 			handleEmailIsValid(true);
-		} else {
-			handleEmailIsValid(false);
+		}
+		if (emailInput.trim() !== '') {
+			if (isValidEmail(emailInput)) {
+				handleEmailIsValid(true);
+			} else {
+				handleEmailIsValid(false);
+			}
 		}
 	}, [emailInput]);
 
 	useEffect(() => {
-		if (isValidPassword(passwordInput)) {
+		if (passwordInput.trim() === '') {
 			handlePasswordIsValid(true);
-		} else {
-			handlePasswordIsValid(false);
+		}
+		if (passwordInput.trim() !== '') {
+			if (isValidPassword(passwordInput)) {
+				handlePasswordIsValid(true);
+			} else {
+				handlePasswordIsValid(false);
+			}
 		}
 	}, [passwordInput]);
 
