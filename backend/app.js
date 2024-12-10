@@ -1,14 +1,9 @@
-require('dotenv').config();
+// require('dotenv').config();
 const bodyParser = require('body-parser');
 const express = require('express');
 const mongoose = require('mongoose');
 
 const { PORT, MONGO_URI } = process.env;
-
-mongoose
-	.connect(MONGO_URI)
-	.then(() => console.log('Connected to MongoDB'))
-	.catch((error) => console.error(error));
 
 const authRoutes = require('./routes/auth');
 const eventRoutes = require('./routes/events');
@@ -34,8 +29,21 @@ app.use((error, req, res, next) => {
 });
 
 const port = PORT || 8080;
-app.listen(port, () => {
-	console.log(`Server ready on port ${port}`);
-});
+
+mongoose
+	.connect(
+		'mongodb+srv://joajoa70584:9aVnLS8PldsAR3l7@cluster0.gjg2q.mongodb.net/'
+	)
+	.then((result) => {
+		app.listen(port, () => {
+			console.log(`Server ready on port ${port}`);
+		});
+	})
+	.catch((err) => console.log(err));
 
 module.exports = app;
+
+// mongoose
+// 	.connect(MONGO_URI)
+// 	.then(() => console.log('Connected to MongoDB'))
+// 	.catch((error) => console.error(error));

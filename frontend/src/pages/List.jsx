@@ -6,7 +6,7 @@ import AppContext from '../apis/appContext';
 
 import ListTop from '../compnents/List/ListTop';
 import ListContainer from '../compnents/List/ListContainer';
-import LoadingSpinner from '../compnents/Interface/LoadingSpinner';
+import LoadingSpinner from '../UI/LoadingSpinner';
 import ErrorBlock from '../UI/ErrorBlock';
 
 const Wrapper = styled.section`

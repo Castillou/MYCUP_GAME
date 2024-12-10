@@ -7,7 +7,7 @@ import MyGames from './MyGames';
 import Personal from './Personal';
 import Friends from './Friends';
 import TabButton from './TabButton';
-import LoadingSpinner from '../Interface/LoadingSpinner';
+import LoadingSpinner from '../../UI/LoadingSpinner';
 import ErrorBlock from '../../UI/ErrorBlock';
 
 const Wrapper = styled.section`

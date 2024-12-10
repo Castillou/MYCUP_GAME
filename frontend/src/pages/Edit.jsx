@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
-import LoadingSpinner from '../compnents/Interface/LoadingSpinner';
+import LoadingSpinner from '../UI/LoadingSpinner';
 import ErrorBlock from '../UI/ErrorBlock';
 import TopButtons from '../compnents/Make/TopButtons';
 import EditForm from '../compnents/Edit/EditForm';

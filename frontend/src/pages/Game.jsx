@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import styled from 'styled-components';
 
 import OptionBox from '../compnents/Game/OptionBox';
-import LoadingSpinner from '../compnents/Interface/LoadingSpinner';
+import LoadingSpinner from '../UI/LoadingSpinner';
 import ErrorBlock from '../UI/ErrorBlock';
 import { loader as eventLoader } from '../util/loader/eventsLoader';
 

@@ -12,6 +12,7 @@ const Wrapper = styled.div`
 	width: 100rem;
 	min-height: 80rem;
 	margin: 0 auto;
+	padding-bottom: 10rem;
 
 	ul {
 		width: 100%;
@@ -115,6 +116,26 @@ export default function VoteComment({ data }) {
 		}
 	};
 
+	let content;
+	if (isError) {
+		content = (
+			<ErrorBlock
+				title="댓글을 저장하지 못했습니다."
+				message={
+					error.info?.message ||
+					'댓글을 저장하지 못했습니다. 잠시 후에 다시 시도해주세요.'
+				}
+			/>
+		);
+	}
+
+	if (data) {
+		const temp = data.comments.map(({ id, username, comment }) => (
+			<Comment key={nanoid()} id={id} username={username} comment={comment} />
+		));
+		content = temp;
+	}
+
 	return (
 		<Wrapper>
 			<ul>
@@ -131,24 +152,7 @@ export default function VoteComment({ data }) {
 						{isPending ? '저장중...' : '저장하기'}
 					</button>
 				</li>
-				{isError && (
-					<ErrorBlock
-						title="댓글을 저장하지 못했습니다."
-						message={
-							error.info?.message ||
-							'댓글을 저장하지 못했습니다. 잠시 후에 다시 시도해주세요.'
-						}
-					/>
-				)}
-				{!isPending &&
-					data.comments.map(({ id, username, comment }) => (
-						<Comment
-							key={nanoid()}
-							id={id}
-							username={username}
-							comment={comment}
-						/>
-					))}
+				{content}
 			</ul>
 		</Wrapper>
 	);
