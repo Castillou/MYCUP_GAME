@@ -92,7 +92,7 @@ export default function OptionBox({ events }) {
 					data: gameData,
 				});
 			}
-			navigate('vote');
+			navigate(`/list/${gameId}/vote`);
 		}, 2000);
 	};
 
