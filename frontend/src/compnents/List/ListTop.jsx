@@ -47,7 +47,7 @@ export default function ListTop() {
 	const [clickedButton, setclickedButton] = useState('popular');
 	const [inputValue, handleInput] = useInput('');
 
-	const handleButtonClick = (e) => {
+	const handleSortButton = (e) => {
 		let buttonClass = e.target.className;
 		if (buttonClass.startsWith('popular')) {
 			setclickedButton('popular');
@@ -62,13 +62,13 @@ export default function ListTop() {
 			<Container>
 				<button
 					className={`popular${clickedButton === 'popular' && ' active'}`}
-					onClick={handleButtonClick}
+					onClick={handleSortButton}
 				>
 					인기순
 				</button>
 				<button
 					className={`recent${clickedButton === 'recent' && ' active'}`}
-					onClick={handleButtonClick}
+					onClick={handleSortButton}
 				>
 					최신순
 				</button>

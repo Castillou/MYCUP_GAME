@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { loader as eventLoader } from '../util/loader/eventsLoader';
 import AppContext from '../apis/appContext';
 
-import ListTop from '../compnents/List/ListTop';
 import ListContainer from '../compnents/List/ListContainer';
 import LoadingSpinner from '../UI/LoadingSpinner';
 import ErrorBlock from '../UI/ErrorBlock';
@@ -43,10 +42,7 @@ export default function ListPage() {
 
 	return (
 		<AppContext.Provider value={{ token }}>
-			<Wrapper>
-				<ListTop />
-				{content}
-			</Wrapper>
+			<Wrapper>{content}</Wrapper>
 		</AppContext.Provider>
 	);
 }
