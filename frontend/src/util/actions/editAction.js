@@ -7,7 +7,6 @@ export async function action({ id, newData, prevData }) {
 	const newDataTemp = {
 		title: newData.get('title'),
 		description: newData.get('description'),
-		date: new Date().toISOString(),
 		radio,
 		images: newData.getAll('image'),
 		username: localStorage.getItem('username'),

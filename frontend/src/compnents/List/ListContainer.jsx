@@ -88,9 +88,21 @@ export default function ListContainer({ events }) {
 		let buttonClass = e.target.className;
 		if (buttonClass.startsWith('popular')) {
 			setClickedButton('popular');
+			let popularSorted = [...games].sort(
+				(itemA, itemB) =>
+					itemB.score[0] + itemB.score[1] - (itemA.score[0] + itemA.score[1])
+			);
+			setGames(popularSorted);
 		}
 		if (buttonClass.startsWith('recent')) {
 			setClickedButton('recent');
+			let recentSorted = [...games].sort(
+				(itemA, itemB) =>
+					new Date(itemB.startDate).getTime() -
+					new Date(itemA.startDate).getTime()
+			);
+			console.log(recentSorted);
+			setGames(recentSorted);
 		}
 	};
 
@@ -106,13 +118,13 @@ export default function ListContainer({ events }) {
 			<ButtonSection>
 				<Container>
 					<button
-						className={`popular${clickedButton === 'popular' && ' active'}`}
+						className={`popular ${clickedButton === 'popular' ? 'active' : ''}`}
 						onClick={handleSortButton}
 					>
 						인기순
 					</button>
 					<button
-						className={`recent${clickedButton === 'recent' && ' active'}`}
+						className={`recent ${clickedButton === 'recent' ? 'active' : ''}`}
 						onClick={handleSortButton}
 					>
 						최신순

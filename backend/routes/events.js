@@ -45,7 +45,7 @@ router.post('/', async (req, res, next) => {
 		errors.description = 'Invalid description.';
 	}
 
-	if (!isValidDate(data.date)) {
+	if (!isValidDate(data.startDate)) {
 		errors.date = 'Invalid date.';
 	}
 
@@ -85,7 +85,7 @@ router.patch('/:id', async (req, res, next) => {
 		errors.description = 'Invalid description.';
 	}
 
-	if (!isValidDate(data.date)) {
+	if (!isValidDate(data.startDate)) {
 		errors.date = 'Invalid date.';
 	}
 
