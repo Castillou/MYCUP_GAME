@@ -61,6 +61,7 @@ const Container = styled.div`
 export default function ListContainer({ events }) {
 	const token = useToken();
 	const username = localStorage.getItem('username');
+	console.log(events);
 
 	const [clickedButton, setClickedButton] = useState('popular');
 	const [inputValue, handleInput] = useInput('');

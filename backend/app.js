@@ -1,9 +1,6 @@
-// require('dotenv').config();
 const bodyParser = require('body-parser');
 const express = require('express');
-const mongoose = require('mongoose');
-
-const { PORT, MONGO_URI } = process.env;
+const dbConnect = require('./config/dbConnect');
 
 const authRoutes = require('./routes/auth');
 const eventRoutes = require('./routes/events');
@@ -28,22 +25,12 @@ app.use((error, req, res, next) => {
 	res.status(status).json({ message: message });
 });
 
-const port = PORT || 8080;
+const port = process.env.PORT || 8080;
 
-mongoose
-	.connect(
-		'mongodb+srv://joajoa70584:9aVnLS8PldsAR3l7@cluster0.gjg2q.mongodb.net/'
-	)
-	.then((result) => {
-		app.listen(port, () => {
-			console.log(`Server ready on port ${port}`);
-		});
-	})
-	.catch((err) => console.log(err));
+dbConnect();
+
+app.listen(port, () => {
+	console.log(`Server ready on port ${port}`);
+});
 
 module.exports = app;
-
-// mongoose
-// 	.connect(MONGO_URI)
-// 	.then(() => console.log('Connected to MongoDB'))
-// 	.catch((error) => console.error(error));
