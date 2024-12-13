@@ -3,6 +3,7 @@ const { v4: generateId } = require('uuid');
 
 const { NotFoundError } = require('../util/errors');
 const { readUserData, writeUserData } = require('./util');
+const User = require('../models/user');
 
 async function add(data) {
 	const users = await readUserData();
@@ -11,7 +12,12 @@ async function add(data) {
 	if (!users) {
 		users = [];
 	}
-	users.push({ ...data, password: hashedPw, id: userId });
+	const newUser = { ...data, password: hashedPw, id: userId };
+	users.push(newUser);
+
+	// mongodb에 user 데이터 저장 로직 추가
+	const dbUser = new User(newUser);
+	await dbUser.save();
 	await writeUserData(users);
 	return { id: userId, email: data.email, username: data.username };
 }
