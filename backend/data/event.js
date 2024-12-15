@@ -2,6 +2,7 @@ const { v4: generateId } = require('uuid');
 
 const { NotFoundError } = require('../util/errors');
 const { readEventData, writeEventData } = require('./util');
+const Event = require('../models/event');
 
 async function getAll() {
 	const events = await readEventData();
@@ -32,7 +33,12 @@ async function add(data) {
 		events = [];
 	}
 
-	events.unshift({ ...data, id: generateId() });
+	const newEvent = { ...data, id: generateId() };
+	events.unshift(newEvent);
+
+	// mongodb에 Event 데이터 저장 로직 추가
+	const dbEvent = new Event(newEvent);
+	await dbEvent.save();
 	await writeEventData(events);
 }
 
