@@ -1,12 +1,18 @@
 const fs = require('node:fs/promises');
+const Event = require('../models/event');
+const User = require('../models/user');
 
 async function readUserData() {
-	const data = await fs.readFile('users.json', 'utf8');
-	return JSON.parse(data);
+	// const data = await fs.readFile('users.json', 'utf8');
+	// return JSON.parse(data);
+	const dbUserData = await User.find();
+	return dbUserData;
 }
 async function readEventData() {
-	const data = await fs.readFile('events.json', 'utf8');
-	return JSON.parse(data);
+	// const data = await fs.readFile('events.json', 'utf8');
+	// return JSON.parse(data);
+	const dbEventData = await Event.find();
+	return dbEventData;
 }
 
 async function writeUserData(data) {

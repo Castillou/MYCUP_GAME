@@ -12,6 +12,7 @@ const EventSchema = new Schema({
 	score: [0, 2],
 	comments: [{ id: String, username: String, comment: String, date: Date }],
 	id: String,
+	password: String,
 });
 
 const Event = mongoose.model('Event', EventSchema);

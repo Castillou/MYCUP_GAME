@@ -55,12 +55,16 @@ async function replace(id, data) {
 
 	events[index] = { ...data, id };
 
+	const { _id, ...updateData } = data;
+	await Event.findOneAndUpdate({ id: id }, updateData, { new: true });
+
 	await writeEventData(events);
 }
 
 async function remove(id) {
 	const events = await readEventData();
 	const updatedData = events.filter((ev) => ev.id !== id);
+	await Event.deleteOne({ id });
 	await writeEventData({ ...events, updatedData });
 }
 
