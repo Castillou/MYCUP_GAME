@@ -39,6 +39,7 @@ async function add(data) {
 	// mongodb에 Event 데이터 저장 로직 추가
 	const dbEvent = new Event(newEvent);
 	await dbEvent.save();
+
 	await writeEventData(events);
 }
 
@@ -63,8 +64,9 @@ async function replace(id, data) {
 
 async function remove(id) {
 	const events = await readEventData();
-	const updatedData = events.filter((ev) => ev.id !== id);
 	await Event.deleteOne({ id });
+
+	const updatedData = events.filter((ev) => ev.id !== id);
 	await writeEventData({ ...events, updatedData });
 }
 

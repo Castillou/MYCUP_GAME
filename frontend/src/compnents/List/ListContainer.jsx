@@ -113,6 +113,12 @@ export default function ListContainer({ events }) {
 		setGames(searchedGames);
 	};
 
+	const handleKeyDown = (e) => {
+		if (e.key === 'Enter') {
+			handleSearchGame();
+		}
+	};
+
 	return (
 		<ListSection>
 			<ButtonSection>
@@ -131,7 +137,12 @@ export default function ListContainer({ events }) {
 					</button>
 				</Container>
 				<Container>
-					<input type="text" value={inputValue} onChange={handleInput} />
+					<input
+						type="text"
+						value={inputValue}
+						onChange={handleInput}
+						onKeyDown={handleKeyDown}
+					/>
 					<button onClick={handleSearchGame}>검색</button>
 				</Container>
 			</ButtonSection>
