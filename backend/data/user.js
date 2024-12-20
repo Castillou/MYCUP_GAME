@@ -18,7 +18,7 @@ async function add(data) {
 	// mongodb에 user 데이터 저장 로직 추가
 	const dbUsers = new User(newUser);
 	await dbUsers.save();
-	await writeUserData(users);
+	// await writeUserData(users);
 	return { id: userId, email: data.email, username: data.username };
 }
 
@@ -49,6 +49,9 @@ async function replace(username, data) {
 	}
 
 	users[index] = { ...user, ...data };
+
+	const { _id, ...updateData } = data;
+	await User.findOneAndUpdate({ id: id }, updateData, { new: true });
 
 	await writeUserData(users);
 }

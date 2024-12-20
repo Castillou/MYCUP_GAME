@@ -40,7 +40,7 @@ async function add(data) {
 	const dbEvent = new Event(newEvent);
 	await dbEvent.save();
 
-	await writeEventData(events);
+	// await writeEventData(events);
 }
 
 async function replace(id, data) {
@@ -59,7 +59,7 @@ async function replace(id, data) {
 	const { _id, ...updateData } = data;
 	await Event.findOneAndUpdate({ id: id }, updateData, { new: true });
 
-	await writeEventData(events);
+	// await writeEventData(events);
 }
 
 async function remove(id) {
@@ -67,7 +67,7 @@ async function remove(id) {
 	await Event.deleteOne({ id });
 
 	const updatedData = events.filter((ev) => ev.id !== id);
-	await writeEventData({ ...events, updatedData });
+	// await writeEventData({ ...events, updatedData });
 }
 
 exports.getAll = getAll;
