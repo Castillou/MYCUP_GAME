@@ -16,43 +16,43 @@ const ItemContainer = styled.ul`
 	flex-wrap: wrap;
 `;
 
-const ButtonSection = styled.section`
+const ButtonContainer = styled.section`
 	width: 100%;
 	margin-bottom: 3rem;
 	display: flex;
 	gap: 3rem;
-`;
 
-const Container = styled.div`
-	display: flex;
-	gap: 1rem;
+	div {
+		display: flex;
+		gap: 1rem;
 
-	input {
-		width: 40rem;
-		height: 5rem;
-		padding: 0 2rem;
-		border: 1px solid #efefef;
-		font-size: 1.6rem;
-		box-shadow: 0 0 2px rgba(5, 5, 5, 0.1);
-		border-radius: 5rem;
-	}
+		input {
+			width: 40rem;
+			height: 5rem;
+			padding: 0 2rem;
+			border: 1px solid #efefef;
+			font-size: 1.6rem;
+			box-shadow: 0 0 2px rgba(5, 5, 5, 0.1);
+			border-radius: 5rem;
+		}
 
-	button {
-		height: 5rem;
-		padding: 0 2rem;
-		border: none;
-		font-size: 1.6rem;
-		background-color: #fff;
-		box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
-		border-radius: 5rem;
-		cursor: pointer;
+		button {
+			height: 5rem;
+			padding: 0 2rem;
+			border: none;
+			font-size: 1.6rem;
+			background-color: #fff;
+			box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+			border-radius: 5rem;
+			cursor: pointer;
 
-		transition: all 0.2s ease-in-out;
+			transition: all 0.2s ease-in-out;
 
-		&.active {
-			background-color: #2e93ff;
-			color: white;
-			font-weight: 600;
+			&.active {
+				background-color: #2e93ff;
+				color: white;
+				font-weight: 600;
+			}
 		}
 	}
 `;
@@ -72,11 +72,7 @@ export default function ListContainer({ events }) {
 			availableGames = events.filter((item) => item.radio === 'public');
 		} else {
 			availableGames = events.filter((item) => {
-				if (
-					item.username === username ||
-					item.radio === 'public' ||
-					item.radio === 'friends'
-				) {
+				if (item.username === username || item.radio === 'public' || item.radio === 'friends') {
 					return item;
 				}
 			});
@@ -89,17 +85,14 @@ export default function ListContainer({ events }) {
 		if (buttonClass.startsWith('popular')) {
 			setClickedButton('popular');
 			let popularSorted = [...games].sort(
-				(itemA, itemB) =>
-					itemB.score[0] + itemB.score[1] - (itemA.score[0] + itemA.score[1])
+				(itemA, itemB) => itemB.score[0] + itemB.score[1] - (itemA.score[0] + itemA.score[1])
 			);
 			setGames(popularSorted);
 		}
 		if (buttonClass.startsWith('recent')) {
 			setClickedButton('recent');
 			let recentSorted = [...games].sort(
-				(itemA, itemB) =>
-					new Date(itemB.startDate).getTime() -
-					new Date(itemA.startDate).getTime()
+				(itemA, itemB) => new Date(itemB.startDate).getTime() - new Date(itemA.startDate).getTime()
 			);
 			console.log(recentSorted);
 			setGames(recentSorted);
@@ -107,9 +100,7 @@ export default function ListContainer({ events }) {
 	};
 
 	const handleSearchGame = () => {
-		let searchedGames = events.filter((item) =>
-			item.title.includes(inputValue.trim())
-		);
+		let searchedGames = events.filter((item) => item.title.includes(inputValue.trim()));
 		setGames(searchedGames);
 	};
 
@@ -121,8 +112,8 @@ export default function ListContainer({ events }) {
 
 	return (
 		<ListSection>
-			<ButtonSection>
-				<Container>
+			<ButtonContainer>
+				<div>
 					<button
 						className={`popular ${clickedButton === 'popular' ? 'active' : ''}`}
 						onClick={handleSortButton}
@@ -135,17 +126,12 @@ export default function ListContainer({ events }) {
 					>
 						최신순
 					</button>
-				</Container>
-				<Container>
-					<input
-						type="text"
-						value={inputValue}
-						onChange={handleInput}
-						onKeyDown={handleKeyDown}
-					/>
+				</div>
+				<div>
+					<input type="text" value={inputValue} onChange={handleInput} onKeyDown={handleKeyDown} />
 					<button onClick={handleSearchGame}>검색</button>
-				</Container>
-			</ButtonSection>
+				</div>
+			</ButtonContainer>
 			<ItemContainer>
 				{games.map((item) => (
 					<ListItem
