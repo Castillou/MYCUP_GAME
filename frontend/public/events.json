@@ -3,15 +3,15 @@
 		"_id": {
 			"$oid": "675f752856600d6f7c58d174"
 		},
-		"title": "test",
-		"description": "테스트용 게임",
+		"title": "Mood 월드컵",
+		"description": "최고의 무드를 선정해보세요.",
 		"startDate": {
 			"$date": "2024-12-10T01:11:41.870Z"
 		},
 		"radio": "public",
 		"images": [
-			"https://images.unsplash.com/photo-1542365887-1149961dccc7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-			"https://worldstrides.com/wp-content/uploads/2015/07/api-16.jpg"
+			"https://images.unsplash.com/photo-1734312621516-3d258db95e76?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+			"https://images.unsplash.com/photo-1734466649856-6f7677852131?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 		],
 		"username": "sean",
 		"score": [1, 2],

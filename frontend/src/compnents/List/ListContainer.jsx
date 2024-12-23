@@ -94,7 +94,6 @@ export default function ListContainer({ events }) {
 			let recentSorted = [...games].sort(
 				(itemA, itemB) => new Date(itemB.startDate).getTime() - new Date(itemA.startDate).getTime()
 			);
-			console.log(recentSorted);
 			setGames(recentSorted);
 		}
 	};

@@ -6,7 +6,8 @@ import AppContext from '../apis/appContext';
 
 import ListContainer from '../compnents/List/ListContainer';
 import LoadingSpinner from '../UI/LoadingSpinner';
-import ErrorBlock from '../UI/ErrorBlock';
+// import ErrorBlock from '../UI/ErrorBlock';
+import sampleData from '../../public/events.json';
 
 const Wrapper = styled.section`
 	width: 100%;
@@ -16,9 +17,13 @@ const Wrapper = styled.section`
 export default function ListPage() {
 	const token = useRouteLoaderData('root');
 
-	const { data, isPending, isError, error } = useQuery({
+	const { data, isPending, isError } = useQuery({
 		queryKey: ['events'],
 		queryFn: eventLoader,
+		// 이하 임시 데이터용 코드
+		retry: 1,
+		retryDelay: 100, // 재시도 간격 1초
+		staleTime: 5 * 60 * 1000, // 5분간 캐시 유지
 	});
 
 	let content;
@@ -28,12 +33,14 @@ export default function ListPage() {
 	}
 
 	if (isError) {
-		content = (
-			<ErrorBlock
-				title="An error occurred"
-				message={error.info?.message || 'Failed to fetch events'}
-			/>
-		);
+		// content = (
+		// 	<ErrorBlock
+		// 		title="An error occurred"
+		// 		message={error.info?.message || 'Failed to fetch events'}
+		// 	/>
+		// );
+		// 임시 데이터 사용
+		content = <ListContainer events={sampleData} />;
 	}
 
 	if (data) {
