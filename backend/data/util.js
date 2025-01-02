@@ -1,18 +1,22 @@
 const fs = require('node:fs/promises');
-const Event = require('../models/event');
-const User = require('../models/user');
+// const Event = require('../models/event');
+// const User = require('../models/user');
 
 async function readUserData() {
-	// const data = await fs.readFile('users.json', 'utf8');
-	// return JSON.parse(data);
-	const dbUserData = await User.find();
-	return dbUserData;
+	const data = await fs.readFile('users.json', 'utf8');
+	return JSON.parse(data);
+
+	// mongoDB에서 User 데이터 찾기
+	// const dbUserData = await User.find();
+	// return dbUserData;
 }
 async function readEventData() {
-	// const data = await fs.readFile('events.json', 'utf8');
-	// return JSON.parse(data);
-	const dbEventData = await Event.find();
-	return dbEventData;
+	const data = await fs.readFile('events.json', 'utf8');
+	return JSON.parse(data);
+
+	// mongoDB에서 Event 데이터 찾기
+	// const dbEventData = await Event.find();
+	// return dbEventData;
 }
 
 async function writeUserData(data) {

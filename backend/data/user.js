@@ -15,10 +15,12 @@ async function add(data) {
 	const newUser = { ...data, password: hashedPw, id: userId };
 	users.push(newUser);
 
-	// mongodb에 user 데이터 저장 로직 추가
-	const dbUsers = new User(newUser);
-	await dbUsers.save();
-	// await writeUserData(users);
+	// mongodb에 데이터 저장
+	// const dbUsers = new User(newUser);
+	// await dbUsers.save();
+
+	// 로컬 json 파일에 데이터 저장
+	await writeUserData(users);
 	return { id: userId, email: data.email, username: data.username };
 }
 
@@ -51,8 +53,11 @@ async function replace(username, data) {
 	users[index] = { ...user, ...data };
 
 	const { _id, ...updateData } = data;
-	await User.findOneAndUpdate({ id: id }, updateData, { new: true });
 
+	// mongoDB 데이터 업데이트
+	// await User.findOneAndUpdate({ id: id }, updateData, { new: true });
+
+	// 로컬 json 파일에 데이터 업데이트
 	await writeUserData(users);
 }
 

@@ -27,7 +27,7 @@ app.use((error, req, res, next) => {
 
 const port = process.env.PORT || 8080;
 
-dbConnect();
+// dbConnect();
 
 app.listen(port, () => {
 	console.log(`Server ready on port ${port}`);

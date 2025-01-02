@@ -36,11 +36,12 @@ async function add(data) {
 	const newEvent = { ...data, id: generateId() };
 	events.unshift(newEvent);
 
-	// mongodb에 Event 데이터 저장 로직 추가
-	const dbEvent = new Event(newEvent);
-	await dbEvent.save();
+	// mongodb에 데이터 저장
+	// const dbEvent = new Event(newEvent);
+	// await dbEvent.save();
 
-	// await writeEventData(events);
+	// 로컬 json 파일 데이터 추가
+	await writeEventData(events);
 }
 
 async function replace(id, data) {
@@ -57,17 +58,23 @@ async function replace(id, data) {
 	events[index] = { ...data, id };
 
 	const { _id, ...updateData } = data;
-	await Event.findOneAndUpdate({ id: id }, updateData, { new: true });
 
-	// await writeEventData(events);
+	// mongoDB 데이터 업데이트
+	// await Event.findOneAndUpdate({ id: id }, updateData, { new: true });
+
+	// 로컬 json 파일 데이터 업데이트
+	await writeEventData(events);
 }
 
 async function remove(id) {
 	const events = await readEventData();
-	await Event.deleteOne({ id });
 
+	// mongoDB 데이터 삭제
+	// await Event.deleteOne({ id });
+
+	// 로컬 json 파일에 데이터 삭제
 	const updatedData = events.filter((ev) => ev.id !== id);
-	// await writeEventData({ ...events, updatedData });
+	await writeEventData(updatedData);
 }
 
 exports.getAll = getAll;
