@@ -121,10 +121,7 @@ export default function VoteComment({ data }) {
 		content = (
 			<ErrorBlock
 				title="댓글을 저장하지 못했습니다."
-				message={
-					error.info?.message ||
-					'댓글을 저장하지 못했습니다. 잠시 후에 다시 시도해주세요.'
-				}
+				message={error.info?.message || '댓글을 저장하지 못했습니다. 잠시 후에 다시 시도해주세요.'}
 			/>
 		);
 	}
@@ -148,9 +145,7 @@ export default function VoteComment({ data }) {
 						onChange={handleInput}
 						onKeyDown={handleEnter}
 					/>
-					<button onClick={handleSubmit}>
-						{isPending ? '저장중...' : '저장하기'}
-					</button>
+					<button onClick={handleSubmit}>{isPending ? '저장중...' : '저장하기'}</button>
 				</li>
 				{content}
 			</ul>

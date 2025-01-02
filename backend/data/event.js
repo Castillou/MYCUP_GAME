@@ -2,7 +2,7 @@ const { v4: generateId } = require('uuid');
 
 const { NotFoundError } = require('../util/errors');
 const { readEventData, writeEventData } = require('./util');
-const Event = require('../models/event');
+// const Event = require('../models/event');
 
 async function getAll() {
 	const events = await readEventData();
@@ -57,8 +57,7 @@ async function replace(id, data) {
 
 	events[index] = { ...data, id };
 
-	const { _id, ...updateData } = data;
-
+	// const { _id, ...updateData } = data;
 	// mongoDB 데이터 업데이트
 	// await Event.findOneAndUpdate({ id: id }, updateData, { new: true });
 

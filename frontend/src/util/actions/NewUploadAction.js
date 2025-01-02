@@ -9,7 +9,7 @@ export async function action({ request }) {
 	const eventData = {
 		title: data.get('title'),
 		description: data.get('description'),
-		startDate: new Date().toISOString(),
+		date: new Date().toISOString(),
 		radio,
 		images: data.getAll('image'),
 		username: localStorage.getItem('username'),
