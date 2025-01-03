@@ -44,6 +44,7 @@ const Inner = styled.article`
 				border: none;
 				border-radius: 48px;
 				cursor: pointer;
+				outline: none;
 
 				&:hover {
 					background-color: #f7f7f7;
@@ -86,14 +87,11 @@ const ImageBox = styled.article`
 
 export default function Top() {
 	const username = localStorage.getItem('username');
-	const [isProcessing, handleStartProcess, handleStopProcess] =
-		useProcessStatus();
+	const [isProcessing, handleStartProcess, handleStopProcess] = useProcessStatus();
 
 	return (
 		<Wrapper>
-			{isProcessing && (
-				<UserEditModal onClose={handleStopProcess}></UserEditModal>
-			)}
+			{isProcessing && <UserEditModal onClose={handleStopProcess}></UserEditModal>}
 			<Inner>
 				<ImageBox>
 					<div>

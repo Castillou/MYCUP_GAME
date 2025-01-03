@@ -42,17 +42,14 @@ export default function UserEditModal({ onClose }) {
 				<ErrorBlock
 					title="정보를 저장하지 못했습니다."
 					message={
-						error.info?.message ||
-						'사용자 정보를 저장하지 못했습니다. 잠시 후에 다시 시도해주세요.'
+						error.info?.message || '사용자 정보를 저장하지 못했습니다. 잠시 후에 다시 시도해주세요.'
 					}
 				/>
 			)}
 			<form onSubmit={handleSubmit} className={classes.profile_edit_modal}>
 				<div className={classes.image_input}>
 					<img
-						src={
-							userImage === null ? userDefault : URL.createObjectURL(userImage)
-						}
+						src={userImage === null ? userDefault : URL.createObjectURL(userImage)}
 						alt="프로필 이미지"
 						onClick={handleChooseFile}
 					/>
@@ -72,7 +69,6 @@ export default function UserEditModal({ onClose }) {
 						id="new_username"
 						name="new_username"
 						placeholder="이름을 입력해주세요."
-						required
 					/>
 				</div>
 				<div className={classes.input_row}>

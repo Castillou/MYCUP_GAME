@@ -62,7 +62,7 @@ export default function ListContainer({ events }) {
 	const token = useToken();
 	const username = localStorage.getItem('username');
 
-	const [clickedButton, setClickedButton] = useState('popular');
+	const [clickedButton, setClickedButton] = useState('recent');
 	const [inputValue, handleInput] = useInput('');
 	const [games, setGames] = useState(events);
 
@@ -92,7 +92,7 @@ export default function ListContainer({ events }) {
 		if (buttonClass.startsWith('recent')) {
 			setClickedButton('recent');
 			let recentSorted = [...games].sort(
-				(itemA, itemB) => new Date(itemB.startDate).getTime() - new Date(itemA.startDate).getTime()
+				(itemA, itemB) => new Date(itemB.date).getTime() - new Date(itemA.date).getTime()
 			);
 			setGames(recentSorted);
 		}
@@ -114,16 +114,16 @@ export default function ListContainer({ events }) {
 			<ButtonContainer>
 				<div>
 					<button
-						className={`popular ${clickedButton === 'popular' ? 'active' : ''}`}
-						onClick={handleSortButton}
-					>
-						인기순
-					</button>
-					<button
 						className={`recent ${clickedButton === 'recent' ? 'active' : ''}`}
 						onClick={handleSortButton}
 					>
 						최신순
+					</button>
+					<button
+						className={`popular ${clickedButton === 'popular' ? 'active' : ''}`}
+						onClick={handleSortButton}
+					>
+						인기순
 					</button>
 				</div>
 				<div>
