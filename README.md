@@ -9,7 +9,12 @@
 
 ## Flowchart
 
+<details>
+  <summary>확인하기</summary>
+
 <img width="800" alt="MYCUP_GAME Flowchart_v1.2" src="https://github.com/user-attachments/assets/47d8104a-9abb-4171-b06f-0f3e8e5fe837">
+
+</details>
 
 ### ⚙️ 기술 스택
 
