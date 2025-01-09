@@ -18,7 +18,7 @@ const Container = styled.div`
 		grid-column: 2/8;
 		color: #c1c1c1;
 
-		font-size: 11rem;
+		font-size: 10vh;
 		font-weight: 600;
 		font-family: 'Audiowide', sans-serif;
 		line-height: 1.2;
@@ -33,7 +33,7 @@ const Container = styled.div`
 		grid-column: 2/6;
 		padding-left: 0.5rem;
 
-		font-size: 4rem;
+		font-size: 4vh;
 	}
 `;
 

@@ -73,6 +73,7 @@ const Button = styled.button`
 	cursor: pointer;
 	background-color: #efefef;
 
+	outline: none;
 	overflow: hidden;
 
 	&.start-btn {
@@ -94,20 +95,11 @@ const Button = styled.button`
 `;
 
 /* eslint-disable react/prop-types */
-export default function ListItem({
-	id,
-	img,
-	title,
-	description,
-	radio,
-	name,
-	password,
-}) {
+export default function ListItem({ id, img, title, description, radio, name, password }) {
 	const navigate = useNavigate();
 	const username = localStorage.getItem('username');
 	const [isFriendsGame, setIsFriendsGame] = useState(false);
-	const [isProcessing, handleStartProcess, handleStopProcess] =
-		useProcessStatus();
+	const [isProcessing, handleStartProcess, handleStopProcess] = useProcessStatus();
 
 	const handleCheckFriends = () => {
 		if (radio === 'friends') {
@@ -132,16 +124,8 @@ export default function ListItem({
 
 	return (
 		<>
-			{isFriendsGame && (
-				<PasswordModal
-					gameId={id}
-					password={password}
-					onClose={handleStopCheck}
-				/>
-			)}
-			{isProcessing && (
-				<DeleteCheckModal gameId={id} onClose={handleStopProcess} />
-			)}
+			{isFriendsGame && <PasswordModal gameId={id} password={password} onClose={handleStopCheck} />}
+			{isProcessing && <DeleteCheckModal gameId={id} onClose={handleStopProcess} />}
 			<ListItemContainer option={radio}>
 				<ImgBox>
 					<img src={img[0]} />
